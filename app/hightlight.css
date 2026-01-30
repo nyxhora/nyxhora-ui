@@ -1,0 +1,212 @@
+/* Syntax Highlighting with CSS Variables for Theme Support */
+
+:root {
+    /* Light theme colors */
+    --hljs-bg: #1a1a1a;
+    --hljs-fg: #e4e4e7;
+    --hljs-comment: #6b7280;
+    --hljs-keyword: #c084fc;
+    --hljs-string: #86efac;
+    --hljs-number: #fbbf24;
+    --hljs-function: #60a5fa;
+    --hljs-class: #22d3ee;
+    --hljs-variable: #f472b6;
+    --hljs-operator: #94a3b8;
+    --hljs-punctuation: #6b7280;
+    --hljs-tag: #f472b6;
+    --hljs-attr: #60a5fa;
+    --hljs-attr-value: #86efac;
+    --hljs-property: #e4e4e7;
+    --hljs-built-in: #22d3ee;
+    --hljs-meta: #94a3b8;
+    --hljs-title: #60a5fa;
+    --hljs-type: #22d3ee;
+    --hljs-selector: #c084fc;
+    --hljs-literal: #fbbf24;
+    --hljs-symbol: #f472b6;
+    --hljs-line-number: #4b5563;
+}
+
+/* Dark theme is default for code blocks */
+.dark {
+    --hljs-bg: #0a0a0a;
+    --hljs-fg: #e4e4e7;
+    --hljs-comment: #6b7280;
+    --hljs-keyword: #c084fc;
+    --hljs-string: #86efac;
+    --hljs-number: #fbbf24;
+    --hljs-function: #60a5fa;
+    --hljs-class: #22d3ee;
+    --hljs-variable: #f472b6;
+    --hljs-operator: #94a3b8;
+    --hljs-punctuation: #6b7280;
+    --hljs-tag: #f472b6;
+    --hljs-attr: #60a5fa;
+    --hljs-attr-value: #86efac;
+    --hljs-property: #e4e4e7;
+    --hljs-built-in: #22d3ee;
+    --hljs-meta: #94a3b8;
+    --hljs-title: #60a5fa;
+    --hljs-type: #22d3ee;
+    --hljs-selector: #c084fc;
+    --hljs-literal: #fbbf24;
+    --hljs-symbol: #f472b6;
+    --hljs-line-number: #4b5563;
+}
+
+/* Base styles */
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+code.hljs {
+    padding: 3px 5px;
+}
+
+.hljs {
+    background: var(--hljs-bg);
+    color: var(--hljs-fg);
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+    color: var(--hljs-comment);
+    font-style: italic;
+}
+
+/* Keywords - import, export, const, function, return, etc. */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword {
+    color: var(--hljs-keyword);
+    font-weight: 500;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-attr-value,
+.hljs-template-tag,
+.hljs-template-variable {
+    color: var(--hljs-string);
+}
+
+/* Numbers */
+.hljs-number,
+.hljs-literal {
+    color: var(--hljs-number);
+}
+
+/* Functions and methods */
+.hljs-title,
+.hljs-title.function_,
+.hljs-title.class_ {
+    color: var(--hljs-function);
+}
+
+/* Classes and types */
+.hljs-type,
+.hljs-built_in,
+.hljs-class {
+    color: var(--hljs-class);
+}
+
+/* Variables */
+.hljs-variable,
+.hljs-symbol {
+    color: var(--hljs-variable);
+}
+
+/* Operators and punctuation */
+.hljs-operator {
+    color: var(--hljs-operator);
+}
+
+.hljs-punctuation {
+    color: var(--hljs-punctuation);
+}
+
+/* JSX/HTML Tags */
+.hljs-tag {
+    color: var(--hljs-punctuation);
+}
+
+.hljs-tag .hljs-name,
+.hljs-name {
+    color: var(--hljs-tag);
+}
+
+/* Attributes */
+.hljs-tag .hljs-attr,
+.hljs-attr {
+    color: var(--hljs-attr);
+}
+
+/* Property names */
+.hljs-property {
+    color: var(--hljs-property);
+}
+
+/* Meta and decorators */
+.hljs-meta,
+.hljs-meta .hljs-string {
+    color: var(--hljs-meta);
+}
+
+/* Selectors (CSS) */
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-selector-attr {
+    color: var(--hljs-selector);
+}
+
+/* Code and additions */
+.hljs-addition {
+    background-color: rgba(134, 239, 172, 0.1);
+    color: var(--hljs-string);
+}
+
+.hljs-deletion {
+    background-color: rgba(248, 113, 113, 0.1);
+    color: #f87171;
+}
+
+/* Emphasis */
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: 700;
+}
+
+/* Section titles */
+.hljs-section {
+    color: var(--hljs-title);
+    font-weight: 700;
+}
+
+/* Regex and special */
+.hljs-regexp,
+.hljs-link {
+    color: var(--hljs-string);
+}
+
+/* Bullet points */
+.hljs-bullet {
+    color: var(--hljs-keyword);
+}
+
+/* Doctags */
+.hljs-doctag {
+    color: var(--hljs-keyword);
+    font-weight: 500;
+}
+
+/* Attribute names in angle brackets like <InputOTP> */
+.hljs-attribute {
+    color: var(--hljs-attr);
+}
