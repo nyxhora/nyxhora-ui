@@ -349,7 +349,7 @@ export function CodeBlockWrapper({ title, code, language }: { title?: string, co
         </section>
     )
 }
-function CodeBlock({ code, language, showLineNumbers = true, maxHeight = 300 }: { code: string; language: string; showLineNumbers?: boolean; maxHeight?: number }) {
+export function CodeBlock({ code, language, showLineNumbers = true, maxHeight = 300 }: { code: string; language: string; showLineNumbers?: boolean; maxHeight?: number }) {
     const [copied, setCopied] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const codeRef = useRef<HTMLElement>(null);

@@ -6,36 +6,17 @@ import { cn } from "@/lib/utils";
 import { docsConfig, DocsNavCategory } from "@/lib/docs-config";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
-    ChevronRight,
-    BookOpen,
-    Sparkles,
-    ExternalLink,
-    Search,
-    X,
-    FileText,
-    ArrowRight,
+    ChevronRight, Sparkles,
+    ExternalLink
 } from "lucide-react";
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useState } from "react";
 import { Badge } from "./badge";
 
 interface DocsSidebarProps {
     className?: string;
 }
 
-// Flatten all docs for searching
-function getAllDocs() {
-    const docs: { title: string; href: string; category: string }[] = [];
-    docsConfig.forEach((category) => {
-        category.items.forEach((item) => {
-            docs.push({
-                title: item.title,
-                href: item.href,
-                category: category.title,
-            });
-        });
-    });
-    return docs;
-}
+
 
 export function DocsSidebar({ className }: DocsSidebarProps) {
     const pathname = usePathname();
@@ -43,66 +24,7 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
     const [expandedCategories, setExpandedCategories] = useState<string[]>(
         docsConfig.map((c) => c.title) // All expanded by default
     );
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const [searchQuery, setSearchQuery] = useState("");
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    const searchInputRef = useRef<HTMLInputElement>(null);
-    const allDocs = useMemo(() => getAllDocs(), []);
 
-    // Filter docs based on search query
-    const filteredDocs = useMemo(() => {
-        if (!searchQuery.trim()) return allDocs.slice(0, 8);
-        const query = searchQuery.toLowerCase();
-        return allDocs.filter(
-            (doc) =>
-                doc.title.toLowerCase().includes(query) ||
-                doc.category.toLowerCase().includes(query)
-        );
-    }, [searchQuery, allDocs]);
-
-    // Keyboard shortcut for Ctrl+K
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === "k") {
-                e.preventDefault();
-                setIsSearchOpen(true);
-            }
-            if (e.key === "Escape") {
-                setIsSearchOpen(false);
-                setSearchQuery("");
-            }
-        };
-        document.addEventListener("keydown", handleKeyDown);
-        return () => document.removeEventListener("keydown", handleKeyDown);
-    }, []);
-
-    // Focus input when search opens
-    useEffect(() => {
-        if (isSearchOpen && searchInputRef.current) {
-            searchInputRef.current.focus();
-        }
-    }, [isSearchOpen]);
-
-    // Reset selected index when results change
-    useEffect(() => {
-        setSelectedIndex(0);
-    }, [filteredDocs]);
-
-    // Handle keyboard navigation in search
-    const handleSearchKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === "ArrowDown") {
-            e.preventDefault();
-            setSelectedIndex((prev) => Math.min(prev + 1, filteredDocs.length - 1));
-        } else if (e.key === "ArrowUp") {
-            e.preventDefault();
-            setSelectedIndex((prev) => Math.max(prev - 1, 0));
-        } else if (e.key === "Enter" && filteredDocs[selectedIndex]) {
-            e.preventDefault();
-            router.push(filteredDocs[selectedIndex].href);
-            setIsSearchOpen(false);
-            setSearchQuery("");
-        }
-    };
 
     const toggleCategory = (title: string) => {
         setExpandedCategories((prev) =>
@@ -120,78 +42,7 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
 
     return (
         <>
-            {/* Search Modal */}
-            {isSearchOpen && (
-                <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh]">
-                    <div
-                        className="absolute inset-0 bg-background/80 backdrop-blur-sm"
-                        onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }}
-                    />
-                    <div className="relative w-full max-w-lg mx-4 bg-background border border-border rounded-xl shadow-2xl overflow-hidden">
-                        {/* Search Input */}
-                        <div className="flex items-center gap-3 px-4 py-3 border-b border-border">
-                            <Search className="h-5 w-5 text-muted-foreground" />
-                            <input
-                                ref={searchInputRef}
-                                type="text"
-                                placeholder="Search documentation..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                onKeyDown={handleSearchKeyDown}
-                                className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-                            />
-                            <kbd className="hidden sm:inline-flex h-5 items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
-                                ESC
-                            </kbd>
-                        </div>
 
-                        {/* Search Results */}
-                        <div className="max-h-80 overflow-y-auto py-2">
-                            {filteredDocs.length === 0 ? (
-                                <div className="px-4 py-8 text-center text-sm text-muted-foreground">
-                                    No results found for "{searchQuery}"
-                                </div>
-                            ) : (
-                                filteredDocs.map((doc, index) => (
-                                    <Link
-                                        key={doc.href}
-                                        href={doc.href}
-                                        onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }}
-                                        className={cn(
-                                            "flex items-center gap-3 px-4 py-2.5 text-sm transition-colors",
-                                            index === selectedIndex
-                                                ? "bg-accent text-accent-foreground"
-                                                : "hover:bg-accent/50"
-                                        )}
-                                    >
-                                        <FileText className="h-4 w-4 text-muted-foreground shrink-0" />
-                                        <div className="flex-1 min-w-0">
-                                            <div className="font-medium truncate">{doc.title}</div>
-                                            <div className="text-xs text-muted-foreground truncate">{doc.category}</div>
-                                        </div>
-                                        {index === selectedIndex && (
-                                            <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0" />
-                                        )}
-                                    </Link>
-                                ))
-                            )}
-                        </div>
-
-                        {/* Footer */}
-                        <div className="flex items-center gap-4 px-4 py-2 border-t border-border bg-muted/30 text-xs text-muted-foreground">
-                            <div className="flex items-center gap-1">
-                                <kbd className="px-1.5 py-0.5 rounded border border-border bg-background">↑</kbd>
-                                <kbd className="px-1.5 py-0.5 rounded border border-border bg-background">↓</kbd>
-                                <span>Navigate</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                                <kbd className="px-1.5 py-0.5 rounded border border-border bg-background">↵</kbd>
-                                <span>Select</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
 
             <aside
                 className={cn(
@@ -201,17 +52,7 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
             >
                 <div className="relative h-full">
                     <ScrollArea className="h-full py-6 pr-4 pl-6">
-                        {/* Search Button */}
-                        <button
-                            onClick={() => setIsSearchOpen(true)}
-                            className="w-full mb-4 flex items-center gap-3 px-3 py-2 text-sm text-muted-foreground bg-muted/50 hover:bg-muted border border-border/50 rounded-lg transition-all group"
-                        >
-                            <Search className="h-4 w-4" />
-                            <span className="flex-1 text-left">Search docs...</span>
-                            <kbd className="hidden sm:inline-flex h-5 items-center gap-0.5 rounded border border-border bg-background px-1.5 font-mono text-[10px] font-medium text-muted-foreground group-hover:border-primary/30">
-                                <span className="text-xs">⌘</span>K
-                            </kbd>
-                        </button>
+
 
                         {/* Header */}
                         <div className="mb-6">

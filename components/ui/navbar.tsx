@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 
 import Logo from "./logo";
+import { DocsSearchCommand } from "./docs-search-command";
 // import { SimpleModeToggle } from "@/components/simple-mode-toggle";
 
 export const Navbar = () => {
@@ -95,7 +96,8 @@ export const Navbar = () => {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
 
-            
+            {/* Search Documentation */}
+            <DocsSearchCommand />
            
               <>
                 <Button
@@ -235,7 +237,28 @@ export const Navbar = () => {
               </div>
             </div>
 
-
+            {/* Mobile Search */}
+            <div
+              className="mb-4"
+              style={{
+                animation: mobileMenuOpen
+                  ? "slideInMobile 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 200ms"
+                  : "none",
+              }}
+            >
+              <DocsSearchCommand 
+                className="w-full justify-center"
+                trigger={
+                  <button className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium rounded-2xl bg-neutral-100 dark:bg-neutral-800/50 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8"/>
+                      <path d="m21 21-4.3-4.3"/>
+                    </svg>
+                    Search documentation...
+                  </button>
+                }
+              />
+            </div>
             
               <div
                 style={{

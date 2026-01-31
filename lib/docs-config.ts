@@ -251,6 +251,12 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "Toast notifications",
             },
             {
+                title: "Dynamic Island",
+                href: "/docs/components/dynamic-island",
+                description: "iOS-style notification island",
+                isNew: true,
+            },
+            {
                 title: "Exit Confirmation Modal",
                 href: "/docs/components/exit-confirmation-modal",
                 description: "Unsaved changes warning",

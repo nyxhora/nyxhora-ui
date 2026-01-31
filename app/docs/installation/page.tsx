@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code2, Copy, Check, Terminal } from "lucide-react";
+import { CodeBlock } from "@/components/ui/docs-documentation";
 
 export default function InstallationPage() {
     return (
@@ -62,11 +63,11 @@ export default function InstallationPage() {
                         Install the required dependencies for NyxhoraUI components:
                     </p>
 
-                    <Tabs defaultValue="npm" className="ml-11">
+                    <Tabs defaultValue="npm" className="">
                         <TabsList className="bg-muted/50">
-                            <TabsTrigger value="npm">npm</TabsTrigger>
-                            <TabsTrigger value="yarn">yarn</TabsTrigger>
-                            <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+                            <TabsTrigger value="npm" className="cursor-pointer">npm</TabsTrigger>
+                            <TabsTrigger value="yarn" className="cursor-pointer">yarn</TabsTrigger>
+                            <TabsTrigger value="pnpm" className="cursor-pointer">pnpm</TabsTrigger>
                         </TabsList>
                         <TabsContent value="npm" className="mt-4">
                             <CodeBlock
@@ -145,7 +146,9 @@ export function cn(...inputs: ClassValue[]) {
 ├── lib
 │   └── utils.ts
 ├── tailwind.config.ts
-└── package.json`}
+└── package.json
+
+`}
                     language="plaintext"
                 />
             </section>
@@ -178,46 +181,3 @@ export function cn(...inputs: ClassValue[]) {
     );
 }
 
-function CodeBlock({ code, language }: { code: string; language: string }) {
-    const [copied, setCopied] = useState(false);
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(code);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
-
-    return (
-        <div className="relative group ml-11">
-            <div className="absolute right-3 top-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                <button
-                    className="flex items-center gap-1.5 px-2 py-1 text-xs text-zinc-400 hover:text-white bg-zinc-800 rounded-md transition-colors"
-                    onClick={handleCopy}
-                >
-                    {copied ? (
-                        <>
-                            <Check className="h-3 w-3 text-green-500" />
-                            Copied!
-                        </>
-                    ) : (
-                        <>
-                            <Copy className="h-3 w-3" />
-                            Copy
-                        </>
-                    )}
-                </button>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-zinc-900 border-b border-zinc-800 rounded-t-xl">
-                {language === "bash" ? (
-                    <Terminal className="h-4 w-4 text-zinc-500" />
-                ) : (
-                    <Code2 className="h-4 w-4 text-zinc-500" />
-                )}
-                <span className="text-xs text-zinc-500">{language}</span>
-            </div>
-            <pre className="rounded-b-xl bg-zinc-950 p-4 overflow-x-auto">
-                <code className="text-sm text-zinc-100">{code}</code>
-            </pre>
-        </div>
-    );
-}

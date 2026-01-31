@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/logo.png" alt="Nyxhora UI Logo" width="120" height="120" />
+  <img src="https://ui.nyxhora.com/favicon-128x128.png" alt="Nyxhora UI Logo" width="120" height="120" />
 </p>
 
 <h1 align="center">Nyxhora UI</h1>

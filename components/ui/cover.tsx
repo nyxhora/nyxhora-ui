@@ -1,227 +1,137 @@
 "use client";
-import React, { useEffect, useId, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { useRef } from "react";
+
 import { cn } from "@/lib/utils";
-import { SparklesCore } from "@/components/ui/sparkles";
+import Image from "next/image";
+import { Skeleton } from "@/components/ui/skeleton";
+import { VariantProps, cva } from "class-variance-authority";
+import { X, ImageIcon } from "lucide-react";
+import { Button } from "./button";
+
+const coverVariants = cva(
+  "relative w-full group overflow-hidden",
+  {
+    variants: {
+      size: {
+        default: "h-[35vh]",
+        sm: "h-[12vh]",
+        lg: "h-[50vh]",
+        full: "h-full min-h-[200px]",
+      },
+    },
+    defaultVariants: {
+      size: "default",
+    },
+  }
+);
+
+interface CoverProps extends VariantProps<typeof coverVariants> {
+  /** URL of the cover image */
+  url?: string;
+  /** If true, hides action buttons (view-only mode) */
+  preview?: boolean;
+  /** Content to render inside the cover (e.g., overlays, titles) */
+  children?: React.ReactNode;
+  /** Additional CSS classes */
+  className?: string;
+  /** Callback when 'Remove' button is clicked */
+  onRemove?: () => void;
+  /** Callback when 'Change cover' button is clicked */
+  onChange?: () => void;
+  /** Alt text for the cover image */
+  alt?: string;
+}
 
 export const Cover = ({
+  url,
+  preview,
   children,
+  size,
   className,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-}) => {
-  const [hovered, setHovered] = useState(false);
-
-  const ref = useRef<HTMLDivElement>(null);
-
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [beamPositions, setBeamPositions] = useState<number[]>([]);
-
-  useEffect(() => {
-    if (ref.current) {
-      setContainerWidth(ref.current?.clientWidth ?? 0);
-
-      const height = ref.current?.clientHeight ?? 0;
-      const numberOfBeams = Math.floor(height / 10); // Adjust the divisor to control the spacing
-      const positions = Array.from(
-        { length: numberOfBeams },
-        (_, i) => (i + 1) * (height / (numberOfBeams + 1))
-      );
-      setBeamPositions(positions);
-    }
-  }, []);
+  onRemove,
+  onChange,
+  alt = "Cover image",
+}: CoverProps) => {
+  const hasActions = onChange || onRemove;
 
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      ref={ref}
-      className="relative hover:bg-neutral-900  group/cover inline-block dark:bg-neutral-900 bg-neutral-100 px-2 py-2  transition duration-200 rounded-sm"
+      className={cn(
+        coverVariants({ size: !url ? "sm" : size }),
+        url ? "bg-muted" : "bg-gradient-to-br from-muted/50 to-muted",
+        className
+      )}
     >
-      <AnimatePresence>
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              opacity: {
-                duration: 0.2,
-              },
-            }}
-            className="h-full w-full overflow-hidden absolute inset-0"
-          >
-            <motion.div
-              animate={{
-                translateX: ["-50%", "0%"],
-              }}
-              transition={{
-                translateX: {
-                  duration: 10,
-                  ease: "linear",
-                  repeat: Infinity,
-                },
-              }}
-              className="w-[200%] h-full flex"
-            >
-              <SparklesCore
-                background="transparent"
-                minSize={0.4}
-                maxSize={1}
-                particleDensity={500}
-                className="w-full h-full"
-                particleColor="#FFFFFF"
-              />
-              <SparklesCore
-                background="transparent"
-                minSize={0.4}
-                maxSize={1}
-                particleDensity={500}
-                className="w-full h-full"
-                particleColor="#FFFFFF"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      {beamPositions.map((position, index) => (
-        <Beam
-          key={index}
-          hovered={hovered}
-          duration={Math.random() * 2 + 1}
-          delay={Math.random() * 2 + 1}
-          width={containerWidth}
-          style={{
-            top: `${position}px`,
-          }}
+      {/* Cover Image */}
+      {!!url && (
+        <Image
+          src={url}
+          fill
+          alt={alt}
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          priority
         />
-      ))}
-      <motion.span
-        key={String(hovered)}
-        animate={{
-          scale: hovered ? 0.8 : 1,
-          x: hovered ? [0, -30, 30, -30, 30, 0] : 0,
-          y: hovered ? [0, 30, -30, 30, -30, 0] : 0,
-        }}
-        exit={{
-          filter: "none",
-          scale: 1,
-          x: 0,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.2,
-          x: {
-            duration: 0.2,
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-          y: {
-            duration: 0.2,
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-          scale: {
-            duration: 0.2,
-          },
-          filter: {
-            duration: 0.2,
-          },
-        }}
-        className={cn(
-          "dark:text-white inline-block text-neutral-900 relative z-20 group-hover/cover:text-white transition duration-200",
-          className
-        )}
-      >
-        {children}
-      </motion.span>
-      <CircleIcon className="absolute -right-[2px] -top-[2px]" />
-      <CircleIcon className="absolute -bottom-[2px] -right-[2px]" delay={0.4} />
-      <CircleIcon className="absolute -left-[2px] -top-[2px]" delay={0.8} />
-      <CircleIcon className="absolute -bottom-[2px] -left-[2px]" delay={1.6} />
+      )}
+
+      {/* Gradient Overlay for better button visibility */}
+      {url && !preview && hasActions && (
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      )}
+
+      {/* Action Buttons */}
+      {url && !preview && hasActions && (
+        <div className="opacity-0 group-hover:opacity-100 absolute top-4 right-4 flex items-center gap-2 transition-all duration-300 transform translate-y-[-8px] group-hover:translate-y-0 z-10">
+          {onChange && (
+            <Button
+              onClick={onChange}
+              className="text-xs font-medium text-white/90 hover:text-white hover:bg-white/20 border border-white/20 bg-black/30 backdrop-blur-md h-8 px-3 rounded-md shadow-lg transition-all duration-200 hover:scale-105"
+              variant="ghost"
+              size="sm"
+            >
+              <ImageIcon className="h-3.5 w-3.5 mr-1.5" />
+              Change cover
+            </Button>
+          )}
+          {onRemove && (
+            <Button
+              onClick={onRemove}
+              className="text-xs font-medium text-white/90 hover:text-red-300 hover:bg-red-500/20 border border-white/20 bg-black/30 backdrop-blur-md h-8 px-3 rounded-md shadow-lg transition-all duration-200 hover:scale-105"
+              variant="ghost"
+              size="sm"
+            >
+              <X className="h-3.5 w-3.5 mr-1.5" />
+              Remove
+            </Button>
+          )}
+        </div>
+      )}
+
+      {/* Empty State */}
+      {!url && !children && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-2 text-muted-foreground/60">
+            <ImageIcon className="h-8 w-8" />
+            <span className="text-xs font-medium">No cover image</span>
+          </div>
+        </div>
+      )}
+
+      {/* Children (overlays, titles, etc.) */}
+      {children}
     </div>
   );
 };
 
-export const Beam = ({
-  className,
-  delay,
-  duration,
-  hovered,
-  width = 600,
-  ...svgProps
-}: {
-  className?: string;
-  delay?: number;
-  duration?: number;
-  hovered?: boolean;
-  width?: number;
-} & React.ComponentProps<typeof motion.svg>) => {
-  const id = useId();
+Cover.Skeleton = function CoverSkeleton({ size = "default" }: { size?: "default" | "sm" | "lg" | "full" }) {
+  const heights = {
+    default: "h-[35vh]",
+    sm: "h-[12vh]",
+    lg: "h-[50vh]",
+    full: "h-full min-h-[200px]",
+  };
 
   return (
-    <motion.svg
-      width={width ?? "600"}
-      height="1"
-      viewBox={`0 0 ${width ?? "600"} 1`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("absolute inset-x-0 w-full", className)}
-      {...svgProps}
-    >
-      <motion.path
-        d={`M0 0.5H${width ?? "600"}`}
-        stroke={`url(#svgGradient-${id})`}
-      />
-
-      <defs>
-        <motion.linearGradient
-          id={`svgGradient-${id}`}
-          key={String(hovered)}
-          gradientUnits="userSpaceOnUse"
-          initial={{
-            x1: "0%",
-            x2: hovered ? "-10%" : "-5%",
-            y1: 0,
-            y2: 0,
-          }}
-          animate={{
-            x1: "110%",
-            x2: hovered ? "100%" : "105%",
-            y1: 0,
-            y2: 0,
-          }}
-          transition={{
-            duration: hovered ? 0.5 : duration ?? 2,
-            ease: "linear",
-            repeat: Infinity,
-            delay: hovered ? Math.random() * (1 - 0.2) + 0.2 : 0,
-            repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : delay ?? 1,
-          }}
-        >
-          <stop stopColor="#2EB9DF" stopOpacity="0" />
-          <stop stopColor="#3b82f6" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </motion.linearGradient>
-      </defs>
-    </motion.svg>
-  );
-};
-
-export const CircleIcon = ({
-  className,
-}: {
-  className?: string;
-  delay?: number;
-}) => {
-  return (
-    <div
-      className={cn(
-        `pointer-events-none animate-pulse group-hover/cover:hidden group-hover/cover:opacity-100 group h-2 w-2 rounded-full bg-neutral-600 dark:bg-white opacity-20 group-hover/cover:bg-white`,
-        className
-      )}
-    ></div>
+    <div className={cn("w-full relative", heights[size])}>
+      <Skeleton className="w-full h-full" />
+    </div>
   );
 };

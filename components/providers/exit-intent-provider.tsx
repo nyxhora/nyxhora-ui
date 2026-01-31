@@ -25,9 +25,9 @@ interface ExitIntentContextType {
 
 const ExitIntentContext = createContext<ExitIntentContextType | undefined>(undefined);
 
-export function ExitIntentProvider({ children }: { children: React.ReactNode }) {
+export function ExitIntentProvider({ children, isBeforeUnloadActive: initialBeforeUnloadActive = true }: { children: React.ReactNode; isBeforeUnloadActive?: boolean }) {
     const [isActive, setIsActive] = useState(true);
-    const [isBeforeUnloadActive, setIsBeforeUnloadActive] = useState(true);
+    const [isBeforeUnloadActive, setIsBeforeUnloadActive] = useState(initialBeforeUnloadActive);
     const [showDialog, setShowDialog] = useState(false);
     const [pendingUrl, setPendingUrl] = useState<string | null>(null);
     const [pendingHostname, setPendingHostname] = useState<string>("");

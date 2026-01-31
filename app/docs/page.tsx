@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Sparkles, Zap, Palette, Code2, Layers, Rocket, Star, ExternalLink } from "lucide-react";
+import { CodeBlockWrapper } from "@/components/ui/docs-documentation";
 
 export const metadata: Metadata = {
     title: "Introduction | NyxhoraUI Documentation",
@@ -139,12 +140,9 @@ export default function DocsIntroductionPage() {
             </div>
 
             {/* Code Example */}
-            <div className="space-y-4">
-                <h2 className="text-2xl font-bold">Simple to Use</h2>
-                <div className="rounded-xl bg-zinc-950 p-6 overflow-x-auto">
-                    <pre className="text-sm">
-                        <code className="text-zinc-100">
-                            {`import { Button } from "@/components/ui/button"
+            <CodeBlockWrapper 
+            title="Simple to Use"
+                code={`import { Button } from "@/components/ui/button"
 
 export default function MyComponent() {
   return (
@@ -152,11 +150,7 @@ export default function MyComponent() {
       Click me
     </Button>
   )
-}`}
-                        </code>
-                    </pre>
-                </div>
-            </div>
+}`} language={"typescript"}            />
         </div>
     );
 }
