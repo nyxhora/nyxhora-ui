@@ -403,6 +403,24 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "Animated line patterns",
             },
             {
+                title: "Shooting Stars",
+                href: "/docs/components/shooting-stars",
+                description: "Animated starfield with shooting stars",
+                isNew: true,
+            },
+            {
+                title: "Color Drip",
+                href: "/docs/components/color-drip",
+                description: "Animated falling color lines",
+                isNew: true,
+            },
+            {
+                title: "Glowing Dot Grid",
+                href: "/docs/components/glowing-dot-grid",
+                description: "Interactive dot grid with glow effects",
+                isNew: true,
+            },
+            {
                 title: "Glowing Effect",
                 href: "/docs/components/glowing-effect",
                 description: "Glow animations",
@@ -429,6 +447,12 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "Shimmering text effect",
             },
             {
+                title: "Hover Reveal Text",
+                href: "/docs/components/hover-reveal-text",
+                description: "Blur-to-reveal text effect",
+                isNew: true,
+            },
+            {
                 title: "Flip Words",
                 href: "/docs/components/flip-words",
                 description: "Word flip animation",
@@ -437,6 +461,18 @@ export const docsConfig: DocsNavCategory[] = [
                 title: "Text Hover Effect",
                 href: "/docs/components/text-hover-effect",
                 description: "Text hover animations",
+            },
+            {
+                title: "Rainbow Button",
+                href: "/docs/components/rainbow-button",
+                description: "Animated rainbow gradient button",
+                isNew: true,
+            },
+            {
+                title: "Ants Card",
+                href: "/docs/components/ants-card",
+                description: "Card with animated walking ants",
+                isNew: true,
             },
         ],
     },

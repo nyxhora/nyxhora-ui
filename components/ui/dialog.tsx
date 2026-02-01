@@ -92,7 +92,7 @@ const DialogContent = React.forwardRef<
           initial={config.initial}
           animate={config.animate}
           exit={config.initial}
-          transition={config.transition}
+          // transition={config.transition}
         >
           {children}
           <DialogPrimitive.Close className="absolute right-4 top-4 flex items-center gap-2 rounded-full p-2 opacity-60 ring-offset-background transition-all duration-300 hover:scale-105 hover:bg-accent hover:text-accent-foreground hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground cursor-pointer group">

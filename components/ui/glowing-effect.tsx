@@ -1,21 +1,106 @@
 "use client";
 
-import { memo, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { animate } from "motion/react";
 
-interface GlowingEffectProps {
+export interface GlowingEffectProps {
+  /** Blur amount in pixels */
   blur?: number;
+  /** Percentage of center that doesn't activate glow (0-1) */
   inactiveZone?: number;
+  /** Distance outside element that activates glow */
   proximity?: number;
+  /** Size of the glow spread in degrees */
   spread?: number;
-  variant?: "default" | "white";
+  /** Color preset */
+  variant?: "default" | "white" | "purple" | "blue" | "green" | "orange" | "pink" | "rainbow" | "custom";
+  /** Custom gradient colors (used when variant is "custom") */
+  customColors?: {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+    quaternary: string;
+  };
+  /** Show static glow when not hovering */
   glow?: boolean;
+  /** Additional CSS classes */
   className?: string;
+  /** Disable interactive glow */
   disabled?: boolean;
+  /** Duration of glow movement animation */
   movementDuration?: number;
+  /** Width of the glow border */
   borderWidth?: number;
+  /** Intensity of the glow effect (0.5 to 2) */
+  intensity?: number;
+  /** Animation style */
+  animationStyle?: "smooth" | "snappy" | "bouncy";
 }
+
+const colorVariants = {
+  default: {
+    primary: "#dd7bbb",
+    secondary: "#d79f1e",
+    tertiary: "#5a922c",
+    quaternary: "#4c7894",
+  },
+  white: {
+    primary: "#ffffff",
+    secondary: "#f0f0f0",
+    tertiary: "#e0e0e0",
+    quaternary: "#d0d0d0",
+  },
+  purple: {
+    primary: "#A855F7",
+    secondary: "#8B5CF6",
+    tertiary: "#7C3AED",
+    quaternary: "#6D28D9",
+  },
+  blue: {
+    primary: "#3B82F6",
+    secondary: "#0EA5E9",
+    tertiary: "#06B6D4",
+    quaternary: "#0284C7",
+  },
+  green: {
+    primary: "#22C55E",
+    secondary: "#10B981",
+    tertiary: "#14B8A6",
+    quaternary: "#059669",
+  },
+  orange: {
+    primary: "#F97316",
+    secondary: "#FB923C",
+    tertiary: "#FBBF24",
+    quaternary: "#F59E0B",
+  },
+  pink: {
+    primary: "#EC4899",
+    secondary: "#F472B6",
+    tertiary: "#E879F9",
+    quaternary: "#D946EF",
+  },
+  rainbow: {
+    primary: "#EF4444",
+    secondary: "#F59E0B",
+    tertiary: "#22C55E",
+    quaternary: "#3B82F6",
+  },
+  custom: {
+    primary: "#dd7bbb",
+    secondary: "#d79f1e",
+    tertiary: "#5a922c",
+    quaternary: "#4c7894",
+  },
+};
+
+const animationConfigs = {
+  smooth: { ease: [0.16, 1, 0.3, 1] as const, durationMultiplier: 1 },
+  snappy: { ease: [0.25, 0.1, 0.25, 1] as const, durationMultiplier: 0.5 },
+  bouncy: { ease: [0.68, -0.55, 0.265, 1.55] as const, durationMultiplier: 0.8 },
+};
+
 const GlowingEffect = memo(
   ({
     blur = 0,
@@ -23,15 +108,53 @@ const GlowingEffect = memo(
     proximity = 0,
     spread = 20,
     variant = "default",
+    customColors,
     glow = false,
     className,
     movementDuration = 2,
     borderWidth = 1,
     disabled = true,
+    intensity = 1,
+    animationStyle = "smooth",
   }: GlowingEffectProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const lastPosition = useRef({ x: 0, y: 0 });
     const animationFrameRef = useRef<number>(0);
+
+    const colors = useMemo(() => {
+      if (variant === "custom" && customColors) {
+        return customColors;
+      }
+      return colorVariants[variant];
+    }, [variant, customColors]);
+
+    const animConfig = animationConfigs[animationStyle];
+
+    const gradientStyle = useMemo(() => {
+      if (variant === "white") {
+        return `repeating-conic-gradient(
+          from 236.84deg at 50% 50%,
+          var(--black),
+          var(--black) calc(25% / var(--repeating-conic-gradient-times))
+        )`;
+      }
+
+      const intensityPercent = Math.max(5, Math.min(30, 10 * intensity));
+      const fadePercent = Math.max(10, Math.min(40, 20 * intensity));
+
+      return `radial-gradient(circle, ${colors.primary} ${intensityPercent}%, ${colors.primary}00 ${fadePercent}%),
+        radial-gradient(circle at 40% 40%, ${colors.secondary} ${intensityPercent / 2}%, ${colors.secondary}00 ${fadePercent * 0.75}%),
+        radial-gradient(circle at 60% 60%, ${colors.tertiary} ${intensityPercent}%, ${colors.tertiary}00 ${fadePercent}%), 
+        radial-gradient(circle at 40% 60%, ${colors.quaternary} ${intensityPercent}%, ${colors.quaternary}00 ${fadePercent}%),
+        repeating-conic-gradient(
+          from 236.84deg at 50% 50%,
+          ${colors.primary} 0%,
+          ${colors.secondary} calc(25% / var(--repeating-conic-gradient-times)),
+          ${colors.tertiary} calc(50% / var(--repeating-conic-gradient-times)), 
+          ${colors.quaternary} calc(75% / var(--repeating-conic-gradient-times)),
+          ${colors.primary} calc(100% / var(--repeating-conic-gradient-times))
+        )`;
+    }, [variant, colors, intensity]);
 
     const handleMove = useCallback(
       (e?: MouseEvent | { x: number; y: number }) => {
@@ -79,22 +202,22 @@ const GlowingEffect = memo(
             parseFloat(element.style.getPropertyValue("--start")) || 0;
           const targetAngle =
             (180 * Math.atan2(mouseY - center[1], mouseX - center[0])) /
-              Math.PI +
+            Math.PI +
             90;
 
           const angleDiff = ((targetAngle - currentAngle + 180) % 360) - 180;
           const newAngle = currentAngle + angleDiff;
 
           animate(currentAngle, newAngle, {
-            duration: movementDuration,
-            ease: [0.16, 1, 0.3, 1],
+            duration: movementDuration * animConfig.durationMultiplier,
+            ease: animConfig.ease,
             onUpdate: (value) => {
               element.style.setProperty("--start", String(value));
             },
           });
         });
       },
-      [inactiveZone, proximity, movementDuration]
+      [inactiveZone, proximity, movementDuration, animConfig]
     );
 
     useEffect(() => {
@@ -137,25 +260,7 @@ const GlowingEffect = memo(
               "--active": "0",
               "--glowingeffect-border-width": `${borderWidth}px`,
               "--repeating-conic-gradient-times": "5",
-              "--gradient":
-                variant === "white"
-                  ? `repeating-conic-gradient(
-                  from 236.84deg at 50% 50%,
-                  var(--black),
-                  var(--black) calc(25% / var(--repeating-conic-gradient-times))
-                )`
-                  : `radial-gradient(circle, #dd7bbb 10%, #dd7bbb00 20%),
-                radial-gradient(circle at 40% 40%, #d79f1e 5%, #d79f1e00 15%),
-                radial-gradient(circle at 60% 60%, #5a922c 10%, #5a922c00 20%), 
-                radial-gradient(circle at 40% 60%, #4c7894 10%, #4c789400 20%),
-                repeating-conic-gradient(
-                  from 236.84deg at 50% 50%,
-                  #dd7bbb 0%,
-                  #d79f1e calc(25% / var(--repeating-conic-gradient-times)),
-                  #5a922c calc(50% / var(--repeating-conic-gradient-times)), 
-                  #4c7894 calc(75% / var(--repeating-conic-gradient-times)),
-                  #dd7bbb calc(100% / var(--repeating-conic-gradient-times))
-                )`,
+              "--gradient": gradientStyle,
             } as React.CSSProperties
           }
           className={cn(

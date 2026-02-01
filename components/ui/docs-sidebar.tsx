@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Badge } from "./badge";
+import { IconBrandGithub } from "@tabler/icons-react";
 
 interface DocsSidebarProps {
     className?: string;
@@ -89,35 +90,37 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
                         </nav>
 
                         {/* Footer Links */}
-                        <div className="mt-8 pt-6 border-t border-border/50">
-                            <div className="space-y-1">
-                                <Link
-                                    href="https://github.com/nyxhora"
-                                    target="_blank"
-                                    className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-lg transition-all"
-                                >
-                                    <ExternalLink className="h-4 w-4" />
-                                    GitHub
-                                </Link>
-                                <Link
-                                    href="https://www.nyxhora.com"
-                                    target="_blank"
-                                    className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-lg transition-all group"
-                                >
-                                    <Sparkles className="h-4 w-4 text-purple-500 group-hover:animate-pulse" />
-                                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-medium">
-                                        Try Nyxhora
-                                    </span>
-                                </Link>
-                            </div>
-                        </div>
 
                         {/* Bottom padding for gradient */}
-                        <div className="h-8" />
+                        <div className="h-16" />
                     </ScrollArea>
 
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-background pointer-events-none" />
                     {/* Bottom gradient fade hint - Discord style */}
-                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-full mt-8 pt-6 border-t border-border/50">
+                        <div className="space-y-1">
+                            <Link
+                                href="https://github.com/nyxhora"
+                                target="_blank"
+                                className="flex items-center text-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-lg transition-all"
+                            >
+                                <IconBrandGithub className="h-4 w-4 " />
+                                GitHub
+                                <ExternalLink className="h-4 w-4 ml-auto" />
+                            </Link>
+                            <Link
+                                href="https://www.nyxhora.com"
+                                target="_blank"
+                                className="flex text-center items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-lg transition-all group"
+                            >
+                                <Sparkles className="h-4 w-4 text-purple-500 group-hover:animate-pulse" />
+                                <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-medium">
+                                    Try Nyxhora
+                                </span>
+                                <ExternalLink className="h-4 w-4 ml-auto" />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </aside>
         </>
