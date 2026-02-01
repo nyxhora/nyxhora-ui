@@ -8,7 +8,8 @@ import { cn } from "@/lib/utils";
 import {
     Menu,
     X, Home, ArrowRight,
-    Sparkles, Info, Store
+    Sparkles, Info, Store,
+    BookOpen
 } from "lucide-react";
 import { useState } from "react";
 
@@ -28,27 +29,21 @@ export const Navbar = () => {
       active: pathname === "/",
     },
     {
-      label: "Features",
-      icon: Sparkles,
-      href: "https://www.nyxhora.com/features",
-      active: pathname === "/features",
-    },
-    {
-        label: "UI",
-        icon: Sparkles,
+        label: "Docs",
+        icon: BookOpen,
         href: "/docs",
-        active: pathname === "/docs",
+        active: pathname === "/docs" || pathname?.startsWith("/docs/"),
     },
     {
-      label: "Template",
+      label: "Blocks",
       icon: Store,
-      href: "https://www.nyxhora.com/market",
-      active: pathname === "/market" || pathname === "/templates",
+      href: "/blocks",
+      active: pathname === "/blocks",
     },
     {
       label: "About",
       icon: Info,
-      href: "https://www.nyxhora.com/about",
+      href: "/about",
       active: pathname === "/about",
     },
   ];
