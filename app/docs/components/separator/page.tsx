@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/registry/ui/separator";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Separator",
@@ -29,10 +30,11 @@ export default function SeparatorDocsPage() {
   <div>Docs</div>
 </div>`}
             />
+            <DocsInstallation name="separator" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Separator } from "@/components/ui/separator"
+                code={`import { Separator } from "@/registry/ui/separator"
 
 export default function MyComponent() {
   return <Separator />
@@ -53,11 +55,6 @@ export default function MyComponent() {
                     variant="Vertical"
                     previewCode={<div className="flex h-5 items-center space-x-4 text-sm"><div>Item 1</div><Separator orientation="vertical" /><div>Item 2</div><Separator orientation="vertical" /><div>Item 3</div></div>}
                     code={`<Separator orientation="vertical" />`}
-                />
-                <CodeBlockWrapper
-                    title="Installation"
-                    code={`npx shadcn@latest add separator`}
-                    language="bash"
                 />
             </section>
         </div>

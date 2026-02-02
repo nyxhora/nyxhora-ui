@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { DocsHeader, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
 import {
     SheetDemo,
     SheetSideLeft,
@@ -8,6 +8,7 @@ import {
     SheetSideTop,
     SheetSideBottom,
 } from "./sheet-demo";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Sheet",
@@ -24,15 +25,11 @@ export default function SheetDocsPage() {
             />
 
             {/* Preview */}
+
             <SheetDemo />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Installation"
-                code={`npx shadcn@latest add sheet`}
-                language="bash"
-            />
-
+            <DocsInstallation name="sheet" />
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
@@ -45,7 +42,7 @@ export default function SheetDocsPage() {
   SheetTrigger,
   SheetFooter,
   SheetClose,
-} from "@/components/ui/sheet"
+} from "@/registry/ui/sheet"
 
 export default function MyComponent() {
   return (

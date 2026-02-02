@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight",
+  "title": "Spotlight",
+  "description": "A dynamic background component featuring a spotlight that follows the mouse cursor. Perfect for adding a modern, interactive, and visually striking effect to your website. Nyxhora UI",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/spotlight.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\n\r\ntype SpotlightProps = {\r\n  className?: string;\r\n  fill?: string;\r\n};\r\n\r\nexport const Spotlight = ({ className, fill }: SpotlightProps) => {\r\n  return (\r\n    <svg\r\n      className={cn(\r\n        \"animate-spotlight pointer-events-none absolute z-1  h-[169%] w-[138%] lg:w-[84%] opacity-0\",\r\n        className\r\n      )}\r\n      xmlns=\"http://www.w3.org/2000/svg\"\r\n      viewBox=\"0 0 3787 2842\"\r\n      fill=\"none\"\r\n    >\r\n      <g filter=\"url(#filter)\">\r\n        <ellipse\r\n          cx=\"1924.71\"\r\n          cy=\"273.501\"\r\n          rx=\"1924.71\"\r\n          ry=\"273.501\"\r\n          transform=\"matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)\"\r\n          fill={fill || \"white\"}\r\n          fillOpacity=\"0.21\"\r\n        ></ellipse>\r\n      </g>\r\n      <defs>\r\n        <filter\r\n          id=\"filter\"\r\n          x=\"0.860352\"\r\n          y=\"0.838989\"\r\n          width=\"3785.16\"\r\n          height=\"2840.26\"\r\n          filterUnits=\"userSpaceOnUse\"\r\n          colorInterpolationFilters=\"sRGB\"\r\n        >\r\n          <feFlood floodOpacity=\"0\" result=\"BackgroundImageFix\"></feFlood>\r\n          <feBlend\r\n            mode=\"normal\"\r\n            in=\"SourceGraphic\"\r\n            in2=\"BackgroundImageFix\"\r\n            result=\"shape\"\r\n          ></feBlend>\r\n          <feGaussianBlur\r\n            stdDeviation=\"151\"\r\n            result=\"effect1_foregroundBlur_1065_8\"\r\n          ></feGaussianBlur>\r\n        </filter>\r\n      </defs>\r\n    </svg>\r\n  );\r\n};\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

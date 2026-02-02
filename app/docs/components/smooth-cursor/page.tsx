@@ -1,29 +1,6 @@
-"use client";
-import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
-import { useState } from "react";
-
-function SmoothCursorDemo() {
-    const [enabled, setEnabled] = useState(false);
-
-    return (
-        <div className="relative h-[300px] w-full rounded-lg bg-gradient-to-br from-neutral-900 to-neutral-950 overflow-hidden flex flex-col items-center justify-center border border-neutral-800">
-            {enabled && <SmoothCursor />}
-            <div className="relative z-10 text-center">
-                <h2 className="text-2xl font-bold text-white mb-4">Smooth Cursor</h2>
-                <p className="text-neutral-400 mb-4">
-                    {enabled ? "Move your mouse around!" : "Enable to see the effect"}
-                </p>
-                <button
-                    onClick={() => setEnabled(!enabled)}
-                    className="px-4 py-2 rounded-lg bg-white text-black font-medium hover:bg-neutral-200 transition-colors"
-                >
-                    {enabled ? "Disable Cursor" : "Enable Cursor"}
-                </button>
-            </div>
-        </div>
-    );
-}
+import DocsInstallation from "@/components/ui/docs-installation";
+import { SmoothCursorDemo } from "./smooth-cursor-demo";
 
 export default function SmoothCursorDocsPage() {
     return (
@@ -37,23 +14,18 @@ export default function SmoothCursorDocsPage() {
             <DocsPreview
                 title="Preview"
                 previewCode={<SmoothCursorDemo />}
-                code={`import { SmoothCursor } from "@/components/ui/smooth-cursor"
-
+                code={`import { SmoothCursor } from "@/registry/ui/smooth-cursor"
+ 
 // Add to your component
 <SmoothCursor />`}
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install motion`}
-                language="cmd"
-            />
-
+            <DocsInstallation name="smooth-cursor" />
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { SmoothCursor } from "@/components/ui/smooth-cursor"
+                code={`import { SmoothCursor } from "@/registry/ui/smooth-cursor"
 
 export default function App() {
   return (

@@ -1,6 +1,6 @@
-"use client";
-import { AntsCard } from "@/components/ui/ants-card";
+import { AntsCard } from "@/registry/ui/ants-card";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function AntsCardDocsPage() {
     return (
@@ -26,16 +26,12 @@ export default function AntsCardDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# No external dependencies required`}
-                language="cmd"
-            />
+            <DocsInstallation name="ants-card" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { AntsCard } from "@/components/ui/ants-card"
+                code={`import { AntsCard } from "@/registry/ui/ants-card"
 
 export default function FunCard() {
   return (

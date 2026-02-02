@@ -341,7 +341,7 @@ export default function WorkspaceLabelDocsPage() {
 
             <section className="space-y-4">
                 <h2 className="text-2xl font-bold">Usage</h2>
-                <CodeBlock code={`import WorkspaceLabel from "@/components/ui/workspacelable"
+                <CodeBlock code={`import WorkspaceLabel from "@/registry/ui/workspacelable"
 
 // In your sidebar or layout
 export default function AppSidebar() {

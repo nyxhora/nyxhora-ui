@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Label } from "@/registry/ui/label";
+import { Input } from "@/registry/ui/input";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Label",
@@ -23,10 +24,11 @@ export default function LabelDocsPage() {
                 }
                 code={`<Label htmlFor="email">Email</Label>\n<Input type="email" id="email" placeholder="Email" />`}
             />
+            <DocsInstallation name="label" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Label } from "@/components/ui/label"
+                code={`import { Label } from "@/registry/ui/label"
 
 export default function MyComponent() {
   return <Label htmlFor="field">Label</Label>
@@ -46,11 +48,6 @@ export default function MyComponent() {
                         </div>
                     }
                     code={`<Label htmlFor="name">Name <span className="text-red-500">*</span></Label>\n<Input id="name" required />`}
-                />
-                <CodeBlockWrapper
-                    title="Dependency"
-                    code={`npm install @radix-ui/react-label`}
-                    language="tsx"
                 />
             </section>
         </div>

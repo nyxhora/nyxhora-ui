@@ -1,5 +1,5 @@
 "use client";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BackgroundBeams } from "@/registry/ui/background-beams";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 
 export default function BackgroundBeamsDocsPage() {
@@ -35,7 +35,7 @@ export default function BackgroundBeamsDocsPage() {
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { BackgroundBeams } from "@/components/ui/background-beams"
+                code={`import { BackgroundBeams } from "@/registry/ui/background-beams"
 
 export default function Hero() {
   return (

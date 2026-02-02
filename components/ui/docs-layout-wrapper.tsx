@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { DocsSidebar } from "@/components/ui/docs-sidebar";
 import { DocsPagination } from "@/components/ui/docs-pagination";
 import { DocsToc } from "@/components/ui/docs-toc";
-import { DynamicIslandProvider } from "@/components/ui/dynamic-island-provider";
+import { DynamicIslandProvider } from "@/registry/ui/dynamic-island-provider";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 

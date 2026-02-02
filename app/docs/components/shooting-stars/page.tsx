@@ -1,6 +1,6 @@
-"use client";
-import { ShootingStars } from "@/components/ui/shooting-stars";
+import { ShootingStars } from "@/registry/ui/shooting-stars";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function ShootingStarsDocsPage() {
     return (
@@ -34,16 +34,12 @@ export default function ShootingStarsDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# No external dependencies required`}
-                language="cmd"
-            />
+            <DocsInstallation name="shooting-stars" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { ShootingStars } from "@/components/ui/shooting-stars"
+                code={`import { ShootingStars } from "@/registry/ui/shooting-stars"
 
 export default function Hero() {
   return (

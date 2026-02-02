@@ -71,7 +71,7 @@ export default function WorkspaceSwitcherDocsPage() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
-        <CodeBlock code={`import { WorkspaceSwitcherLabel } from "@/components/ui/WorkspaceSwitcherlabel"
+        <CodeBlock code={`import { WorkspaceSwitcherLabel } from "@/registry/ui/WorkspaceSwitcherlabel"
 
 // In your sidebar or layout
 export default function SidebarLayout() {
@@ -131,8 +131,8 @@ import { ChevronsUpDown, Check, Building2, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { AnimatePresence, motion } from "motion/react";
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
-import { UseWorkspace } from "@/hooks/use-workspace";
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/registry/ui/sidebar";
+import { UseWorkspace } from "@/registry/hooks/use-workspace";
 
 import { cn } from "@/lib/utils";
 

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/registry/ui/skeleton";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Skeleton",
@@ -31,10 +32,11 @@ export default function SkeletonDocsPage() {
   </div>
 </div>`}
             />
+            <DocsInstallation name="skeleton" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Skeleton } from "@/components/ui/skeleton"
+                code={`import { Skeleton } from "@/registry/ui/skeleton"
 
 export default function MyComponent() {
   return <Skeleton className="w-[100px] h-[20px] rounded-full" />
@@ -150,12 +152,6 @@ export default function MyComponent() {
 </div>`}
                 />
             </section>
-            <CodeBlockWrapper 
-            title="Installation"
-            code={`npx shadcn@latest add skeleton`}
-            language="bash"
-            />
-
             <DocsProps
                 props={[
                     { name: "className", type: "string", description: "CSS classes for sizing and styling" },

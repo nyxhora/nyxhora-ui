@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "React Switch component Nyxhora UI",
+  "registryDependencies": [
+    "@radix-ui/react-switch",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/switch.tsx",
+      "content": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport * as SwitchPrimitive from \"@radix-ui/react-switch\"\r\n\r\nimport { cn } from \"@/lib/utils\"\r\n\r\ntype ColorType = \"default\" | \"red\" | \"blue\" | \"green\" | \"purple\" | \"orange\";\r\n\r\ninterface SwitchProps extends React.ComponentProps<typeof SwitchPrimitive.Root> {\r\n  onSuccessColor?: ColorType\r\n}\r\n\r\nconst getSwitchColorClasses = (color: ColorType) => {\r\n  const colors: Record<string, string> = {\r\n    default: \"data-[state=checked]:bg-primary\",\r\n    red: \"data-[state=checked]:bg-red-500 dark:data-[state=checked]:bg-red-600\",\r\n    blue: \"data-[state=checked]:bg-blue-500 dark:data-[state=checked]:bg-blue-600\",\r\n    green: \"data-[state=checked]:bg-green-500 dark:data-[state=checked]:bg-green-600\",\r\n    purple: \"data-[state=checked]:bg-purple-500 dark:data-[state=checked]:bg-purple-600\",\r\n    orange: \"data-[state=checked]:bg-orange-500 dark:data-[state=checked]:bg-orange-600\",\r\n  };\r\n  return colors[color] || colors.default;\r\n};\r\n\r\nfunction Switch({\r\n  className,\r\n  onSuccessColor,\r\n  ...props\r\n}: SwitchProps) {\r\n  return (\r\n    <SwitchPrimitive.Root\r\n      data-slot=\"switch\"\r\n      className={cn(\r\n        \"peer data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",\r\n        getSwitchColorClasses(onSuccessColor ?? \"default\"),\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      <SwitchPrimitive.Thumb\r\n        data-slot=\"switch-thumb\"\r\n        className={cn(\r\n          \"bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0\"\r\n        )}\r\n      />\r\n    </SwitchPrimitive.Root>\r\n  )\r\n}\r\n\r\nexport { Switch }\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -245,11 +245,11 @@ Nyxhora UI supports full theming via CSS variables. Customize your theme in your
 
 ### Using Components
 
-Import components directly from the `@/components/ui` directory:
+Import components directly from the `@/registry/ui` directory:
 
 ```tsx
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/registry/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/registry/ui/card";
 
 export default function MyComponent() {
   return (

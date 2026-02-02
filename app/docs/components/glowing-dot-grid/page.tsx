@@ -1,6 +1,6 @@
-"use client";
-import { GlowingDotGrid } from "@/components/ui/glowing-dot-grid";
+import { GlowingDotGrid } from "@/registry/ui/glowing-dot-grid";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function GlowingDotGridDocsPage() {
     return (
@@ -38,16 +38,12 @@ export default function GlowingDotGridDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# No external dependencies required`}
-                language="cmd"
-            />
+            <DocsInstallation name="glowing-dot-grid" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { GlowingDotGrid } from "@/components/ui/glowing-dot-grid"
+                code={`import { GlowingDotGrid } from "@/registry/ui/glowing-dot-grid"
 
 export default function Hero() {
   return (

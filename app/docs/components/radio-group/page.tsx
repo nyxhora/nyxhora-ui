@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import { DocsHeader, DocsPreview, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
-import { ComponentSource } from "@/components/ui/component-source";
+import { RadioGroup, RadioGroupItem } from "@/registry/ui/radio-group";
+import { Label } from "@/registry/ui/label";
+import { ComponentSource } from "@/registry/ui/component-source";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Radio Group",
@@ -172,13 +173,7 @@ export default function RadioGroupDocsPage() {
   </div>
 </RadioGroup>`}
             />
-
-            <CodeBlockWrapper
-                title="Dependencies"
-                language="bash"
-                code={`npm install @radix-ui/react-radio-group`}
-            />
-            <ComponentSource filePath="components/ui/radio-group.tsx" />
+            <DocsInstallation name="radio-group" />
         </div>
     );
 }

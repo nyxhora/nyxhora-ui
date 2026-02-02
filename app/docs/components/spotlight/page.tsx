@@ -1,6 +1,6 @@
-"use client";
-import { Spotlight } from "@/components/ui/spotlight";
+import { Spotlight } from "@/registry/ui/spotlight";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function SpotlightDocsPage() {
     return (
@@ -33,16 +33,12 @@ export default function SpotlightDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# No external dependencies required - pure SVG with CSS animations`}
-                language="cmd"
-            />
+            <DocsInstallation name="spotlight" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Spotlight } from "@/components/ui/spotlight"
+                code={`import { Spotlight } from "@/registry/ui/spotlight"
 
 export default function Hero() {
   return (

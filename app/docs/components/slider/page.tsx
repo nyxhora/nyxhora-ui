@@ -1,8 +1,9 @@
-import { Slider } from "@/components/ui/slider";
-import { Label } from "@/components/ui/label";
+import { Slider } from "@/registry/ui/slider";
+import { Label } from "@/registry/ui/label";
 import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
 import { SliderDemo } from "./slider-interactivity";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function SliderDocsPage() {
     return (
@@ -14,10 +15,10 @@ export default function SliderDocsPage() {
                 previewCode={<Slider defaultValue={[50]} max={100} step={1} className="w-[60%]" />}
                 code={`<Slider defaultValue={[50]} max={100} step={1} />`}
             />
-
+            <DocsInstallation name="slider" />
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Slider } from "@/components/ui/slider"
+                code={`import { Slider } from "@/registry/ui/slider"
 
 export default function MyComponent() {
   return <Slider defaultValue={[33]} max={100} step={1} />
@@ -46,12 +47,7 @@ export default function MyComponent() {
                     code={`<Slider defaultValue={[25, 75]} max={100} step={1} />`}
                 />
             </section>
-            <CodeBlockWrapper
-                title="Dependencies"
-                language="bash"
-                code={`npm install @radix-ui/react-slider`}
-            />
-            <ComponentSource filePath="components/ui/slider.tsx" />
+
         </div>
     );
 }

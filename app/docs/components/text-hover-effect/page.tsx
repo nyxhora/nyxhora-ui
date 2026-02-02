@@ -1,6 +1,6 @@
-"use client";
-import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { TextHoverEffect } from "@/registry/ui/text-hover-effect";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function TextHoverEffectDocsPage() {
     return (
@@ -22,16 +22,12 @@ export default function TextHoverEffectDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install motion`}
-                language="cmd"
-            />
+            <DocsInstallation name="text-hover-effect" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { TextHoverEffect } from "@/components/ui/text-hover-effect"
+                code={`import { TextHoverEffect } from "@/registry/ui/text-hover-effect"
 
 export default function Hero() {
   return (

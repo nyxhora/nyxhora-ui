@@ -1,6 +1,6 @@
-"use client";
-import { HoverRevealText } from "@/components/ui/hover-reveal-text";
+import { HoverRevealText } from "@/registry/ui/hover-reveal-text";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function HoverRevealTextDocsPage() {
     return (
@@ -30,16 +30,12 @@ export default function HoverRevealTextDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# No external dependencies required`}
-                language="cmd"
-            />
+            <DocsInstallation name="hover-reveal-text" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { HoverRevealText } from "@/components/ui/hover-reveal-text"
+                code={`import { HoverRevealText } from "@/registry/ui/hover-reveal-text"
 
 export default function SecretCode() {
   return (

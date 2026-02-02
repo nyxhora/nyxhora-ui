@@ -1,6 +1,6 @@
-"use client";
-import { FlipWords } from "@/components/ui/flip-words";
+import { FlipWords } from "@/registry/ui/flip-words";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function FlipWordsDocsPage() {
     return (
@@ -30,16 +30,12 @@ export default function FlipWordsDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install motion`}
-                language="cmd"
-            />
+            <DocsInstallation name="flip-words" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { FlipWords } from "@/components/ui/flip-words"
+                code={`import { FlipWords } from "@/registry/ui/flip-words"
 
 export default function Hero() {
   const words = ["beautiful", "modern", "amazing", "stunning"]

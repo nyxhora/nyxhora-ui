@@ -7,7 +7,7 @@ import {
     DocsPreview,
     DocsProps,
 } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
 import {
     ExitIntentDocsDemo,
     StatusIndicatorExample,
@@ -17,6 +17,7 @@ import {
     BeforeUnloadControlsExample,
     FormProtectionExample,
 } from "./exit-intent-docs-demo";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Exit Intent",
@@ -36,23 +37,19 @@ export default function ExitIntentDocsPage() {
             <DocsPreview
                 title="Preview"
                 previewCode={<ExitIntentDocsDemo />}
-                code={`import { useExitIntent } from "@/components/providers/exit-intent-provider"
+                code={`import { useExitIntent } from "@/registry/providers/exit-intent-provider"
 
 const { isActive, isBeforeUnloadActive, enableExitIntent, disableExitIntent } = useExitIntent();`}
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install lucide-react @radix-ui/react-dialog`}
-                language="cmd"
-            />
+            <DocsInstallation name="exit-intent" />
 
             {/* Provider Setup */}
             <CodeBlockWrapper
                 title="Provider Setup"
                 code={`// In your layout.tsx
-import { ExitIntentProvider } from "@/components/providers/exit-intent-provider"
+import { ExitIntentProvider } from "@/registry/providers/exit-intent-provider"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -71,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Basic Usage"
-                code={`import { useExitIntent } from "@/components/providers/exit-intent-provider"
+                code={`import { useExitIntent } from "@/registry/providers/exit-intent-provider"
 
 export default function MyComponent() {
   const { 
@@ -366,32 +363,6 @@ const handleFormSubmit = () => {
                 </div>
             </section>
 
-            {/* Source Code */}
-            <section className="space-y-6">
-                <h2 className="text-2xl font-bold">Source Code</h2>
-
-                <div className="space-y-4">
-                    <h3 className="text-lg font-semibold flex items-center gap-2">
-                        <FileCode2 className="h-5 w-5" />
-                        useExitIntent Hook (Provider)
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                        The main provider and hook that manages exit intent state and handles link interception.
-                    </p>
-                    <ComponentSource filePath="components/providers/exit-intent-provider.tsx" />
-                </div>
-
-                <div className="space-y-4">
-                    <h3 className="text-lg font-semibold flex items-center gap-2">
-                        <FileCode2 className="h-5 w-5" />
-                        Exit Intent Demo Component
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                        A ready-to-use demo component showcasing the exit intent functionality.
-                    </p>
-                    <ComponentSource filePath="components/ui/exit-intent-demo.tsx" />
-                </div>
-            </section>
         </div>
     );
 }

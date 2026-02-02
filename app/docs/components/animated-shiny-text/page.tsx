@@ -1,7 +1,7 @@
-"use client";
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { AnimatedShinyText } from "@/registry/ui/animated-shiny-text";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import { ArrowRightIcon } from "lucide-react";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function AnimatedShinyTextDocsPage() {
     return (
@@ -33,17 +33,12 @@ export default function AnimatedShinyTextDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# Requires CSS animation defined in your tailwind.config.js
-# See Tailwind Configuration section below`}
-                language="cmd"
-            />
+            <DocsInstallation name="animated-shiny-text" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { AnimatedShinyText } from "@/components/ui/animated-shiny-text"
+                code={`import { AnimatedShinyText } from "@/registry/ui/animated-shiny-text"
 
 export default function Announcement() {
   return (

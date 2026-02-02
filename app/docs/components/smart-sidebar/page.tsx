@@ -189,9 +189,9 @@ export default function SmartSidebarDocsPage() {
 
             <section className="space-y-4">
                 <h2 className="text-2xl font-bold">Usage with Mobile Detection</h2>
-                <CodeBlock code={`import { SmartSidebar } from "@/components/ui/smart-sidebar/SmartSidebar"
-import { AppSidebar } from "@/components/ui/SideBar"
-import { useMediaQuery } from "@/hooks/use-media-query"
+                <CodeBlock code={`import { SmartSidebar } from "@/registry/ui/smart-sidebar/SmartSidebar"
+import { AppSidebar } from "@/registry/ui/SideBar"
+import { useMediaQuery } from "@/registry/hooks/use-media-query"
 
 export default function AppLayout({ children }) {
   const isDesktop = useMediaQuery("(min-width: 768px)")
@@ -218,7 +218,7 @@ export default function AppLayout({ children }) {
             <section className="space-y-4">
                 <h2 className="text-2xl font-bold">Context Hook</h2>
                 <CodeBlock code={`// Access sidebar state from any component
-import { useSmartSidebar } from "@/components/ui/smart-sidebar/SmartSidebarTrigger"
+import { useSmartSidebar } from "@/registry/ui/smart-sidebar/SmartSidebarTrigger"
 
 function MyComponent() {
   const { activeSection, setActiveSection, isSmartSidebarEnabled } = useSmartSidebar()

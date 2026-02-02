@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navbar-menu",
+  "title": "Navbar Menu",
+  "description": "React Navbar Menu component Nyxhora UI",
+  "registryDependencies": [
+    "motion/react",
+    "next/link"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/navbar-menu.tsx",
+      "content": "\"use client\";\r\nimport { motion } from \"motion/react\";\r\nimport Link from \"next/link\";\r\nimport { useState } from \"react\";\r\n\r\nconst NavbarMenu = () => {\r\n  const [active, setActive] = useState<string | null>(null);\r\n  return (\r\n    <div className=\"w-full flex justify-center py-8 gap-4\">\r\n      <nav onMouseLeave={() => setActive(null)} className=\"relative rounded-full border border-border bg-background shadow-md flex justify-center space-x-4 px-8 py-4\">\r\n        {[\"Products\", \"Resources\", \"Pricing\"].map((item) => (\r\n          <div key={item} onMouseEnter={() => setActive(item)} className=\"relative\">\r\n            <motion.p transition={{ duration: 0.3 }} className=\"cursor-pointer text-foreground hover:opacity-80\">{item}</motion.p>\r\n            {active === item && (\r\n              <motion.div initial={{ opacity: 0, scale: 0.85, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} className=\"absolute top-[calc(100%+1.2rem)] left-1/2 transform -translate-x-1/2 pt-4\">\r\n                <motion.div layoutId=\"active-demo\" className=\"bg-popover rounded-2xl border border-border w-full shadow-xl p-4\">\r\n                  <div className=\"flex flex-col space-y-2 text-sm w-[100px]\">\r\n                    <div className=\"flex flex-col space-y-2\">\r\n                      <Link href=\"#\" className=\"text-muted-foreground hover:text-foreground\">Option 1</Link>\r\n                      <Link href=\"#\" className=\"text-muted-foreground hover:text-foreground\">Option 2</Link>\r\n                    </div>\r\n                    <div className=\"flex flex-col space-y-2\">\r\n                      <Link href=\"#\" className=\"text-muted-foreground hover:text-foreground\">Option 1</Link>\r\n                      <Link href=\"#\" className=\"text-muted-foreground hover:text-foreground\">Option 2</Link>\r\n                    </div>\r\n                  </div>\r\n                </motion.div>\r\n              </motion.div>\r\n            )}\r\n          </div>\r\n        ))}\r\n      </nav>\r\n    </div>\r\n  );\r\n};\r\nexport default NavbarMenu",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { docsConfig, DocsNavCategory } from "@/lib/docs-config";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/registry/ui/scroll-area";
 import {
     ChevronRight, Sparkles,
     ExternalLink
 } from "lucide-react";
 import { useState } from "react";
-import { Badge } from "./badge";
+import { Badge } from "../../registry/ui/badge";
 import { IconBrandGithub } from "@tabler/icons-react";
 
 interface DocsSidebarProps {

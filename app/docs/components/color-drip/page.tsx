@@ -1,6 +1,6 @@
-"use client";
-import { ColorDrip } from "@/components/ui/color-drip";
+import { ColorDrip } from "@/registry/ui/color-drip";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function ColorDripDocsPage() {
     return (
@@ -34,16 +34,12 @@ export default function ColorDripDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# No external dependencies required`}
-                language="cmd"
-            />
+            <DocsInstallation name="color-drip" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { ColorDrip } from "@/components/ui/color-drip"
+                code={`import { ColorDrip } from "@/registry/ui/color-drip"
 
 export default function Hero() {
   return (

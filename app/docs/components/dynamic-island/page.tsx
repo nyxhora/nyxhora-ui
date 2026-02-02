@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { DocsHeader, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
 import {
     DynamicIslandDemo,
     DynamicIslandPositions,
@@ -11,6 +11,7 @@ import {
     DynamicIslandCall,
     DynamicIslandAutoDismiss,
 } from "./dynamic-island-demo";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Dynamic Island",
@@ -30,11 +31,7 @@ export default function DynamicIslandDocsPage() {
             <DynamicIslandDemo />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Installation"
-                code={`npm install motion zustand class-variance-authority`}
-                language="bash"
-            />
+            <DocsInstallation name="dynamic-island" />
 
             {/* Setup */}
             <section className="space-y-4">
@@ -45,7 +42,7 @@ export default function DynamicIslandDocsPage() {
                 <CodeBlockWrapper
                     title="Layout Setup"
                     code={`// app/layout.tsx
-import { DynamicIslandProvider } from "@/components/ui/dynamic-island-provider"
+import { DynamicIslandProvider } from "@/registry/ui/dynamic-island-provider"
 
 export default function RootLayout({ children }) {
   return (
@@ -68,7 +65,7 @@ export default function RootLayout({ children }) {
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { useDynamicIsland, DynamicIslandAction } from "@/components/ui/dynamic-island-provider"
+                code={`import { useDynamicIsland, DynamicIslandAction } from "@/registry/ui/dynamic-island-provider"
 
 function MyComponent() {
   const { push, dismiss, collapse } = useDynamicIsland();
@@ -146,9 +143,6 @@ function MyComponent() {
                     </div>
                 </div>
             </section>
-
-            {/* Component Source */}
-            <ComponentSource filePath="/components/ui/dynamic-island-provider.tsx" />
 
             {/* Hook API */}
             <section className="space-y-6">

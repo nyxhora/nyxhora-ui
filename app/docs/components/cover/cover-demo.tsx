@@ -1,6 +1,6 @@
 "use client";
 
-import { Cover } from "@/components/ui/cover";
+import { Cover } from "@/registry/ui/cover";
 import { useState } from "react";
 import { toast } from "sonner";
 import { DocsPreview, ComponentPreview } from "@/components/ui/docs-documentation";

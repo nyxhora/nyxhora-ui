@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "url-tabs",
+  "title": "URL Tabs",
+  "description": "Enhanced Tabs component that syncs with URL parameters. Perfect for shareable tab states and deep linking. Nyxhora UI",
+  "registryDependencies": [
+    "next/navigation",
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/url-tabs.tsx",
+      "content": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport { useRouter, useSearchParams } from \"next/navigation\"\r\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/registry/ui/tabs\"\r\n\r\ninterface UrlTabsProps extends React.ComponentProps<typeof Tabs> {\r\n  /**\r\n   * The URL parameter name to use for the active tab\r\n   * @default \"tab\"\r\n   */\r\n  paramName?: string\r\n  /**\r\n   * Whether to update the URL when tab changes\r\n   * @default true\r\n   */\r\n  updateUrl?: boolean\r\n  /**\r\n   * Whether to replace the current history entry instead of pushing a new one\r\n   * @default false\r\n   */\r\n  replaceHistory?: boolean\r\n}\r\n\r\nfunction UrlTabs({\r\n  paramName = \"tab\",\r\n  updateUrl = true,\r\n  replaceHistory = false,\r\n  defaultValue,\r\n  value: controlledValue,\r\n  onValueChange,\r\n  children,\r\n  ...props\r\n}: UrlTabsProps) {\r\n  const router = useRouter()\r\n  const searchParams = useSearchParams()\r\n\r\n  // Get the current tab from URL or use default\r\n  const urlTab = searchParams.get(paramName)\r\n  const currentTab = controlledValue || urlTab || defaultValue\r\n\r\n  const handleValueChange = React.useCallback((newValue: string) => {\r\n    // Call the original onValueChange if provided\r\n    if (onValueChange) {\r\n      onValueChange(newValue)\r\n    }\r\n\r\n    // Update URL if enabled\r\n    if (updateUrl) {\r\n      const current = new URLSearchParams(Array.from(searchParams.entries()))\r\n\r\n      if (newValue === defaultValue) {\r\n        // Remove the parameter if it's the default value to keep URL clean\r\n        current.delete(paramName)\r\n      } else {\r\n        current.set(paramName, newValue)\r\n      }\r\n\r\n      const search = current.toString()\r\n      const query = search ? `?${search}` : \"\"\r\n\r\n      if (replaceHistory) {\r\n        router.replace(`${window.location.pathname}${query}`)\r\n      } else {\r\n        router.push(`${window.location.pathname}${query}`)\r\n      }\r\n    }\r\n  }, [onValueChange, updateUrl, searchParams, paramName, defaultValue, router, replaceHistory])\r\n\r\n  return (\r\n    <Tabs\r\n      value={currentTab}\r\n      onValueChange={handleValueChange}\r\n      defaultValue={defaultValue}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Tabs>\r\n  )\r\n}\r\n\r\n// Re-export the original components for convenience\r\nexport { UrlTabs, TabsList, TabsTrigger, TabsContent }\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

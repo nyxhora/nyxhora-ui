@@ -1,9 +1,10 @@
 import { Metadata } from "next";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/registry/ui/tooltip";
+import { Button } from "@/registry/ui/button";
 import { Info, HelpCircle, Plus } from "lucide-react";
 import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Tooltip",
@@ -40,7 +41,7 @@ export default function TooltipDocsPage() {
   </Tooltip>
 </TooltipProvider>`}
             />
-
+            <DocsInstallation name="tooltip" />
             <CodeBlockWrapper
                 title="Usage"
                 code={`import {
@@ -48,7 +49,7 @@ export default function TooltipDocsPage() {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/registry/ui/tooltip"
 
 export default function MyComponent() {
   return (
@@ -207,7 +208,6 @@ export default function MyComponent() {
 </Tooltip>`}
                 />
             </section>
-                <ComponentSource filePath="/components/ui/tooltip.tsx" />
 
             <section className="space-y-4">
                 <h2 className="text-2xl font-bold">Components</h2>

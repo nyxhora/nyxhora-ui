@@ -1,6 +1,6 @@
-"use client";
-import { SparklesCore } from "@/components/ui/sparkles";
+import { SparklesCore } from "@/registry/ui/sparkles";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function SparklesDocsPage() {
     return (
@@ -43,16 +43,11 @@ export default function SparklesDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install @tsparticles/react @tsparticles/slim motion`}
-                language="cmd"
-            />
-
+            <DocsInstallation name="sparkles" />
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { SparklesCore } from "@/components/ui/sparkles"
+                code={`import { SparklesCore } from "@/registry/ui/sparkles"
 
 export default function Hero() {
   return (

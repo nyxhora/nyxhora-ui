@@ -1,6 +1,6 @@
-"use client";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { GlowingEffect } from "@/registry/ui/glowing-effect";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function GlowingEffectDocsPage() {
     return (
@@ -37,16 +37,12 @@ export default function GlowingEffectDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install motion`}
-                language="cmd"
-            />
+            <DocsInstallation name="glowing-effect" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { GlowingEffect } from "@/components/ui/glowing-effect"
+                code={`import { GlowingEffect } from "@/registry/ui/glowing-effect"
 
 export default function GlowCard() {
   return (

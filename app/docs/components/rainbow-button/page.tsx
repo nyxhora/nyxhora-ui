@@ -1,6 +1,6 @@
-"use client";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+import { RainbowButton } from "@/registry/ui/rainbow-button";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function RainbowButtonDocsPage() {
     return (
@@ -24,16 +24,12 @@ export default function RainbowButtonDocsPage() {
             />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`# No external dependencies required`}
-                language="cmd"
-            />
+            <DocsInstallation name="rainbow-button" />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { RainbowButton } from "@/components/ui/rainbow-button"
+                code={`import { RainbowButton } from "@/registry/ui/rainbow-button"
 
 export default function CTA() {
   return (

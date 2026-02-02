@@ -258,7 +258,7 @@ export function DocsSearchCommand({
                     )}
                 >
                     <Search className="h-4 w-4" />
-                    <span className="hidden sm:inline">Search docs...</span>
+                    <span className="hidden sm:inline">Search Dynamix island</span>
                     <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 ml-auto text-xs font-mono bg-background/80 border border-border/50 rounded">
                         <CommandIcon className="h-3 w-3" />K
                     </kbd>

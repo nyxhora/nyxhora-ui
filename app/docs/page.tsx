@@ -140,9 +140,9 @@ export default function DocsIntroductionPage() {
             </div>
 
             {/* Code Example */}
-            <CodeBlockWrapper 
-            title="Simple to Use"
-                code={`import { Button } from "@/components/ui/button"
+            <CodeBlockWrapper
+                title="Simple to Use"
+                code={`import { Button } from "@/registry/ui/button"
 
 export default function MyComponent() {
   return (
@@ -150,7 +150,7 @@ export default function MyComponent() {
       Click me
     </Button>
   )
-}`} language={"typescript"}            />
+}`} language={"typescript"} />
         </div>
     );
 }

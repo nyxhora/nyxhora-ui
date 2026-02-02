@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/registry/ui/button";
 import { Code2 } from "lucide-react";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Button",
@@ -35,16 +36,12 @@ export default function ButtonDocsPage() {
 <Button variant="link">Link</Button>`} />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install @radix-ui/react-slot class-variance-authority`}
-                language="cmd"
-            />
+            <DocsInstallation name={"button"} />
 
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Button } from "@/components/ui/button"
+                code={`import { Button } from "@/registry/ui/button"
 
 export default function MyComponent() {
   return <Button>Click me</Button>
@@ -135,33 +132,33 @@ export default function MyComponent() {
             </section>
 
             {/* Props */}
-            <DocsProps 
-            props={[
-                {
-                    name: "variant",
-                    type: "string",
-                    defaultValue: "default",
-                    description: "The visual style of the button",
-                },
-                {
-                    name: "size",
-                    type: "string",
-                    defaultValue: "default",
-                    description: "The size of the button",
-                },
-                {
-                    name: "asChild",
-                    type: "boolean",
-                    defaultValue: "false",
-                    description: "Render as child element",
-                },
-                {
-                    name: "disabled",
-                    type: "boolean",
-                    defaultValue: "false",
-                    description: "Disable the button",
-                },
-            ]}
+            <DocsProps
+                props={[
+                    {
+                        name: "variant",
+                        type: "string",
+                        defaultValue: "default",
+                        description: "The visual style of the button",
+                    },
+                    {
+                        name: "size",
+                        type: "string",
+                        defaultValue: "default",
+                        description: "The size of the button",
+                    },
+                    {
+                        name: "asChild",
+                        type: "boolean",
+                        defaultValue: "false",
+                        description: "Render as child element",
+                    },
+                    {
+                        name: "disabled",
+                        type: "boolean",
+                        defaultValue: "false",
+                        description: "Disable the button",
+                    },
+                ]}
             />
         </div>
     );

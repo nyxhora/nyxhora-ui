@@ -1,5 +1,5 @@
 "use client";
-import { BackgroundLines } from "@/components/ui/background-lines";
+import { BackgroundLines } from "@/registry/ui/background-lines";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 
 export default function BackgroundLinesDocsPage() {
@@ -40,7 +40,7 @@ export default function BackgroundLinesDocsPage() {
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { BackgroundLines } from "@/components/ui/background-lines"
+                code={`import { BackgroundLines } from "@/registry/ui/background-lines"
 
 export default function Hero() {
   return (

@@ -2,7 +2,7 @@
 
 import { DocsHeader, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 import { useState } from "react";
-// import ExitConfirmationModal from "@/components/ui/exit-confirmation-modal"; // Assuming default export
+// import ExitConfirmationModal from "@/registry/ui/exit-confirmation-modal"; // Assuming default export
 
 export default function ExitConfirmationModalDocsPage() {
     return (

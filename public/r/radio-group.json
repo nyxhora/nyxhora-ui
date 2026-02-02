@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "title": "Radio Group",
+  "description": "React Radio Group component Nyxhora UI",
+  "registryDependencies": [
+    "@radix-ui/react-radio-group",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/radio-group.tsx",
+      "content": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport * as RadioGroupPrimitive from \"@radix-ui/react-radio-group\"\r\nimport { CircleIcon, Dot } from \"lucide-react\"\r\n\r\nimport { cn } from \"@/lib/utils\"\r\nimport { useState } from \"react\"\r\ntype ColorType = \"default\" | \"red\" | \"blue\" | \"green\" | \"purple\" | \"orange\";\r\ninterface RadioGroupProps extends React.ComponentProps<typeof RadioGroupPrimitive.Root> {\r\n  onSuccessColor?: ColorType\r\n}\r\nfunction RadioGroup({\r\n  className,\r\n  onSuccessColor,\r\n  ...props\r\n}: RadioGroupProps) {\r\n  return (\r\n    <RadioGroupPrimitive.Root\r\n      data-slot=\"radio-group\"\r\n      className={cn(\"grid gap-3\", className)}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\n// --- Helper for Colors ---\r\nconst getColorClasses = (color: ColorType, checked: boolean) => {\r\n  const baseClasses = \"hover:opacity-80 transition-opacity\";\r\n\r\n  // Define explicit backgrounds for visibility\r\n  const colors: Record<string, string> = {\r\n    default: checked ? \"fill-primary\" : \"bg-transparent\",\r\n    red: \"fill-red-500 text-red-900 dark:text-red-400 border-red-200 dark:border-red-800\",\r\n    blue: \"fill-blue-500 text-blue-900 dark:text-blue-600 border-blue-200 dark:border-blue-800\",\r\n    green: \"fill-green-500 text-green-900 dark:text-green-600 border-green-200 dark:border-green-800\",\r\n    purple: \"fill-purple-500 text-purple-900 dark:text-purple-600  dark:border-purple-800\",\r\n    orange: \"fill-orange-500 text-orange-900 dark:text-orange-600 border-orange-200 dark:border-orange-800\",\r\n  };\r\n\r\n  return cn(colors[color] || colors.default, baseClasses);\r\n};\r\ninterface RadioGroupItemProps extends React.ComponentProps<typeof RadioGroupPrimitive.Item> {\r\n  onSuccessColor?: ColorType\r\n}\r\n\r\nfunction RadioGroupItem({\r\n  className,\r\n  onSuccessColor,\r\n  ...props\r\n}: RadioGroupItemProps) {\r\n  return (\r\n    <RadioGroupPrimitive.Item\r\n      data-slot=\"radio-group-item\"\r\n      className={cn(\r\n        \"border-input text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      <RadioGroupPrimitive.Indicator\r\n        data-slot=\"radio-group-indicator\"\r\n        className=\"relative flex items-center justify-center\"\r\n      >\r\n        <CircleIcon className={cn(\"absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2\", getColorClasses(onSuccessColor ?? \"default\", true))} />\r\n      </RadioGroupPrimitive.Indicator>\r\n    </RadioGroupPrimitive.Item>\r\n  )\r\n}\r\n\r\nexport { RadioGroup, RadioGroupItem }\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

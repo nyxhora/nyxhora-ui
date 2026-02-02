@@ -9,15 +9,14 @@
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
-    
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@/components",
+    "components": "@/registry",
     "utils": "@/lib/utils",
-    "ui": "@/components/ui",
+    "ui": "@/registry/ui",
     "lib": "@/lib",
-    "hooks": "@/hooks"
+    "hooks": "@/registry/hooks"
   },
   "registries": {}
 }

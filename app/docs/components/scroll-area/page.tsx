@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { DocsHeader, DocsPreview, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/registry/ui/scroll-area";
 
 export const metadata: Metadata = {
     title: "Scroll Area",

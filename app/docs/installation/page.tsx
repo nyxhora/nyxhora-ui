@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/ui/tabs";
 import { Code2, Copy, Check, Terminal } from "lucide-react";
 import { CodeBlock } from "@/components/ui/docs-documentation";
 

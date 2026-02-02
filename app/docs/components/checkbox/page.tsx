@@ -1,8 +1,9 @@
 
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/registry/ui/checkbox";
+import { Label } from "@/registry/ui/label";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function CheckboxDocsPage() {
 
@@ -23,10 +24,11 @@ export default function CheckboxDocsPage() {
   <Label htmlFor="terms">Accept terms and conditions</Label>
 </div>`}
             />
+            <DocsInstallation name="checkbox"/>
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Checkbox } from "@/components/ui/checkbox"
+                code={`import { Checkbox } from "@/registry/ui/checkbox"
 
 export default function MyComponent() {
   return (
@@ -186,12 +188,6 @@ export default function MyComponent() {
   <Label htmlFor="termsOrange">Accept terms and conditions</Label>
 </div>`}
             />
-            <CodeBlockWrapper
-                title="Dependencies"
-                code={`npm install @radix-ui/react-checkbox`}
-                language="bash"
-            />
-            <ComponentSource filePath="components/ui/checkbox.tsx" />
 
 
             <DocsProps

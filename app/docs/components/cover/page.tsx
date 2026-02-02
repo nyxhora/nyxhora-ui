@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { DocsHeader, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
 import {
     CoverDemo,
     CoverSizeDefault,
@@ -9,6 +9,7 @@ import {
     CoverPlaceholder,
     CoverWithChildren,
 } from "./cover-demo";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Cover",
@@ -28,16 +29,11 @@ export default function CoverDocsPage() {
             <CoverDemo />
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Requirements"
-                code={`npm install class-variance-authority`}
-                language="cmd"
-            />
-
+            <DocsInstallation name="cover" />
             {/* Usage */}
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Cover } from "@/components/ui/cover"
+                code={`import { Cover } from "@/registry/ui/cover"
 
 export default function MyComponent() {
   const [coverUrl, setCoverUrl] = useState<string | undefined>(
@@ -90,7 +86,7 @@ export default function MyComponent() {
                 <CoverWithChildren />
             </section>
 
-            <ComponentSource filePath="/components/ui/cover.tsx" />
+
 
             {/* Props */}
             <DocsProps

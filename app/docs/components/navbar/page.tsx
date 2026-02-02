@@ -1,7 +1,7 @@
 
 import { DocsHeader, DocsPreview, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 import { Layers, Smartphone, Palette, Zap } from "lucide-react";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
 import { NavbarDemo } from "./navbarDemo";
 
 function FeatureCard({ icon: Icon, title, description }: { icon: any; title: string; description: string }) {
@@ -26,7 +26,7 @@ export default function NavbarDocsPage() {
     <div className="space-y-10">
       <DocsHeader title="Navbar" description="A responsive navigation bar component with glassmorphism effects, mobile menu support, and smooth animations." />
 
-      <DocsPreview title="Preview" previewCode={<NavbarDemo />} code={`import { Navbar } from "@/components/ui/navbar";
+      <DocsPreview title="Preview" previewCode={<NavbarDemo />} code={`import { Navbar } from "@/registry/ui/navbar";
 
 export default function MyPage() {
   return (
@@ -50,7 +50,7 @@ export default function MyPage() {
       <CodeBlockWrapper title="Installation" code={`# No additional dependencies required
 # Uses lucide-react icons and standard Next.js Link`} language="bash" />
 
-      <CodeBlockWrapper title="Usage" code={`import { Navbar } from "@/components/ui/navbar";
+      <CodeBlockWrapper title="Usage" code={`import { Navbar } from "@/registry/ui/navbar";
 
 export default function Layout({ children }) {
   return (

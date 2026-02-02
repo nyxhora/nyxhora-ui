@@ -1,9 +1,10 @@
 import { Metadata } from "next";
-import { ComponentShowcard, ShowcardGrid } from "@/components/ui/component-showcard";
-import { Button } from "@/components/ui/button";
+import { ComponentShowcard, ShowcardGrid } from "@/registry/ui/component-showcard";
+import { Button } from "@/registry/ui/button";
 import { CodeBlockWrapper, DocsHeader, DocsProps, ComponentPreview } from "@/components/ui/docs-documentation";
 import { Sparkles, Terminal, Copy, Building } from "lucide-react";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Component Showcard",
@@ -37,11 +38,8 @@ export default function ComponentShowcardDocsPage() {
             </div>
 
             {/* Installation */}
-            <CodeBlockWrapper
-                title="Installation"
-                code={`npx shadcn-ui@latest add component-showcard`}
-                language="bash"
-            />
+            <DocsInstallation name="component-showcard" />
+
 
             <div className="text-sm text-muted-foreground bg-muted/50 p-4 rounded-lg border border-border/50">
                 Note: This is a custom component. You need to copy the source code manually if not using the CLI.

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-shiny-text",
+  "title": "Animated Shiny Text",
+  "description": "A text component that features a shiny, animated gradient effect that moves across the text. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/animated-shiny-text.tsx",
+      "content": "import { CSSProperties, FC, ReactNode } from \"react\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface AnimatedShinyTextProps {\r\n  children: ReactNode;\r\n  className?: string;\r\n  shimmerWidth?: number;\r\n}\r\n\r\nconst AnimatedShinyText: FC<AnimatedShinyTextProps> = ({\r\n  children,\r\n  className,\r\n  shimmerWidth = 100,\r\n}) => {\r\n  return (\r\n    <p\r\n      style={\r\n        {\r\n          \"--shiny-width\": `${shimmerWidth}px`,\r\n        } as CSSProperties\r\n      }\r\n      className={cn(\r\n        \"mx-auto max-w-md text-neutral-600/70 dark:text-neutral-400/70\",\r\n\r\n        // Shine effect\r\n        \"animate-shiny-text bg-clip-text bg-no-repeat [background-position:0_0] [background-size:var(--shiny-width)_100%] [transition:background-position_1s_cubic-bezier(.6,.6,0,1)_infinite]\",\r\n\r\n        // Shine gradient\r\n        \"bg-linear-to-r from-transparent via-black/80 via-50% to-transparent  dark:via-white/80\",\r\n\r\n        className,\r\n      )}\r\n    >\r\n      {children}\r\n    </p>\r\n  );\r\n};\r\n\r\nexport { AnimatedShinyText };\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

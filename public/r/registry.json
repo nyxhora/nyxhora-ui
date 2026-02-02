@@ -1,0 +1,669 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "Nyxhoraui",
+    "url": "https://ui.nyxhora.com",
+    "description": "A collection of UI components for Next.js",
+    "version": "1.0.0",
+    "homepage": "https://ui.nyxhora.com",
+    "registryDependencies": [
+        "@/lib/utils"
+    ],
+    "components": {},
+    "items": [
+        {
+            "name": "button",
+            "title": "Button",
+            "description": "React Button component",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-slot",
+                "class-variance-authority"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/button.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "awsome-button",
+            "title": "Awsome Button",
+            "description": "Awsome Button component",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@/lib/utils",
+                "motion/react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/awsomebutton.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "input",
+            "title": "Input",
+            "description": "React Input component",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/input.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "textarea",
+            "title": "Textarea",
+            "description": "React Textarea component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/textarea.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "avatar",
+            "title": "Avatar",
+            "description": "React Avatar component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-avatar"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/avatar.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "badge",
+            "title": "Badge",
+            "description": "React Badge component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-slot",
+                "class-variance-authority"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/badge.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "checkbox",
+            "title": "Checkbox",
+            "description": "React Checkbox component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-checkbox",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/checkbox.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "dialog",
+            "title": "Dialog",
+            "description": "React Dialog component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-dialog",
+                "lucide-react",
+                "motion/react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/dialog.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "radio-group",
+            "title": "Radio Group",
+            "description": "React Radio Group component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-radio-group",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/radio-group.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "select",
+            "title": "Select",
+            "description": "React Select component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-select",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/select.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "switch",
+            "title": "Switch",
+            "description": "React Switch component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-switch",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/switch.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "tabs",
+            "title": "Tabs",
+            "description": "React Tabs component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-tabs",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/tabs.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "tooltip",
+            "title": "Tooltip",
+            "description": "React Tooltip component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-tooltip",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/tooltip.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "alert",
+            "title": "Alert",
+            "description": "React Alert component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-alert",
+                "class-variance-authority"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/alert.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "card",
+            "title": "Card",
+            "description": "React Card component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/card.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "slider",
+            "title": "Slider",
+            "description": "React Slider component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-slider"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/slider.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "label",
+            "title": "Label",
+            "description": "React Label component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-label"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/label.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "progress",
+            "title": "Progress",
+            "description": "React Progress component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-progress"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/progress.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "skeleton",
+            "title": "Skeleton",
+            "description": "React Skeleton component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/skeleton.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "sonner",
+            "title": "Sonner",
+            "description": "React Sonner component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "sonner",
+                "next-themes",
+                "color-theme-provider"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/sonner.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "badge",
+            "title": "Badge",
+            "description": "React Badge component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "class-variance-authority",
+                "@radix-ui/react-slot"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/badge.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "component-showcard",
+            "title": "Component Showcard",
+            "description": "A highly customizable card component for showcasing UI elements with gradients, badges, and interactive previews.",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "class-variance-authority",
+                "next-link",
+                "framer-motion",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/component-showcard.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "separator",
+            "title": "Separator",
+            "description": "React Separator component to visually or semantically separates content. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "class-variance-authority",
+                "@radix-ui/react-separator"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/separator.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "cover",
+            "title": "Cover",
+            "description": "A flexible cover component for displaying featured images with optional action buttons for changing or removing the cover. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "next/image",
+                "lucide-react",
+                "button",
+                "skeleton",
+                "class-variance-authority"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/cover.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "sheet",
+            "title": "Sheet",
+            "description": "Extends the Dialog component to display content that complements the main screen. Slides in from the edge of the viewport.",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "@radix-ui/react-dialog",
+                "lucide-react",
+                "motion/react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/sheet.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "dynamic-island",
+            "title": "Dynamic Island",
+            "description": "A floating, expandable notification component inspired by Apple's Dynamic Island. Features notification stacking with navigation dots, dismissable vs persistent notifications, priority-based ordering, and auto-collapse. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "motion/react",
+                "lucide-react",
+                "skeleton",
+                "class-variance-authority",
+                "zustand"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/dynamic-island-provider.tsx",
+                    "type": "registry:ui"
+                },
+                {
+                    "path": "registry/hooks/use-dynamic-island.ts",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "navbar-menu",
+            "title": "Navbar Menu",
+            "description": "React Navbar Menu component Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "motion/react",
+                "next/link"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/navbar-menu.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "url-tabs",
+            "title": "URL Tabs",
+            "description": "Enhanced Tabs component that syncs with URL parameters. Perfect for shareable tab states and deep linking. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "next/navigation",
+                "tabs"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/url-tabs.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "footer",
+            "title": "Footer",
+            "description": "A comprehensive footer component with brand section, social links, navigation columns, and legal links. Fully responsive and customizable.",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "next/link",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/footer.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "shooting-stars",
+            "title": "Shooting Stars",
+            "description": "A beautiful animated starfield background with shooting stars effect. Perfect for hero sections, landing pages, and space-themed designs. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/shooting-stars.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "color-drip",
+            "title": "Color Drip",
+            "description": "Animated vertical lines with colorful dripping effects. Perfect for creating dynamic backgrounds with a matrix-like or rain-inspired aesthetic. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/color-drip.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "glowing-dot-grid",
+            "title": "Glowing Dot Grid",
+            "description": "An interactive grid of dots that glow and expand on hover with beautiful proximity-based effects. Perfect for hero sections and interactive backgrounds. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/glowing-dot-grid.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "background-beams",
+            "title": "Background Beams",
+            "description": "A dynamic background component featuring animated beams of light that sweep across the screen. Perfect for adding a modern, energetic, and visually striking effect to your website. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/background-beams.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "sparkles",
+            "title": "Sparkles",
+            "description": "A dynamic background component featuring animated particles that float across the screen. Perfect for adding a magical or festive touch to your website. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "motion/react",
+                "@tsparticles/react",
+                "@tsparticles/slim",
+                "@tsparticles/engine"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/sparkles.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "spotlight",
+            "title": "Spotlight",
+            "description": "A dynamic background component featuring a spotlight that follows the mouse cursor. Perfect for adding a modern, interactive, and visually striking effect to your website. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/spotlight.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "smooth-cursor",
+            "title": "Smooth Cursor",
+            "description": "A custom cursor component that follows the mouse with a smooth, elastic animation. Perfect for adding a modern, interactive, and visually striking effect to your website. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "motion/react"
+            ],
+            "files": [
+                {
+                    "path": "registry/ui/smooth-cursor.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "animated-shiny-text",
+            "title": "Animated Shiny Text",
+            "description": "A text component that features a shiny, animated gradient effect that moves across the text. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/animated-shiny-text.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "hover-reveal-text",
+            "title": "Hover Reveal Text",
+            "description": "A text component that features a hover reveal effect where the text is revealed with a smooth animation. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/hover-reveal-text.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "flip-words",
+            "title": "Flip Words",
+            "description": "A text component that features a flip effect where the words are flipped with a smooth animation. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/flip-words.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "text-hover-effect",
+            "title": "Text Hover Effect",
+            "description": "A text component that features a hover effect where the text is revealed with a smooth animation. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/text-hover-effect.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "rainbow-button",
+            "title": "Rainbow Button",
+            "description": "A button component that features a rainbow gradient effect that moves across the button. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/rainbow-button.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "ants-card",
+            "title": "Ants Card",
+            "description": "A card component that features a ants effect that moves across the card. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/ants-card.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "exit-intent",
+            "title": "Exit Intent",
+            "description": "A modal component that appears when the user tries to exit the website. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
+            "type": "registry:ui",
+            "registryDependencies": [
+                "button",
+                "lucide-react"
+            ],
+            "files": [
+                {
+                    "path": "registry/providers/exit-intent-provider.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        }
+    ]
+}

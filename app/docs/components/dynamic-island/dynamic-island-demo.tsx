@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useDynamicIsland, DynamicIslandAction } from "@/components/ui/dynamic-island-provider";
+import { useDynamicIsland, DynamicIslandAction } from "@/registry/ui/dynamic-island-provider";
 import { DocsPreview, ComponentPreview } from "@/components/ui/docs-documentation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/registry/ui/button";
 import {
     Bell,
     Music,

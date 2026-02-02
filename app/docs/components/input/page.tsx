@@ -1,8 +1,9 @@
 import { Metadata } from "next";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Input } from "@/registry/ui/input";
+import { Label } from "@/registry/ui/label";
 import { Search, Lock } from "lucide-react";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Input",
@@ -24,11 +25,7 @@ export default function InputDocsPage() {
                 code={`<Input type="email" placeholder="Email" />`}
             />
 
-            <CodeBlockWrapper
-                title="Installation"
-                code={`npm install @radix-ui/react-slot`}
-                language="bash"
-            />
+            <DocsInstallation name="input" />
 
             <CodeBlockWrapper
                 title="Usage"

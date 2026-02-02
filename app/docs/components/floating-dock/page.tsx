@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Copy, Check, Code2, Dock, Home, Settings, User, FileText } from "lucide-react";
 import { DocsHeader } from "@/components/ui/docs-documentation";
-import { FloatingDock } from "@/components/ui/floating-dock";
+import { FloatingDock } from "@/registry/ui/floating-dock";
 
 export default function FloatingDockDocsPage() {
   return (
@@ -42,7 +42,7 @@ export default function FloatingDockDocsPage() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
-        <CodeBlock code={`import { FloatingDock } from "@/components/ui/floating-dock"
+        <CodeBlock code={`import { FloatingDock } from "@/registry/ui/floating-dock"
 import { Home, Settings, User, FileText } from "lucide-react"
 
 const items = [

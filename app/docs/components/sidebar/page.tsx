@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { DocsHeader, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 
 export const metadata: Metadata = {
-    title: "Sidebar",
-    description: "A collapsible sidebar navigation component.",
+  title: "Sidebar",
+  description: "A collapsible sidebar navigation component.",
 };
 
 export default function SidebarDocsPage() {
