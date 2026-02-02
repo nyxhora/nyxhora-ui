@@ -1,6 +1,6 @@
 "use client";
 
-import InteractiveBackground from "@/components/ui/kimibackground";
+import InteractiveBackground from "@/registry/ui/kimibackground";
 
 export default function PlaygroundPage() {
     return (

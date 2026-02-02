@@ -1,8 +1,9 @@
 import { DocsHeader, DocsPreview, CodeBlockWrapper, DocsProps } from "@/components/ui/docs-documentation";
 import { Zap, Layers, Palette, Moon } from "lucide-react";
-import NavbarMenu from "@/components/ui/navbar-menu";
-import { ComponentSource } from "@/components/ui/component-source";
+import NavbarMenu from "@/registry/ui/navbar-menu";
+import { ComponentSource } from "@/registry/ui/component-source";
 import { MenuDemo } from "./navbarMenuDemo";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 
 function FeatureCard({ icon: Icon, title, description }: { icon: any; title: string; description: string }) {
@@ -25,13 +26,14 @@ export default function NavbarMenuDocsPage() {
   return (
     <div className="space-y-10">
       <DocsHeader title="Navbar Menu" description="Animated dropdown menu components for navigation with smooth spring animations and hover effects." />
-      <DocsPreview title="Preview" previewCode={<MenuDemo />} code={`import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
+      <DocsPreview title="Preview" previewCode={<MenuDemo />} code={`import { Menu, MenuItem, HoveredLink } from "@/registry/ui/navbar-menu";
 const [active, setActive] = useState<string | null>(null);
 <Menu setActive={setActive}>
   <MenuItem setActive={setActive} active={active} item="Products">
     <HoveredLink href="/web-dev">Web Development</HoveredLink>
   </MenuItem>
 </Menu>`} />
+      <DocsInstallation name="navbar-menu" />
 
       <section className="space-y-6">
         <h2 className="text-2xl font-bold">Features</h2>
@@ -42,9 +44,6 @@ const [active, setActive] = useState<string | null>(null);
           <FeatureCard icon={Moon} title="Dark Mode Ready" description="Automatic styling for light and dark color schemes." />
         </div>
       </section>
-
-      <CodeBlockWrapper title="Requirements" code={`npm install framer-motion`} language="bash" />
-      <ComponentSource filePath="/components/ui/navbar-menu.tsx" />
       <NavbarMenu />
 
     </div>

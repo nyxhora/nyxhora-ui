@@ -1,6 +1,7 @@
-import { ParticleBurstButton } from "@/components/ui/awsomebutton";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ParticleBurstButton } from "@/registry/ui/awsomebutton";
+import { ComponentSource } from "@/registry/ui/component-source";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function AwesomeButtonDocsPage() {
   return (
@@ -24,11 +25,12 @@ export default function AwesomeButtonDocsPage() {
   Magic ✨
 </ParticleBurstButton>`}
       />
+      <DocsInstallation name="awsome-button" />
 
 
       <CodeBlockWrapper
         title="Usage"
-        code={`import { ParticleBurstButton } from "@/components/ui/awsomebutton"
+        code={`import { ParticleBurstButton } from "@/registry/ui/awsomebutton"
 
 export default function MyComponent() {
   return (
@@ -73,13 +75,6 @@ export default function MyComponent() {
           },
         ]}
       />
-
-      <CodeBlockWrapper
-        title="Dependencies"
-        code={`npm install motion/react`}
-        language="bash"
-      />
-      <ComponentSource filePath="components/ui/awsomebutton.tsx" />
     </div>
   );
 }

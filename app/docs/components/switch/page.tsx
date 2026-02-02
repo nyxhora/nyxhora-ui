@@ -1,9 +1,8 @@
 import { Metadata } from "next";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import { Switch } from "@/registry/ui/switch";
+import { Label } from "@/registry/ui/label";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
-
-import { ComponentSource } from "@/components/ui/component-source";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Switch",
@@ -28,16 +27,17 @@ export default function SwitchDocsPage() {
   <Label htmlFor="airplane-mode">Airplane Mode</Label>
 </div>`}
             />
+            <DocsInstallation name="switch" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Switch } from "@/components/ui/switch"
+                code={`import { Switch } from "@/registry/ui/switch"
 
 export default function MyComponent() {
   return <Switch />
 }`}
                 language="tsx"
-            />  
+            />
 
             <section className="space-y-6">
                 <h2 className="text-2xl font-bold">Examples</h2>
@@ -187,12 +187,6 @@ export default function MyComponent() {
 </div>`}
             />
 
-            <CodeBlockWrapper
-                title="Dependencies"
-                language="bash"
-                code={`npm install @radix-ui/react-switch`}
-            />
-            <ComponentSource filePath="components/ui/switch.tsx" />
 
             <DocsProps
                 props={[

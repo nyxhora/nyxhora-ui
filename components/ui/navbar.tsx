@@ -3,16 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/registry/ui/button";
 import { cn } from "@/lib/utils";
 import {
-    Menu,
-    X, Home, ArrowRight,
-    Sparkles, Info, Store
+  Menu,
+  X, Home, ArrowRight,
+  Sparkles, Info, Store,
+  BookOpen
 } from "lucide-react";
 import { useState } from "react";
 
-import Logo from "./logo";
+import Logo from "../../registry/ui/logo";
+import { DocsSearchCommand } from "./docs-search-command";
+import { RainbowButton } from "@/registry/ui/rainbow-button";
+import { IconBrandGithub } from "@tabler/icons-react";
 // import { SimpleModeToggle } from "@/components/simple-mode-toggle";
 
 export const Navbar = () => {
@@ -27,27 +31,21 @@ export const Navbar = () => {
       active: pathname === "/",
     },
     {
-      label: "Features",
-      icon: Sparkles,
-      href: "https://www.nyxhora.com/features",
-      active: pathname === "/features",
+      label: "Docs",
+      icon: BookOpen,
+      href: "/docs",
+      active: pathname === "/docs" || pathname?.startsWith("/docs/"),
     },
     {
-        label: "UI",
-        icon: Sparkles,
-        href: "/docs",
-        active: pathname === "/docs",
-    },
-    {
-      label: "Template",
+      label: "Blocks",
       icon: Store,
-      href: "https://www.nyxhora.com/market",
-      active: pathname === "/market" || pathname === "/templates",
+      href: "/blocks",
+      active: pathname === "/blocks",
     },
     {
       label: "About",
       icon: Info,
-      href: "https://www.nyxhora.com/about",
+      href: "/about",
       active: pathname === "/about",
     },
   ];
@@ -57,8 +55,8 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center group">
+          <div className="flex items-center justify-start">
+            <Link href="/" className="flex items-center gap-2 group">
               <div className="transition-transform duration-200 group-hover:scale-105">
                 <Logo />
               </div>
@@ -95,24 +93,30 @@ export const Navbar = () => {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
 
-            
-           
-              <>
-                <Button
-                  variant="default"
-                  size="sm"
-                  asChild
-                  className="flex flex-row cursor-pointer z-50 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105 gap-2"
-                >
-                  <Link href="/app">
-                    Enter Nyxhora
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
+            {/* Search Documentation */}
+            <DocsSearchCommand />
+            <RainbowButton
+              size="sm"
+              className="flex flex-row cursor-pointer z-50 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105 gap-2"
+            >
+              <Link href="https://github.com/nyxhora/nyxhoraui">
+                <IconBrandGithub className="w-5 h-5" />
+              </Link>
+            </RainbowButton>
 
-                
-              </>
-            
+            <>
+              <RainbowButton
+                size="sm"
+                className="flex flex-row cursor-pointer z-50 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105 gap-2"
+              >
+                <Link href="https://www.nyxhora.com" target="_blank">
+                  Try Nyxhora
+                </Link>
+              </RainbowButton>
+
+
+            </>
+
           </div>
 
           {/* Mobile menu button */}
@@ -235,31 +239,52 @@ export const Navbar = () => {
               </div>
             </div>
 
+            {/* Mobile Search */}
+            <div
+              className="mb-4"
+              style={{
+                animation: mobileMenuOpen
+                  ? "slideInMobile 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 200ms"
+                  : "none",
+              }}
+            >
+              <DocsSearchCommand
+                className="w-full justify-center"
+                trigger={
+                  <button className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium rounded-2xl bg-neutral-100 dark:bg-neutral-800/50 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="m21 21-4.3-4.3" />
+                    </svg>
+                    Search documentation...
+                  </button>
+                }
+              />
+            </div>
 
-            
-              <div
-                style={{
-                  animation: mobileMenuOpen
-                    ? "slideInMobile 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 240ms"
-                    : "none",
-                }}
+            <div
+              style={{
+                animation: mobileMenuOpen
+                  ? "slideInMobile 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 240ms"
+                  : "none",
+              }}
+            >
+              <Button
+                className="w-full relative overflow-hidden rounded-2xl py-6 text-base font-semibold bg-linear-to-r from-blue-600 via-purple-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                asChild
               >
-                <Button
-                  className="w-full relative overflow-hidden rounded-2xl py-6 text-base font-semibold bg-linear-to-r from-blue-600 via-purple-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
-                  asChild
+                <Link
+                  href="/app"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2"
                 >
-                  <Link
-                    href="/app"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <Sparkles className="h-4 w-4" />
-                    Enter Nyxhora
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            
+                  <Sparkles className="h-4 w-4" />
+                  Enter Nyxhora
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+
           </div>
         </div>
       </div>

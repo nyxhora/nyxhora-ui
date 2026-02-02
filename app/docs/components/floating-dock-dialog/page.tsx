@@ -230,7 +230,7 @@ export default function FloatingDockWithDialogDocsPage() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
-        <CodeBlock code={`import { FloatingDockWithDialog } from "@/components/ui/floating-dock-dialog"
+        <CodeBlock code={`import { FloatingDockWithDialog } from "@/registry/ui/floating-dock-dialog"
 
 const workspaces = [
   { _id: "1", name: "Personal", Appearance: { icon: "🏠", color: "#3B82F6" }, isfav: true },

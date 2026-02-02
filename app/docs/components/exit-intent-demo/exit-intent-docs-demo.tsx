@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/registry/ui/button";
 import { Shield, ShieldOff, ExternalLink, RefreshCw } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useExitIntent } from "@/components/providers/exit-intent-provider";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/registry/ui/card";
+import { useExitIntent } from "@/registry/providers/exit-intent-provider";
+import { Badge } from "@/registry/ui/badge";
 
 // Main demo component - uses global provider
 export function ExitIntentDocsDemo() {

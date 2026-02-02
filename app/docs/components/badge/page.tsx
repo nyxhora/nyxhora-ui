@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/registry/ui/badge";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Badge",
@@ -27,10 +28,11 @@ export default function BadgeDocsPage() {
 <Badge variant="outline">Outline</Badge>
 <Badge variant="destructive">Destructive</Badge>`}
             />
+            <DocsInstallation name="badge" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Badge } from "@/components/ui/badge"
+                code={`import { Badge } from "@/registry/ui/badge"
 
 export default function MyComponent() {
   return <Badge>Badge</Badge>
@@ -81,11 +83,6 @@ export default function MyComponent() {
 <Badge className="bg-purple-500/10 text-purple-500 border-purple-500/20">New</Badge>`}
                 />
             </section>
-            <CodeBlockWrapper
-                title="Installation"
-                code={`npx shadcn@latest add badge`}
-                language="bash"
-            />
 
             <DocsProps
                 props={[

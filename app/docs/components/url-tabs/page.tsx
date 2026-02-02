@@ -1,7 +1,8 @@
 import { Suspense } from "react";
-import { UrlTabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/url-tabs";
+import { UrlTabs, TabsList, TabsTrigger, TabsContent } from "@/registry/ui/url-tabs";
 import { DocsHeader, DocsPreview, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { ComponentSource } from "@/components/ui/component-source";
+import { ComponentSource } from "@/registry/ui/component-source";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function UrlTabsDocsPage() {
   return (
@@ -38,14 +39,12 @@ export default function UrlTabsDocsPage() {
       />
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Installation</h2>
-        <p className="text-muted-foreground">Copy and paste the following code into your project.</p>
-
+        <DocsInstallation name="url-tabs" />
       </section>
 
       <CodeBlockWrapper
         title="Usage"
-        code={`import { UrlTabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/url-tabs"
+        code={`import { UrlTabs, TabsList, TabsTrigger, TabsContent } from "@/registry/ui/url-tabs"
 
 export default function MyPage() {
   return (

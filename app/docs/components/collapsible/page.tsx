@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { DocsHeader, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-// import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
+// import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/registry/ui/collapsible";
 
 export const metadata: Metadata = {
     title: "Collapsible",

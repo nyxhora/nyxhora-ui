@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sonner",
+  "title": "Sonner",
+  "description": "React Sonner component Nyxhora UI",
+  "registryDependencies": [
+    "sonner",
+    "next-themes",
+    "color-theme-provider"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/sonner.tsx",
+      "content": "\"use client\"\r\n\r\nimport { useTheme } from \"next-themes\"\r\nimport { Toaster as Sonner, ToasterProps } from \"sonner\"\r\nimport { useColorTheme } from \"@/registry/providers/color-theme-provider\"\r\n\r\ninterface ToasterComponentProps extends Omit<ToasterProps, 'theme'> {\r\n  theme?: ToasterProps[\"theme\"]\r\n}\r\n\r\nconst Toaster = ({ theme: customTheme, ...props }: ToasterComponentProps) => {\r\n  const { theme = \"system\" } = useTheme()\r\n  const { colorTheme } = useColorTheme()\r\n\r\n  return (\r\n    <Sonner\r\n      theme={customTheme || (theme as ToasterProps[\"theme\"])}\r\n      className={`toaster group ${colorTheme !== \"nyxhora\" ? `theme-${colorTheme}` : \"\"}`}\r\n      style={\r\n        {\r\n          \"--normal-bg\": \"var(--background)\",\r\n          \"--normal-text\": \"var(--foreground)\",\r\n          \"--normal-border\": \"var(--border)\",\r\n        } as React.CSSProperties\r\n      }\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nexport { Toaster }\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

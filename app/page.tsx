@@ -1,12 +1,12 @@
 "use client";
 
-import Footer from "@/components/ui/footer";
+import Footer from "@/registry/ui/footer";
 import Link from "next/link";
 import { ArrowRight, Check, Copy, Terminal, Sparkles, MousePointer2, Layout, Navigation, LayoutDashboard, Layers } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ComponentShowcard, ShowcardGrid } from "@/components/ui/component-showcard";
+import { Button } from "@/registry/ui/button";
+import { ComponentShowcard, ShowcardGrid } from "@/registry/ui/component-showcard";
 import { motion } from "framer-motion";
-import { ParticleBurstButton } from "@/components/ui/awsomebutton";
+import { ParticleBurstButton } from "@/registry/ui/awsomebutton";
 
 // Mini Navbar Preview Component
 function NavbarPreview() {

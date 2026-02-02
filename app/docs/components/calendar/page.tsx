@@ -1,7 +1,7 @@
 "use client";
 
 import { DocsHeader, DocsPreview, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/registry/ui/calendar";
 import { useState } from "react";
 
 export default function CalendarDocsPage() {

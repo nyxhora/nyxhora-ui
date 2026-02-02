@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+import { Textarea } from "@/registry/ui/textarea";
+import { Label } from "@/registry/ui/label";
 import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Textarea",
@@ -18,10 +19,11 @@ export default function TextareaDocsPage() {
                 previewCode={<Textarea placeholder="Type your message here." className="w-[350px]" />}
                 code={`<Textarea placeholder="Type your message here." />`}
             />
+            <DocsInstallation name="textarea" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Textarea } from "@/components/ui/textarea"
+                code={`import { Textarea } from "@/registry/ui/textarea"
 
 export default function MyComponent() {
   return <Textarea placeholder="Enter your message..." />

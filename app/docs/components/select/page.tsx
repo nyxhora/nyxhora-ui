@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { DocsHeader, DocsPreview, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/registry/ui/select";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Select",
@@ -41,11 +42,7 @@ export default function SelectDocsPage() {
 </Select>`}
             />
 
-            <CodeBlockWrapper
-                title="Installation"
-                language="bash"
-                code={`npx shadcn@latest add select`}
-            />
+            <DocsInstallation name="select" />
         </div>
     );
 }

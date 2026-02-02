@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "title": "Checkbox",
+  "description": "React Checkbox component Nyxhora UI",
+  "registryDependencies": [
+    "@radix-ui/react-checkbox",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/checkbox.tsx",
+      "content": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport * as CheckboxPrimitive from \"@radix-ui/react-checkbox\"\r\nimport { Check, Square } from \"lucide-react\"\r\n\r\nimport { cn } from \"@/lib/utils\"\r\nimport { useState } from \"react\"\r\n\r\ntype ColorType = \"default\" | \"red\" | \"blue\" | \"green\" | \"purple\" | \"orange\";\r\n\r\ninterface CheckboxProps\r\n  extends React.ComponentProps<typeof CheckboxPrimitive.Root> {\r\n  onSuccessColor?: ColorType;\r\n}\r\n\r\n\r\n// --- Helper for Colors ---\r\nconst getColorClasses = (color: ColorType, checked: boolean) => {\r\n  const baseClasses = \"hover:opacity-80 transition-opacity\";\r\n  \r\n  // Define explicit backgrounds for visibility\r\n  const colors: Record<string, string> = {\r\n    default: checked ? \"bg-primary text-primary border-primary\" : \"border-transparent\",\r\n    red: \"bg-red-500/10 text-red-900 dark:text-red-400 border-red-200 dark:border-red-800\",\r\n    blue: \"bg-blue-500/10 text-blue-900 dark:text-blue-600 border-blue-200 dark:border-blue-800\",\r\n    green: \"bg-green-500/10 text-green-900 dark:text-green-600 border-green-200 dark:border-green-800\",\r\n    purple: \"bg-purple-500/10 text-purple-900 dark:text-purple-600 border-purple-200 dark:border-purple-800\",\r\n    orange: \"bg-orange-500/10 text-orange-900 dark:text-orange-600 border-orange-200 dark:border-orange-800\",\r\n  };\r\n  \r\n  return cn(colors[color] || colors.default, baseClasses);\r\n};\r\n\r\n\r\nfunction Checkbox({\r\n  className,\r\n  onSuccessColor,\r\n  ...props\r\n}: CheckboxProps) {\r\n  const [checked, setChecked] = useState<boolean>(false);\r\n  return (\r\n    <CheckboxPrimitive.Root\r\n      data-slot=\"checkbox\"\r\n      className={cn(\r\n        \"peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      <CheckboxPrimitive.Indicator\r\n        data-slot=\"checkbox-indicator\"\r\n        className=\"flex items-center bg-gray justify-center text-current transition-none\"\r\n      >\r\n        <span className={cn(getColorClasses(onSuccessColor ?? \"default\", !!props.checked))}>\r\n          {checked ? (\r\n            <Square className=\"w-4 h-4\" />\r\n          ) : (\r\n            <Check className=\"w-4 h-4\" />\r\n          )}\r\n        </span>\r\n      </CheckboxPrimitive.Indicator>\r\n    </CheckboxPrimitive.Root>\r\n  )\r\n}\r\n\r\nexport { Checkbox }\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

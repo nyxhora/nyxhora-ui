@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/ui/avatar";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
     title: "Avatar",
@@ -25,10 +26,11 @@ export default function AvatarDocsPage() {
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
             />
+            <DocsInstallation name="avatar" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+                code={`import { Avatar, AvatarFallback, AvatarImage } from "@/registry/ui/avatar"
 
 export default function MyComponent() {
   return (
@@ -180,11 +182,6 @@ export default function MyComponent() {
 </div>`}
                 />
             </section>
-            <CodeBlockWrapper
-                title="Installation"
-                code={`npx shadcn@latest add avatar`}
-                language="bash"
-            />
 
             <DocsProps props={[
                 {

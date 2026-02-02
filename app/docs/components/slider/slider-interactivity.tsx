@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Slider } from "@/components/ui/slider"
-import { Label } from "@/components/ui/label"
+import { Slider } from "@/registry/ui/slider"
+import { Label } from "@/registry/ui/label"
 
 export function SliderDemo() {
     const [value, setValue] = useState([50]);

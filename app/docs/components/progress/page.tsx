@@ -1,11 +1,8 @@
-"use client";
-
-import { useState } from "react";
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "@/registry/ui/progress";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
+import DocsInstallation from "@/components/ui/docs-installation";
 
 export default function ProgressDocsPage() {
-    const [progress, setProgress] = useState(33);
 
     return (
         <div className="space-y-10">
@@ -20,10 +17,11 @@ export default function ProgressDocsPage() {
                 }
                 code={`<Progress value={33} />`}
             />
+            <DocsInstallation name="progress" />
 
             <CodeBlockWrapper
                 title="Usage"
-                code={`import { Progress } from "@/components/ui/progress"
+                code={`import { Progress } from "@/registry/ui/progress"
 
 export default function MyComponent() {
   return <Progress value={60} />
@@ -136,12 +134,6 @@ export default function MyComponent() {
 <Progress value={60} className="h-4" /> // Large`}
                 />
             </section>
-            <CodeBlockWrapper 
-            title="Installation"
-            code={`npx shadcn@latest add progress`}
-            language="bash"
-            />
-
             <DocsProps
                 props={[
                     { name: "value", type: "number", defaultValue: "0", description: "The progress value (0-100)" },

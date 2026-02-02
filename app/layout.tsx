@@ -4,8 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Navbar } from "@/components/ui/navbar";
 import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "@/components/ui/sonner";
-import { ExitIntentProvider } from "@/components/providers/exit-intent-provider";
+import { Toaster } from "@/registry/ui/sonner";
+import { ExitIntentProvider } from "@/registry/providers/exit-intent-provider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,6 +13,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+import { Orbitron } from "next/font/google";
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
   subsets: ["latin"],
 });
 
@@ -85,7 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased`}
       >
         <script
           type="application/ld+json"
@@ -130,7 +136,7 @@ export default function RootLayout({
           />
           <Toaster />
           <Navbar />
-          <ExitIntentProvider>
+          <ExitIntentProvider isBeforeUnloadActive={false}>
             <main className="flex-1 pt-16 min-h-screen">
               {children}
             </main>
