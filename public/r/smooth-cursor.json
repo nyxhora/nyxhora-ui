@@ -3,7 +3,7 @@
   "name": "smooth-cursor",
   "title": "Smooth Cursor",
   "description": "A custom cursor component that follows the mouse with a smooth, elastic animation. Perfect for adding a modern, interactive, and visually striking effect to your website. Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "motion/react"
   ],
   "files": [

@@ -3,7 +3,7 @@
   "name": "label",
   "title": "Label",
   "description": "React Label component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-label"
   ],
   "files": [

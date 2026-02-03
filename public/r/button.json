@@ -3,7 +3,7 @@
   "name": "button",
   "title": "Button",
   "description": "React Button component",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-slot",
     "class-variance-authority"
   ],

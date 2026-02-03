@@ -339,9 +339,11 @@ export function ComponentPreview({
     );
 }
 export function CodeBlockWrapper({ title, code, language }: { title?: string, code: string, language: string }) {
+    code = code.replace("@/registry/ui", "@/components/ui")
     return (
         <section className="space-y-4">
             {title && <h2 className="text-2xl font-bold">{title}</h2>}
+            {/* {code = code.replace(/\s+/g, ' ').trim()} */}
             <CodeBlock
                 code={code}
                 language={language}

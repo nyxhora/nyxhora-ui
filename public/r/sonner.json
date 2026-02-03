@@ -3,10 +3,13 @@
   "name": "sonner",
   "title": "Sonner",
   "description": "React Sonner component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "sonner",
     "next-themes",
     "color-theme-provider"
+  ],
+  "registryDependencies": [
+    "sonner"
   ],
   "files": [
     {

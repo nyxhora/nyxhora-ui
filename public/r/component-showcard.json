@@ -3,7 +3,7 @@
   "name": "component-showcard",
   "title": "Component Showcard",
   "description": "A highly customizable card component for showcasing UI elements with gradients, badges, and interactive previews.",
-  "registryDependencies": [
+  "dependencies": [
     "class-variance-authority",
     "next-link",
     "framer-motion",

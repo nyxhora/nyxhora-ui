@@ -3,7 +3,7 @@
   "name": "alert",
   "title": "Alert",
   "description": "React Alert component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-alert",
     "class-variance-authority"
   ],

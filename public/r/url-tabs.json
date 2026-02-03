@@ -3,8 +3,10 @@
   "name": "url-tabs",
   "title": "URL Tabs",
   "description": "Enhanced Tabs component that syncs with URL parameters. Perfect for shareable tab states and deep linking. Nyxhora UI",
+  "dependencies": [
+    "next/navigation"
+  ],
   "registryDependencies": [
-    "next/navigation",
     "tabs"
   ],
   "files": [

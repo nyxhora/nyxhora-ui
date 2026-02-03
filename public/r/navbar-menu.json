@@ -3,9 +3,8 @@
   "name": "navbar-menu",
   "title": "Navbar Menu",
   "description": "React Navbar Menu component Nyxhora UI",
-  "registryDependencies": [
-    "motion/react",
-    "next/link"
+  "dependencies": [
+    "motion/react"
   ],
   "files": [
     {

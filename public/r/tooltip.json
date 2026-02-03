@@ -3,7 +3,7 @@
   "name": "tooltip",
   "title": "Tooltip",
   "description": "React Tooltip component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-tooltip",
     "lucide-react"
   ],

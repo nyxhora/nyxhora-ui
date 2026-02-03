@@ -3,7 +3,7 @@
   "name": "checkbox",
   "title": "Checkbox",
   "description": "React Checkbox component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-checkbox",
     "lucide-react"
   ],

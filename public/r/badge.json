@@ -3,7 +3,7 @@
   "name": "badge",
   "title": "Badge",
   "description": "React Badge component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "class-variance-authority",
     "@radix-ui/react-slot"
   ],

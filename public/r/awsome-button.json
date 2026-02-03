@@ -3,7 +3,7 @@
   "name": "awsome-button",
   "title": "Awsome Button",
   "description": "Awsome Button component",
-  "registryDependencies": [
+  "dependencies": [
     "@/lib/utils",
     "motion/react"
   ],

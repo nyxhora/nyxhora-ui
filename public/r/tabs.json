@@ -3,7 +3,7 @@
   "name": "tabs",
   "title": "Tabs",
   "description": "React Tabs component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-tabs",
     "lucide-react"
   ],

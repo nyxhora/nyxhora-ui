@@ -3,9 +3,11 @@
   "name": "exit-intent",
   "title": "Exit Intent",
   "description": "A modal component that appears when the user tries to exit the website. Perfect for hero sections and call-to-action buttons. Nyxhora UI",
-  "registryDependencies": [
-    "button",
+  "dependencies": [
     "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
   ],
   "files": [
     {

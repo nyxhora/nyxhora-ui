@@ -3,7 +3,7 @@
   "name": "switch",
   "title": "Switch",
   "description": "React Switch component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-switch",
     "lucide-react"
   ],

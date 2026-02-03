@@ -3,7 +3,7 @@
   "name": "skeleton",
   "title": "Skeleton",
   "description": "React Skeleton component Nyxhora UI",
-  "registryDependencies": [],
+  "dependencies": [],
   "files": [
     {
       "path": "registry/ui/skeleton.tsx",

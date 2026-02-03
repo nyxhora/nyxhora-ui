@@ -3,7 +3,7 @@
   "name": "sparkles",
   "title": "Sparkles",
   "description": "A dynamic background component featuring animated particles that float across the screen. Perfect for adding a magical or festive touch to your website. Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "motion/react",
     "@tsparticles/react",
     "@tsparticles/slim",

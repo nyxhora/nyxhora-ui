@@ -3,11 +3,12 @@
   "name": "sheet",
   "title": "Sheet",
   "description": "Extends the Dialog component to display content that complements the main screen. Slides in from the edge of the viewport.",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-dialog",
     "lucide-react",
     "motion/react"
   ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/ui/sheet.tsx",

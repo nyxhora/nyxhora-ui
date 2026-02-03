@@ -3,7 +3,7 @@
   "name": "select",
   "title": "Select",
   "description": "React Select component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-select",
     "lucide-react"
   ],

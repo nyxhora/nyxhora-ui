@@ -3,10 +3,11 @@
   "name": "footer",
   "title": "Footer",
   "description": "A comprehensive footer component with brand section, social links, navigation columns, and legal links. Fully responsive and customizable.",
-  "registryDependencies": [
-    "next/link",
-    "lucide-react"
+  "dependencies": [
+    "lucide-react",
+    "next/link"
   ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/ui/footer.tsx",

@@ -3,7 +3,7 @@
   "name": "progress",
   "title": "Progress",
   "description": "React Progress component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-progress"
   ],
   "files": [

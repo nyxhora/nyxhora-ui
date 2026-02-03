@@ -3,7 +3,7 @@
   "name": "slider",
   "title": "Slider",
   "description": "React Slider component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-slider"
   ],
   "files": [

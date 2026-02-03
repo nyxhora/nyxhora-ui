@@ -3,7 +3,7 @@
   "name": "radio-group",
   "title": "Radio Group",
   "description": "React Radio Group component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-radio-group",
     "lucide-react"
   ],

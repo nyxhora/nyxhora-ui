@@ -3,7 +3,7 @@
   "name": "dialog",
   "title": "Dialog",
   "description": "React Dialog component Nyxhora UI",
-  "registryDependencies": [
+  "dependencies": [
     "@radix-ui/react-dialog",
     "lucide-react",
     "motion/react"

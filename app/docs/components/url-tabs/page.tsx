@@ -90,7 +90,6 @@ export default function MyPage() {
 </UrlTabs>`} language="tsx" />
         </div>
       </section>
-      <ComponentSource filePath="/components/ui/url-tabs.tsx" />
 
       <DocsProps props={[
         { name: "paramName", type: "string", defaultValue: '"tab"', description: "URL parameter name" },
