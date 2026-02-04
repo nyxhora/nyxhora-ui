@@ -4,8 +4,8 @@ import { ArrowRight, Sparkles, Zap, Palette, Code2, Layers, Rocket, Star, Extern
 import { CodeBlockWrapper } from "@/components/ui/docs-documentation";
 
 export const metadata: Metadata = {
-    title: "Introduction | NyxhoraUI Documentation",
-    description: "Welcome to NyxhoraUI - A component library built on shadcn/ui with enhanced, production-ready components used in the Nyxhora platform.",
+    title: "Introduction",
+    description: "Welcome to Nyxhora UI- A component library built on shadcn/ui with enhanced, production-ready components used in the Nyxhora platform.",
 };
 
 export default function DocsIntroductionPage() {
@@ -36,7 +36,7 @@ export default function DocsIntroductionPage() {
                 </h1>
 
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                    NyxhoraUI is a component library built on top of{" "}
+                    Nyxhora UIis a component library built on top of{" "}
                     <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary underline underline-offset-4">
                         shadcn/ui
                     </a>

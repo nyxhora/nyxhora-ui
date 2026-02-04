@@ -1,371 +1,241 @@
 "use client";
 
-import Footer from "@/registry/ui/footer";
 import Link from "next/link";
-import { ArrowRight, Check, Copy, Terminal, Sparkles, MousePointer2, Layout, Navigation, LayoutDashboard, Layers } from "lucide-react";
+import { ArrowRight, Sparkle } from "lucide-react";
 import { Button } from "@/registry/ui/button";
-import { ComponentShowcard, ShowcardGrid } from "@/registry/ui/component-showcard";
 import { motion } from "framer-motion";
-import { ParticleBurstButton } from "@/registry/ui/awsomebutton";
-
-// Mini Navbar Preview Component
-function NavbarPreview() {
-  return (
-    <div className="w-full max-w-md">
-      <div className="flex items-center justify-between px-4 py-3 bg-background/80 backdrop-blur-md rounded-xl border border-border/50 shadow-lg">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-            <span className="text-white font-bold text-sm">N</span>
-          </div>
-          <span className="font-semibold text-sm">NyxhoraUI</span>
-        </div>
-        <div className="hidden sm:flex items-center gap-4 text-xs text-muted-foreground">
-          <span className="hover:text-foreground cursor-pointer transition-colors">Docs</span>
-          <span className="hover:text-foreground cursor-pointer transition-colors">Components</span>
-          <span className="hover:text-foreground cursor-pointer transition-colors">Examples</span>
-        </div>
-        <button className="px-3 py-1.5 text-xs bg-primary text-primary-foreground rounded-lg">
-          Get Started
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// Mini Footer Preview Component  
-function FooterPreview() {
-  return (
-    <div className="w-full max-w-md scale-90">
-      <div className="px-6 py-4 bg-background/80 backdrop-blur-md rounded-xl border border-border/50 shadow-lg">
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-[10px]">N</span>
-            </div>
-            <span className="font-medium text-xs">NyxhoraUI</span>
-          </div>
-          <div className="flex gap-3">
-            {["Twitter", "GitHub", "Discord"].map((item) => (
-              <span key={item} className="text-[10px] text-muted-foreground hover:text-foreground cursor-pointer">{item}</span>
-            ))}
-          </div>
-        </div>
-        <div className="flex items-center justify-between pt-3 border-t border-border/30">
-          <span className="text-[10px] text-muted-foreground">© 2024 NyxhoraUI</span>
-          <div className="flex gap-2">
-            <span className="text-[10px] text-muted-foreground">Privacy</span>
-            <span className="text-[10px] text-muted-foreground">Terms</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Workspace Label Preview
-function WorkspaceLabelPreview() {
-  return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center gap-3 px-4 py-3 bg-background/80 backdrop-blur-md rounded-xl border border-border/50 shadow-lg">
-        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-white font-bold">
-          P
-        </div>
-        <div>
-          <div className="font-medium text-sm">Project Alpha</div>
-          <div className="text-xs text-muted-foreground">Free Plan</div>
-        </div>
-      </div>
-      <div className="flex items-center gap-3 px-4 py-3 bg-background/80 backdrop-blur-md rounded-xl border border-primary/30 shadow-lg">
-        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white font-bold">
-          N
-        </div>
-        <div>
-          <div className="font-medium text-sm">Nyxhora</div>
-          <div className="text-xs text-muted-foreground flex items-center gap-1">
-            <Sparkles className="h-3 w-3 text-amber-500" />
-            Pro Plan
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { GradientBackground } from "@/registry/ui/gradient-background";
+import { AnimeCard } from "@/registry/ui/anime-card";
+import { CodeBlockVisual } from "@/components/hero-visuals/code-block-visual";
+import { MagicButton } from "@/registry/ui/magic-button";
+import { docsConfig } from "@/lib/docs-config";
+import Footer from "@/registry/ui/footer";
+import { MagicText } from "@/registry/ui/magic-text";
+import { IconBrandFramerMotion, IconBrandNextjs, IconBrandReact, IconBrandTailwind, IconBrandTypescript } from "@tabler/icons-react";
+import { CardContainer, CardBody, CardItem } from "@/registry/ui/three-d-card";
+import { Spotlight } from "@/registry/ui/spotlight";
+import { AntsCard } from "@/registry/ui/ants-card";
+import { Span } from "next/dist/trace";
+import { Cover } from "@/registry/ui/cover";
 
 export default function Home() {
+  // Better calculation: sum of all items in component categories
+  const totalComponents = docsConfig
+    .filter(cat => ["Form Components", "Display Components", "Overlay Components", "Navigation", "Layout", "Effects & Animations"].includes(cat.title))
+    .reduce((acc, cat) => acc + cat.items.length, 0);
+
+
+  const templatesCount = 0; // Hardcoded or fetch if available
+  const blocksCount = docsConfig.find(cat => cat.title === "Blocks")?.items.length || 0;
+
+
   return (
-    <div className="relative flex min-h-screen flex-col bg-background overflow-hidden">
+    <div className="relative min-h-screen flex flex-col bg-background overflow-x-hidden selection:bg-purple-500/30 selection:text-purple-200">
 
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-purple-500 opacity-20 blur-[100px]"></div>
-        <div className="absolute right-[20%] top-[40%] -z-10 h-[200px] w-[200px] rounded-full bg-blue-500 opacity-10 blur-[80px]"></div>
-        <div className="absolute left-[10%] bottom-[20%] -z-10 h-[250px] w-[250px] rounded-full bg-pink-500 opacity-10 blur-[90px]"></div>
-      </div>
+      <main className="flex-1 w-full">
+        {/* HERO SECTION */}
 
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="space-y-6 pb-8 pt-32 md:pb-12 md:pt-48 lg:py-32">
-          <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Link
-                href="https://twitter.com/nyxhora"
-                className="inline-flex items-center gap-2 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50 px-4 py-1.5 text-sm font-medium hover:bg-muted transition-colors"
-                target="_blank"
+        <section className="relative pt-20 pb-32 md:pt-32 md:pb-48 overflow-visible">
+          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+          <GradientBackground position="right" intensity="medium" />
+
+          <div className="container px-4 md:px-6 mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+
+              {/* LEFT COLUMN: Content */}
+              <div className="flex flex-col items-start text-left space-y-8">
+
+                {/* Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Link
+                    href="/docs/components/image-grid"
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 transition-colors backdrop-blur-md group"
+                  >
+                    <span className="flex items-center justify-center w-5 h-5 rounded  group-hover:text-white transition-colors">
+                      <Sparkle className="w-3 h-3" />
+                    </span>
+                    <span className="text-xs font-medium text-zinc-300">Image Grid</span>
+                    <ArrowRight className="w-3 h-3 text-zinc-500 group-hover:text-zinc-300 transition-colors ml-1" />
+                  </Link>
+                </motion.div>
+
+                {/* Title */}
+                <motion.h1
+                  className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  Composable   <br />
+                  UI for
+                  <br />
+                  <MagicText>
+
+                    modern builders.
+                  </MagicText>
+                </motion.h1>
+
+                {/* Subtitle */}
+                <motion.p
+                  className="text-lg text-zinc-400 max-w-xl leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  Easily plug in the latest trending components and build stunning websites without stressing over design consistency or animations.
+                </motion.p>
+
+                {/* Buttons */}
+                <motion.div
+                  className="flex flex-wrap gap-4 pt-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  <Link href="/components">
+                    <MagicButton
+                      title="Browse Components"
+                      icon={<ArrowRight className="ml-2 w-4 h-4" />}
+                      position="right"
+                    />
+                  </Link>
+
+                  <Button asChild variant="ghost" size="lg" className="rounded-full h-12 px-8 text-zinc-300 hover:text-white border border-zinc-800 hover:bg-zinc-800">
+                    <Link href="/docs">
+                      Documentation
+                    </Link>
+                  </Button>
+                </motion.div>
+
+                {/* Tech Stack */}
+                <motion.div
+                  className="pt-8 space-y-4 w-full"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <p className="text-xs font-medium text-zinc-500 uppercase tracking-widest">Powered By</p>
+
+                  <div className="flex items-center justify-between w-full">
+                    {[
+                      { name: "React", icon: IconBrandReact },
+                      { name: "Next.js", icon: IconBrandNextjs },
+                      { name: "TypeScript", icon: IconBrandTypescript },
+                      { name: "Tailwind", icon: IconBrandTailwind },
+                      { name: "Framer Motion", icon: IconBrandFramerMotion },
+                    ].map((tech) => (
+                      <div
+                        key={tech.name}
+                        className="group flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out"
+                      >
+                        <div className="p-2 rounded-xl bg-zinc-900/50 group-hover:bg-zinc-800 transition-colors border border-transparent group-hover:border-zinc-700">
+                          <tech.icon className="w-6 h-6 text-zinc-500 group-hover:text-white transition-colors" />
+                        </div>
+                        <span className="text-sm font-medium text-zinc-300 max-w-0 overflow-hidden opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 transition-all duration-300 ease-in-out whitespace-nowrap">
+                          {tech.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <div className="container mx-auto px-4 md:px-6 py-8">
+                      <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-16 text-sm font-medium">
+                        <Link href="/docs" className="group flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                          <span className="text-white font-bold">{totalComponents - 1}+</span> components
+                          <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                        </Link>
+                        <Link href="/templates" className="group flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                          <span className="text-white font-bold">0{templatesCount}</span> templates
+                          <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                        </Link>
+                        <Link href="/docs/blocks" className="group flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                          <span className="text-white font-bold">0{blocksCount}</span> blocks
+                          <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+              </div>
+
+              {/* RIGHT COLUMN: Visual Elements */}
+              <motion.div
+                className="relative h-[600px] w-full hidden lg:flex items-center justify-center perspective-[1000px]"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
               >
-                <Sparkles className="h-4 w-4 text-amber-500" />
-                Now with 50+ components
-                <ArrowRight className="h-3 w-3" />
-              </Link>
-            </motion.div>
+                <>
 
-            <motion.h1
-              className="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-foreground/70">
-                Build Premium
-              </span>
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-                Web Experiences.
-              </span>
-            </motion.h1>
+                  <div className="absolute top-10 right-0">
+                  </div>
+                  <div className="scale-75 origin-bottom-left">
+                    <CodeBlockVisual />
+                  </div>
+                  <div className="absolute -top-10 left-20">
+                    <AnimeCard />
+                  </div>
+                  <CardContainer className="inter-var">
+                    <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+                      <CardItem
+                        translateZ="50"
+                        className="text-xl font-bold text-neutral-600 dark:text-white"
+                      >
+                        Make things float in air
+                      </CardItem>
+                      <CardItem
+                        as="p"
+                        translateZ="60"
+                        className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                      >
+                        Hover over this card to unleash the power of CSS perspective
+                      </CardItem>
+                      <CardItem translateZ="100" className="w-full mt-4">
+                        <div className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl bg-gradient-to-br from-violet-500 to-orange-300 flex items-center justify-center text-white font-bold text-2xl">
+                          Hover Me!
+                        </div>
+                      </CardItem>
+                      <div className="flex justify-between items-center mt-20">
+                        <CardItem
+                          translateZ={20}
+                          as="button"
+                          className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                        >
+                          <Link href="/docs">
+                            Try now →
+                          </Link>
+                        </CardItem>
+                        <CardItem
+                          translateZ={20}
+                          as="button"
+                          className="px-4 py-2 rounded-xl bg-black text-white text-xs font-bold"
+                        >
+                          <MagicButton title={"Nyxhora UI"} />
+                        </CardItem>
+                      </div>
+                    </CardBody>
+                  </CardContainer>
+                </>
 
-            <motion.p
-              className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              Let&apos;s make your development a little smoother with copy-paste UI components based on shadcn. Beautiful, reusable, and built with Tailwind CSS.
-            </motion.p>
+              </motion.div>
 
-            <motion.div
-              className="flex flex-wrap justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Button asChild size="lg" className="h-12 px-8 rounded-full text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-purple-500/20">
-                <Link href="/docs">
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 rounded-full text-base">
-                <Link href="https://github.com/nyxhora/ui" target="_blank">
-                  GitHub
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Component Showcase Section */}
-        <section className="container py-16 md:py-24 mx-auto">
-          <div className="text-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-4">
-                <Layers className="h-3 w-3" />
-                Featured Components
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Beautiful components, ready to use
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Explore our collection of premium UI components. Each one is carefully crafted for the best developer experience.
-              </p>
-            </motion.div>
-          </div>
-
-          <ShowcardGrid columns={2} gap="md" className="max-w-5xl mx-auto">
-            {/* Navbar Showcase */}
-            <ComponentShowcard
-              title="Navbar"
-              description="Responsive navigation with dropdown menus and mobile support"
-              href="/docs/components/navbar"
-              gradient="from-sky-500/10 to-blue-500/10"
-              animationDelay={0.1}
-              badge="Popular"
-              badgeVariant="info"
-            >
-              <NavbarPreview />
-            </ComponentShowcard>
-
-            {/* Footer Showcase */}
-            <ComponentShowcard
-              title="Footer"
-              description="Modern footer with links, social icons, and newsletter"
-              href="/docs/components/footer"
-              gradient="from-purple-500/10 to-pink-500/10"
-              animationDelay={0.2}
-            >
-              <FooterPreview />
-            </ComponentShowcard>
-
-            {/* Workspace Label Showcase */}
-            <ComponentShowcard
-              title="Workspace Label"
-              description="Display workspace info with avatars and plan badges"
-              href="/docs/components/workspace-label"
-              gradient="from-emerald-500/10 to-teal-500/10"
-              animationDelay={0.3}
-              badge="New"
-              badgeVariant="success"
-            >
-              <WorkspaceLabelPreview />
-            </ComponentShowcard>
-
-            {/* Awesome Button Showcase */}
-            <ComponentShowcard
-              title="Particle Button"
-              description="Interactive button with particle burst animations"
-              href="/docs/components/button"
-              gradient="from-orange-500/10 to-amber-500/10"
-              animationDelay={0.4}
-              badge="Interactive"
-              badgeVariant="warning"
-            >
-              <div className="flex flex-col items-center gap-4">
-                <ParticleBurstButton className="px-8">
-                  Click me!
-                </ParticleBurstButton>
-                <span className="text-xs text-muted-foreground">
-                  Try clicking the button
-                </span>
-              </div>
-            </ComponentShowcard>
-          </ShowcardGrid>
-
-
-          {/* View All Button */}
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <Button asChild variant="outline" size="lg" className="rounded-full">
-              <Link href="/docs/components/button">
-                View All Components
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </motion.div>
-        </section>
-
-        {/* Features Section */}
-        <section className="container space-y-6 py-8 md:py-12 lg:py-24 mx-auto">
-          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-            <motion.div
-              className="relative overflow-hidden rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm p-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="flex h-[180px] flex-col justify-between rounded-xl p-6">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <Layers className="h-6 w-6 text-white" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-bold">Shadcn Compatible</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Seamlessly integrates with your existing shadcn/ui projects.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="relative overflow-hidden rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm p-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="flex h-[180px] flex-col justify-between rounded-xl p-6">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                  <Copy className="h-6 w-6 text-white" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-bold">Copy & Paste</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Simply copy the component code and paste it into your project.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="relative overflow-hidden rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm p-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="flex h-[180px] flex-col justify-between rounded-xl p-6">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center">
-                  <Terminal className="h-6 w-6 text-white" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-bold">Fully Typed</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Built with TypeScript for a robust and type-safe development experience.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="container py-8 md:py-12 lg:py-24 mx-auto">
-          <motion.div
-            className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-6 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-3xl opacity-20 rounded-full" />
-              <h2 className="relative font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-                Ready to build?
-              </h2>
             </div>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              Nyxhora UI is open source and free to use. Join the community and start building today.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="h-12 px-8 rounded-full text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-purple-500/20">
-                <Link href="/docs">
-                  Start Building
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 rounded-full text-base">
-                <Link href="/docs/components/button">
-                  Browse Components
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
+          </div>
+        </section>
+
+        {/* STATS SECTION */}
+        <section className="border-t border-zinc-800/50 bg-black/20 backdrop-blur-sm">
+
         </section>
       </main>
+
       <Footer />
     </div>
   );
 }
+

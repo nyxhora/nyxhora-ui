@@ -23,12 +23,17 @@ export const docsConfig: DocsNavCategory[] = [
             {
                 title: "Introduction",
                 href: "/docs",
-                description: "Welcome to NyxhoraUI - Modern UI components for Next.js",
+                description: "Welcome to Nyxhora UI- Composable UI for modern builders",
             },
             {
                 title: "Installation",
                 href: "/docs/installation",
-                description: "How to install and set up NyxhoraUI in your project",
+                description: "How to install and set up Nyxhora UIin your project",
+            },
+            {
+                title: "Components",
+                href: "/docs/components",
+                description: "All available components",
             },
             {
                 title: "Changelog",
@@ -51,6 +56,12 @@ export const docsConfig: DocsNavCategory[] = [
                 title: "Awesome Button",
                 href: "/docs/components/awesome-button",
                 description: "Enhanced animated button component",
+                isNew: true,
+            },
+            {
+                title: "Magic Button",
+                href: "/docs/components/magic-button",
+                description: "Enhanced Magic button component",
                 isNew: true,
             },
             {
@@ -93,21 +104,7 @@ export const docsConfig: DocsNavCategory[] = [
                 href: "/docs/components/label",
                 description: "Form labels",
             },
-            {
-                title: "Form",
-                href: "/docs/components/form",
-                description: "Form validation and handling",
-            },
-            {
-                title: "Calendar",
-                href: "/docs/components/calendar",
-                description: "Date picker calendar",
-            },
-            {
-                title: "Icon Picker",
-                href: "/docs/components/icon-picker",
-                description: "Icon selection component",
-            },
+
         ],
     },
     {
@@ -123,30 +120,45 @@ export const docsConfig: DocsNavCategory[] = [
                 href: "/docs/components/avatar",
                 description: "User profile images",
             },
-            // {
-            //     title: "Avatar Group",
-            //     href: "/docs/components/avatar-group",
-            //     description: "Stacked avatar display",
-            // },
             {
                 title: "Badge",
                 href: "/docs/components/badge",
                 description: "Status indicators and labels",
             },
-            // {
-            //     title: "Unread Badge",
-            //     href: "/docs/components/unread-badge",
-            //     description: "Notification counter badge",
-            // },
             {
-                title: "Card",
-                href: "/docs/components/card",
-                description: "Container for content",
+                title: "Shiny Card",
+                href: "/docs/components/shiny-card",
+                description: "Shimmering shiny card",
+                isNew: true,
             },
             {
-                title: "Display Card",
-                href: "/docs/components/display-card",
-                description: "Enhanced display card",
+                title: "Magic Card",
+                href: "/docs/components/magic-card",
+                description: "Animated magic card",
+                isNew: true,
+            },
+            {
+                title: "Magic Text",
+                href: "/docs/components/magic-text",
+                description: "Text with magic border effect",
+                isNew: true,
+            },
+            {
+                title: "Spotlight Text",
+                href: "/docs/components/spotlight-text",
+                description: "Stencil text with spotlight",
+                isNew: true,
+            },
+            {
+                title: "Variable Shadow Text",
+                href: "/docs/components/variable-shadow-text",
+                description: "Variable font shadow effect",
+                isNew: true,
+            },
+            {
+                title: "Sparkles",
+                href: "/docs/components/sparkles",
+                description: "Sparkles effect for text or components",
             },
             {
                 title: "Component Showcard",
@@ -155,36 +167,22 @@ export const docsConfig: DocsNavCategory[] = [
                 isNew: true,
             },
             {
-                title: "Comet Card",
-                href: "/docs/components/comet-card",
-                description: "Animated comet effect card",
-                isNew: true,
-            },
-            {
-                title: "Expandable Card",
-                href: "/docs/components/expandable-card",
-                description: "Expandable content cards",
-            },
-            {
                 title: "Skeleton",
                 href: "/docs/components/skeleton",
                 description: "Loading placeholder",
+            },
+            {
+                title: "Spinner",
+                href: "/docs/components/spinner",
+                description: "Loading spinner with variants",
+                isNew: true,
             },
             {
                 title: "Progress",
                 href: "/docs/components/progress",
                 description: "Progress indicators",
             },
-            {
-                title: "Table",
-                href: "/docs/components/table",
-                description: "Data tables",
-            },
-            {
-                title: "Chart",
-                href: "/docs/components/chart",
-                description: "Data visualization charts",
-            },
+
             {
                 title: "Separator",
                 href: "/docs/components/separator",
@@ -205,45 +203,27 @@ export const docsConfig: DocsNavCategory[] = [
                 href: "/docs/components/dialog",
                 description: "Modal dialog windows",
             },
-            // {
-            //     title: "Alert Dialog",
-            //     href: "/docs/components/alert-dialog",
-            //     description: "Modal dialogs for confirmations",
-            // },
             {
                 title: "Sheet",
                 href: "/docs/components/sheet",
                 description: "Slide-out panels",
             },
             {
-                title: "Drawer",
-                href: "/docs/components/drawer",
-                description: "Drawer navigation panels",
+                title: "Action Bar",
+                href: "/docs/components/action-bar",
+                description: "Expanding action list",
+                isNew: true,
             },
             {
-                title: "Popover",
-                href: "/docs/components/popover",
-                description: "Floating content panels",
+                title: "3D Card",
+                href: "/docs/components/three-d-card",
+                description: "3D perspective card",
+                isNew: true,
             },
             {
                 title: "Tooltip",
                 href: "/docs/components/tooltip",
                 description: "Hover information tips",
-            },
-            {
-                title: "Dropdown Menu",
-                href: "/docs/components/dropdown-menu",
-                description: "Context and action menus",
-            },
-            {
-                title: "Context Menu",
-                href: "/docs/components/context-menu",
-                description: "Right-click context menus",
-            },
-            {
-                title: "Command",
-                href: "/docs/components/command",
-                description: "Command palette / search",
             },
             {
                 title: "Sonner",
@@ -256,50 +236,15 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "iOS-style notification island",
                 isNew: true,
             },
-            {
-                title: "Exit Confirmation Modal",
-                href: "/docs/components/exit-confirmation-modal",
-                description: "Unsaved changes warning",
-            },
         ],
     },
     {
         title: "Navigation",
         items: [
             {
-                title: "Navbar",
-                href: "/docs/components/navbar",
-                description: "Top navigation bar",
-            },
-            {
                 title: "Navbar Menu",
                 href: "/docs/components/navbar-menu",
                 description: "Navigation menu items",
-            },
-            {
-                title: "Floating Navbar",
-                href: "/docs/components/floating-navbar",
-                description: "Floating navigation bar",
-            },
-            {
-                title: "Sidebar",
-                href: "/docs/components/sidebar",
-                description: "Navigation sidebars",
-            },
-            {
-                title: "Content Sidebar",
-                href: "/docs/components/content-sidebar",
-                description: "Content navigation sidebar",
-            },
-            {
-                title: "TOC Sidebar",
-                href: "/docs/components/toc-sidebar",
-                description: "Table of contents sidebar",
-            },
-            {
-                title: "Breadcrumb",
-                href: "/docs/components/breadcrumb",
-                description: "Hierarchical navigation",
             },
             {
                 title: "Tabs",
@@ -312,12 +257,6 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "URL-synced tabs",
             },
             {
-                title: "Floating Dock",
-                href: "/docs/components/floating-dock",
-                description: "macOS-style dock navigation",
-                isNew: true,
-            },
-            {
                 title: "Floating Dock Dialog",
                 href: "/docs/components/floating-dock-dialog",
                 description: "Enhanced dock with bottom sheet dialog",
@@ -327,12 +266,6 @@ export const docsConfig: DocsNavCategory[] = [
                 title: "Footer",
                 href: "/docs/components/footer",
                 description: "Page footer component",
-            },
-            {
-                title: "Smart Sidebar",
-                href: "/docs/components/smart-sidebar",
-                description: "Dual-pane sidebar for desktop apps",
-                isNew: true,
             },
             {
                 title: "Workspace Label",
@@ -351,42 +284,23 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "Custom scrollable containers",
             },
             {
-                title: "Resizable",
-                href: "/docs/components/resizable",
-                description: "Resizable panels and layouts",
-            },
-            {
-                title: "Collapsible",
-                href: "/docs/components/collapsible",
-                description: "Expandable sections",
-            },
-            {
-                title: "Carousel",
-                href: "/docs/components/carousel",
-                description: "Image and content sliders",
+                title: "Image Slider",
+                href: "/docs/components/image-slider",
+                description: "Responsive image slider",
                 isNew: true,
             },
             {
-                title: "Bento Grid",
-                href: "/docs/components/bento-grid",
-                description: "Bento box grid layout",
+                title: "Corner Grid",
+                href: "/docs/components/corner-grid",
+                description: "Tech-inspired corner grid",
                 isNew: true,
             },
             {
-                title: "Toggle",
-                href: "/docs/components/toggle",
-                description: "Toggle button",
-            },
-            {
-                title: "Toggle Group",
-                href: "/docs/components/toggle-group",
-                description: "Toggle button groups",
-            },
-            {
-                title: "Theme Toggle",
-                href: "/docs/components/theme-toggle",
-                description: "Dark/light mode toggle",
-            },
+                title: "Image Grid",
+                href: "/docs/components/image-grid",
+                description: "Interactive hero image grid",
+                isNew: true,
+            }
         ],
     },
     {
@@ -401,6 +315,12 @@ export const docsConfig: DocsNavCategory[] = [
                 title: "Background Lines",
                 href: "/docs/components/background-lines",
                 description: "Animated line patterns",
+            },
+            {
+                title: "Geist Background",
+                href: "/docs/components/geist-background",
+                description: "Flickering geist-inspired background",
+                isNew: true,
             },
             {
                 title: "Shooting Stars",
@@ -447,6 +367,12 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "Shimmering text effect",
             },
             {
+                title: "Gradient Text",
+                href: "/docs/components/gradient-text",
+                description: "Customizable gradient text",
+                isNew: true,
+            },
+            {
                 title: "Hover Reveal Text",
                 href: "/docs/components/hover-reveal-text",
                 description: "Blur-to-reveal text effect",
@@ -474,21 +400,35 @@ export const docsConfig: DocsNavCategory[] = [
                 description: "Card with animated walking ants",
                 isNew: true,
             },
+            {
+                title: "Gradient Background",
+                href: "/docs/components/gradient-background",
+                description: "Configurable gradient background",
+                isNew: true,
+            },
+            {
+                title: "Code Block",
+                href: "/docs/components/code-block",
+                description: "Code block with syntax highlighting",
+                isNew: true,
+            },
+            {
+                title: "Anime Card",
+                href: "/docs/components/anime-card",
+                description: "Glassmorphism anime card",
+                isNew: true,
+            },
+            {
+                title: "Music Player",
+                href: "/docs/components/music-player",
+                description: "Glassmorphism music player",
+                isNew: true,
+            },
         ],
     },
     {
         title: "Utilities",
         items: [
-            {
-                title: "Logo",
-                href: "/docs/components/logo",
-                description: "Brand logo component",
-            },
-            {
-                title: "Workspace Switcher",
-                href: "/docs/components/workspace-switcher",
-                description: "Workspace switching label",
-            },
             {
                 title: "Exit Intent Demo",
                 href: "/docs/components/exit-intent-demo",

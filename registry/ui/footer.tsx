@@ -19,7 +19,7 @@ const Footer = () => {
                             <p className="text-sm text-muted-foreground">
                                 Your Complete Digital Workspace
                             </p>
-                            <div className="flex space-x-4">
+                            <div className="grid grid-cols-4 md:grid-cols-4 sm:grid-cols-2 gap-4 mt-4">
                                 <Link
                                     href="https://twitter.com/@nyxhora"
                                     className="text-muted-foreground hover:text-blue-600"

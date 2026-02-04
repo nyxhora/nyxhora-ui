@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 import { Orbitron } from "next/font/google";
+import { ColorThemeProvider } from "@/registry/providers/color-theme-provider";
 const orbitron = Orbitron({
   variable: "--font-orbitron",
   subsets: ["latin"],
@@ -24,11 +25,11 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   title: {
-    default: "NyxhoraUI - Modern UI Components for Next.js",
+    default: "Nyxhora UI- Composable UI for modern builders",
     template: "%s | NyxhoraUI",
   },
   metadataBase: new URL("https://ui.nyxhora.com"),
-  description: "A collection of beautifully designed, accessible, and customizable React UI components built with Tailwind CSS and Framer Motion. Build premium web experiences with ease.",
+  description: "A collection of beautifully designed, accessible, and customizable React UI components built on shadcn/ui with Tailwind CSS and Framer Motion. Build premium web experiences with ease.",
   keywords: ["Next.js", "React", "Tailwind CSS", "UI Components", "Library", "Design System", "Framer Motion", "Accessible"],
   authors: [{ name: "Nyxhora Team" }],
   creator: "Nyxhora",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ui.nyxhora.com",
-    title: "NyxhoraUI - Build Premium Web Experiences",
+    title: "Nyxhora UI- Composable UI for modern builders",
     description: "Copy-paste UI components for Next.js. Beautiful, reusable, and built with Tailwind CSS.",
     siteName: "NyxhoraUI",
     images: [
@@ -44,13 +45,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "NyxhoraUI Preview",
+        alt: "Nyxhora UIPreview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NyxhoraUI - Build Premium Web Experiences",
+    title: "Nyxhora UI- Composable Ui for modern builders",
     description: "Copy-paste UI components for Next.js. Beautiful, reusable, and built with Tailwind CSS.",
     creator: "@nyxhora",
     images: ["/og-image.png"],
@@ -118,29 +119,31 @@ export default function RootLayout({
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+          defaultTheme="dark"
+          storageKey="nyxhora-theme"
         >
-          <NextTopLoader
-            color="#2563eb"
-            initialPosition={0.08}
-            crawlSpeed={200}
-            height={4}
-            crawl={true}
-            showSpinner={false}
-            easing="ease"
-            speed={200}
-            shadow="0 0 10px #2563eb,0 0 5px #2563eb"
-            zIndex={99999}
-          />
-          <Toaster />
-          <Navbar />
-          <ExitIntentProvider isBeforeUnloadActive={false}>
-            <main className="flex-1 pt-16 min-h-screen">
-              {children}
-            </main>
-          </ExitIntentProvider>
+          <ColorThemeProvider>
+
+            <NextTopLoader
+              color="#2563eb"
+              initialPosition={0.08}
+              crawlSpeed={200}
+              height={4}
+              crawl={true}
+              showSpinner={false}
+              easing="ease"
+              speed={200}
+              shadow="0 0 10px #2563eb,0 0 5px #2563eb"
+              zIndex={99999}
+            />
+            <Toaster />
+            <ExitIntentProvider isBeforeUnloadActive={false}>
+              <main className="flex-1 pt-16 min-h-screen">
+                <Navbar />
+                {children}
+              </main>
+            </ExitIntentProvider>
+          </ColorThemeProvider>
         </ThemeProvider>
       </body>
     </html>

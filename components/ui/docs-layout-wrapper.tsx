@@ -55,7 +55,7 @@ export function DocsLayoutWrapper({
                     )}
                     style={{ top: "64px" }} // Account for navbar
                 >
-                    <DocsSidebar className="static h-full w-full border-0" />
+                    <DocsSidebar className="static h-full w-full border-0 block" />
                 </div>
 
                 {/* Desktop Sidebar */}

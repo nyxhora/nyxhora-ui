@@ -47,11 +47,8 @@
 - Node.js 18.17 or later
 - npm, yarn, pnpm, or bun
 
-### Quick Start
-
-```bash
 # Clone the repository
-git clone https://github.com/your-username/nyxhoraui.git
+git clone https://github.com/nyxhora/nyxhora-ui.git
 
 # Navigate to the project
 cd nyxhoraui

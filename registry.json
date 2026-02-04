@@ -27,17 +27,16 @@
             ]
         },
         {
-            "name": "awsome-button",
-            "title": "Awsome Button",
-            "description": "Awsome Button component",
+            "name": "Awesome-button",
+            "title": "Awesome Button",
+            "description": "Awesome Button component",
             "type": "registry:ui",
             "dependencies": [
-                "@/lib/utils",
                 "motion/react"
             ],
             "files": [
                 {
-                    "path": "registry/ui/awsomebutton.tsx",
+                    "path": "registry/ui/awesome-button.tsx",
                     "type": "registry:ui"
                 }
             ]
@@ -673,6 +672,162 @@
             "files": [
                 {
                     "path": "registry/providers/exit-intent-provider.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "geist-background",
+            "title": "Geist Background",
+            "description": "An ambient animated background combining subtle flicker, procedural noise masks, and layered conic gradients to create depth-heavy visuals inspired by Geist-style design.",
+            "type": "registry:ui",
+            "dependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/geist-background.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "three-d-card",
+            "title": "Three D Card",
+            "description": "An interactive card component with real-time 3D tilt and depth effects driven by cursor movement, giving a tactile and immersive hover experience.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/three-d-card.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "gradient-background",
+            "title": "Gradient Background",
+            "description": "A motion-based gradient background that smoothly reacts to cursor position, ideal for landing pages, banners, and hero sections.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/gradient-background.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "code-block",
+            "title": "Code Block Visual",
+            "description": "A decorative animated grid and code-inspired background designed for developer-focused sections and technical showcases.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/code-block.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "spinner",
+            "title": "Spinner",
+            "description": "A lightweight animated loading spinner built with a modern grid-style motion system for async states and transitions.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/spinner.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "magic-button",
+            "title": "Magic Button",
+            "description": "A highly interactive button with reactive lighting and hover effects that follow cursor movement, designed to highlight primary actions.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/magic-button.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "magic-text",
+            "title": "Magic Text",
+            "description": "An animated text effect component that adds subtle glow and motion-based highlights for headings and emphasis text.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/magic-text.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "magic-card",
+            "title": "Magic Card",
+            "description": "A responsive card container with layered lighting and motion effects that react to cursor proximity, perfect for feature and pricing sections.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/magic-card.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "spotlight-text",
+            "title": "Spotlight Text",
+            "description": "A typography component that simulates a moving spotlight across text, drawing user focus through interaction.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/spotlight-text.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "variable-shadow-text",
+            "title": "Variable Shadow Text",
+            "description": "A dynamic text component where shadow direction and intensity adjust based on cursor position, creating realistic depth.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/variable-shadow-text.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "gradient-text",
+            "title": "Gradient Text",
+            "description": "A customizable gradient-filled text component with optional animated transitions for branding and standout headings.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/gradient-text.tsx",
+                    "type": "registry:ui"
+                }
+            ]
+        },
+        {
+            "name": "shiny-card",
+            "title": "Shiny Card",
+            "description": "A glossy card component featuring a reflective light-sweep hover effect, giving a premium and material-like finish.",
+            "type": "registry:ui",
+            "registryDependencies": [],
+            "files": [
+                {
+                    "path": "registry/ui/shiny-card.tsx",
                     "type": "registry:ui"
                 }
             ]

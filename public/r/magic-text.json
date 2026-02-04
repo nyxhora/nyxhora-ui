@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magic-text",
+  "title": "Magic Text",
+  "description": "An animated text effect component that adds subtle glow and motion-based highlights for headings and emphasis text.",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/magic-text.tsx",
+      "content": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { motion, useTime, useTransform } from \"motion/react\"\r\n\r\nexport interface MagicTextProps extends React.HTMLAttributes<HTMLSpanElement> {\r\n    gradientColor?: string\r\n}\r\n\r\nexport function MagicText({\r\n    className,\r\n    gradientColor = \"conic-gradient(from 90deg at 50% 50%, #ec300edc 0%, #393bb2c9 30%, #ff00bfff 70%, #ec300edc 100%)\",\r\n    children,\r\n    ...props\r\n}: MagicTextProps) {\r\n    const time = useTime()\r\n    const angle = useTransform(time, (t) => `${(t / 5000 * 360) % 360}deg`)\r\n\r\n    const backgroundImage = useTransform(angle, (a) => {\r\n        if (gradientColor.includes(\"from\")) {\r\n            return gradientColor.replace(/from \\d+deg/g, `from ${a}`)\r\n        }\r\n        if (gradientColor.startsWith(\"conic-gradient(\")) {\r\n            return gradientColor.replace(\"conic-gradient(\", `conic-gradient(from ${a} `)\r\n        }\r\n        return gradientColor\r\n    })\r\n\r\n    return (\r\n        <motion.span\r\n            className={cn(\r\n                \"inline-block bg-clip-text text-transparent whitespace-pre-wrap font-bold\",\r\n                className\r\n            )}\r\n            style={{\r\n                backgroundImage,\r\n            }}\r\n            {...props as any}\r\n        >\r\n            {children}\r\n        </motion.span>\r\n    )\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

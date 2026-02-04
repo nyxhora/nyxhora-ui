@@ -15,5 +15,5 @@ export async function ComponentSource({ filePath }: { filePath: string }) {
     const filename = path.basename(filePath)
     const filepathtoshow = `components/ui/${filename}`
 
-    return <FullCodeBlock code={code} language="tsx" filename={filename} filepath={filepathtoshow} />
+    return <FullCodeBlock code={code} language="tsx" filename={filename} filepath={filepathtoshow} replace={true}/>
 }

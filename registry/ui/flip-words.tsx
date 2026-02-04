@@ -7,10 +7,12 @@ export const FlipWords = ({
   words,
   duration = 3000,
   className,
+  colors,
 }: {
   words: string[];
   duration?: number;
   className?: string;
+  colors?: string[]; // Array of css colors
 }) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
@@ -28,6 +30,9 @@ export const FlipWords = ({
         startAnimation();
       }, duration);
   }, [isAnimating, duration, startAnimation]);
+
+  const wordIndex = words.indexOf(currentWord);
+  const currentColor = colors ? colors[wordIndex % colors.length] : undefined;
 
   return (
     <AnimatePresence
@@ -61,6 +66,7 @@ export const FlipWords = ({
           "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2",
           className
         )}
+        style={currentColor ? { color: currentColor } : undefined}
         key={currentWord}
       >
         {/* edit suggested by Sajal: https://x.com/DewanganSajal */}

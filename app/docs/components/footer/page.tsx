@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Footer from "@/registry/ui/footer";
-import { CodeBlockWrapper, DocsHeader } from "@/components/ui/docs-documentation";
+import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
 export const metadata: Metadata = {
@@ -13,14 +13,7 @@ export default function FooterDocsPage() {
     <div className="space-y-10">
       <DocsHeader title="Footer" description="A comprehensive footer component with brand section, social links, navigation columns, and legal links. Fully responsive and customizable." />
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Preview</h2>
-        <div className="rounded-xl border border-border/50 overflow-hidden">
-          <div className="bg-background">
-            <Footer />
-          </div>
-        </div>
-      </section>
+      <DocsPreview previewCode={<Footer />} code={`<Footer/>`} />
 
 
       <DocsInstallation name="footer" />

@@ -12,7 +12,7 @@ export default function InstallationPage() {
             <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight">Installation</h1>
                 <p className="text-lg text-muted-foreground">
-                    Get started with NyxhoraUI in your project. Follow the steps below
+                    Get started with Nyxhora UIin your project. Follow the steps below
                     to install and configure the components.
                 </p>
             </div>
@@ -60,7 +60,7 @@ export default function InstallationPage() {
                         <h3 className="text-lg font-semibold">Install dependencies</h3>
                     </div>
                     <p className="text-muted-foreground ml-11">
-                        Install the required dependencies for NyxhoraUI components:
+                        Install the required dependencies for Nyxhora UIcomponents:
                     </p>
 
                     <Tabs defaultValue="npm" className="">

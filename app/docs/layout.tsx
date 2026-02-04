@@ -3,10 +3,10 @@ import { DocsLayoutWrapper } from "@/components/ui/docs-layout-wrapper";
 
 export const metadata: Metadata = {
     title: {
-        template: "%s | NyxhoraUI Documentation",
-        default: "NyxhoraUI Documentation - Modern React UI Components",
+        template: "%s | NyxhoraUI",
+        default: "Nyxhora UI- Composable UI for modern builders",
     },
-    description: "Comprehensive documentation for NyxhoraUI - A collection of beautifully designed, accessible, and customizable React UI components for Next.js applications.",
+    description: "Comprehensive documentation for Nyxhora UI- A collection of beautifully designed, accessible, and customizable React UI components for web applications.",
     keywords: [
         "React components",
         "UI library",
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         "web development",
     ],
     openGraph: {
-        title: "NyxhoraUI Documentation",
+        title: "NyxhoraUI",
         description: "Build beautiful interfaces with modern, accessible React components.",
         type: "website",
         siteName: "NyxhoraUI",
     },
     twitter: {
         card: "summary_large_image",
-        title: "NyxhoraUI Documentation",
+        title: "Nyxhora UI Documentation",
         description: "Build beautiful interfaces with modern, accessible React components.",
     },
 };

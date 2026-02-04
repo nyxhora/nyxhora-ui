@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { getDocsPagination, DocsNavItem } from "@/lib/docs-config";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useIsMobile } from "@/registry/hooks/use-mobile";
 
 interface DocsPaginationProps {
     className?: string;
@@ -44,6 +45,7 @@ interface PaginationLinkProps {
 
 function PaginationLink({ item, direction }: PaginationLinkProps) {
     const isPrev = direction === "prev";
+    const isMobile = useIsMobile();
 
     return (
         <Link
@@ -86,10 +88,14 @@ function PaginationLink({ item, direction }: PaginationLinkProps) {
             </span>
 
             {/* Description (optional) */}
-            {item.description && (
-                <span className="text-xs text-muted-foreground line-clamp-1">
-                    {item.description}
-                </span>
+            {!isMobile && (<>
+
+                {item.description && (
+                    <span className="text-xs text-muted-foreground line-clamp-1">
+                        {item.description}
+                    </span>
+                )}
+            </>
             )}
         </Link>
     );

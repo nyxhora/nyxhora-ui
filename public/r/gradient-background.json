@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-background",
+  "title": "Gradient Background",
+  "description": "A motion-based gradient background that smoothly reacts to cursor position, ideal for landing pages, banners, and hero sections.",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/gradient-background.tsx",
+      "content": "\"use client\";\r\n\r\nimport React from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface GradientBackgroundProps {\r\n    position?: \"left\" | \"center\" | \"right\";\r\n    intensity?: \"low\" | \"medium\" | \"high\";\r\n    className?: string;\r\n    children?: React.ReactNode;\r\n}\r\n\r\nexport function GradientBackground({\r\n    position = \"center\",\r\n    intensity = \"medium\",\r\n    className,\r\n    blobClassName,\r\n    children,\r\n}: GradientBackgroundProps & { blobClassName?: string }) {\r\n    const positionStyles = {\r\n        left: \"left-100 -translate-x-1/2\",\r\n        center: \"left-1/2 -translate-x-1/2\",\r\n        right: \"right-100 translate-x-1/2\",\r\n    };\r\n\r\n    const intensityStyles = {\r\n        low: \"opacity-30 blur-[80px]\",\r\n        medium: \"opacity-40 blur-[100px]\",\r\n        high: \"opacity-50 blur-[120px]\",\r\n    };\r\n\r\n    return (\r\n        <div className={cn(\"absolute top-0 w-full h-full overflow-hidden pointer-events-none z-10\", className)}>\r\n            <div\r\n                className={cn(\r\n                    \"absolute top-0 w-[500px] h-[500px] rounded-full bg-gradient-to-r from-purple-500/40 to-blue-500/40 mix-blend-screen\",\r\n                    positionStyles[position],\r\n                    intensityStyles[intensity],\r\n                    blobClassName\r\n                )}\r\n            />\r\n            {children}\r\n        </div>\r\n    );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

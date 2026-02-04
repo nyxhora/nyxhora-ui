@@ -1,4 +1,4 @@
-import { ParticleBurstButton } from "@/registry/ui/awsomebutton";
+import { ParticleBurstButton } from "@/registry/ui/awesome-button";
 import { ComponentSource } from "@/registry/ui/component-source";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
@@ -25,12 +25,12 @@ export default function AwesomeButtonDocsPage() {
   Magic ✨
 </ParticleBurstButton>`}
       />
-      <DocsInstallation name="awsome-button" />
+      <DocsInstallation name="Awesome-button" />
 
 
       <CodeBlockWrapper
         title="Usage"
-        code={`import { ParticleBurstButton } from "@/registry/ui/awsomebutton"
+        code={`import { ParticleBurstButton } from "@/registry/ui/Awesomebutton"
 
 export default function MyComponent() {
   return (

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-text",
+  "title": "Gradient Text",
+  "description": "A customizable gradient-filled text component with optional animated transitions for branding and standout headings.",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/gradient-text.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport React from \"react\";\r\n\r\ninterface GradientTextProps extends React.HTMLAttributes<HTMLSpanElement> {\r\n    children: React.ReactNode;\r\n    /**\r\n     * Optional custom colors for the gradient.\r\n     * If provided, overrides the default tailwind classes for colors.\r\n     * Format: [\"startColor\", \"endColor\", \"middleColor?...\"]\r\n     */\r\n    colors?: string[];\r\n\r\n    /**\r\n     * Animation speed in seconds. If 0, no animation.\r\n     * Default: 0\r\n     */\r\n    animationSpeed?: number;\r\n\r\n    /**\r\n     * Show the gradient as a background behind the text (like a highlight)?\r\n     * Default: false (text gradient)\r\n     */\r\n    showBorder?: boolean;\r\n}\r\n\r\nexport function GradientText({\r\n    children,\r\n    className,\r\n    colors,\r\n    animationSpeed = 0,\r\n    showBorder = false,\r\n    ...props\r\n}: GradientTextProps) {\r\n    const gradientStyle = colors\r\n        ? {\r\n            backgroundImage: `linear-gradient(to bottom, ${colors.join(\", \")})`,\r\n        }\r\n        : {};\r\n\r\n    const animationStyle = animationSpeed > 0\r\n        ? {\r\n            backgroundSize: \"200% 200%\",\r\n            animation: `gradient-text-anim ${animationSpeed}s ease infinite`,\r\n        }\r\n        : {};\r\n\r\n    return (\r\n        <span\r\n            className={cn(\r\n                \"pointer-events-none bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl leading-none font-semibold text-transparent dark:from-white dark:to-slate-900/10\",\r\n                animationSpeed > 0 && \"animate-gradient\",\r\n                className\r\n            )}\r\n            style={{\r\n                ...gradientStyle,\r\n                ...animationStyle,\r\n            }}\r\n            {...props}\r\n        >\r\n            {children}\r\n        </span>\r\n    );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

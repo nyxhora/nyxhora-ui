@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magic-button",
+  "title": "Magic Button",
+  "description": "A highly interactive button with reactive lighting and hover effects that follow cursor movement, designed to highlight primary actions.",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/magic-button.tsx",
+      "content": "import React from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport const MagicButton = ({\r\n    title,\r\n    icon,\r\n    position,\r\n    handleClick,\r\n    otherClasses,\r\n}: {\r\n    title: string;\r\n    icon?: React.ReactNode;\r\n    position?: \"left\" | \"right\";\r\n    handleClick?: () => void;\r\n    otherClasses?: string;\r\n}) => {\r\n    return (\r\n        <button\r\n            className={cn(\r\n                \"relative inline-flex h-12 w-full overflow-hidden rounded-full p-[1px] focus:outline-none md:w-60\",\r\n                otherClasses\r\n            )}\r\n            onClick={handleClick}\r\n        >\r\n            <span className=\"absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]\" />\r\n            <span className=\"inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-7 text-sm font-medium text-white backdrop-blur-3xl gap-2\">\r\n                {position === \"left\" && icon}\r\n                {title}\r\n                {position === \"right\" && icon}\r\n            </span>\r\n        </button>\r\n    );\r\n};\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -71,8 +71,8 @@ function DocsCopyButton() {
         const title = document.title;
 
         const prompts = {
-            chatgpt: `I'm looking at this NyxhoraUI documentation: ${url}\nHelp me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`,
-            claude: `I'm reading this NyxhoraUI documentation page: ${url}\nPlease help me understand how to implement this. I may ask follow-up questions about usage, examples, or troubleshooting.`,
+            chatgpt: `I'm looking at this Nyxhora UI documentation: ${url}\nHelp me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`,
+            claude: `I'm reading this Nyxhora UI documentation page: ${url}\nPlease help me understand how to implement this. I may ask follow-up questions about usage, examples, or troubleshooting.`,
             v0: url,
         };
 
@@ -331,14 +331,14 @@ export function ComponentPreview({
                     {preview}
                 </div>
             ) : (
-                <pre className="px-4 bg-zinc-950 overflow-hidden">
+                <pre className="px-4 bg-background overflow-hidden">
                     <code ref={codeRef} className="hljs language-tsx text-sm overflow-hidden">{code}</code>
                 </pre>
             )}
         </div>
     );
 }
-export function CodeBlockWrapper({ title, code, language }: { title?: string, code: string, language: string }) {
+export function CodeBlockWrapper({ title, code, language, replace }: { title?: string, code: string, language: string, replace?: boolean }) {
     code = code.replace("@/registry/ui", "@/components/ui")
     return (
         <section className="space-y-4">
@@ -466,7 +466,10 @@ export function CodeBlock({ code, language, showLineNumbers = true, maxHeight = 
         </div>
     );
 }
-export function FullCodeBlock({ code, language, filename, filepath }: { code: string; language: string, filename?: string, filepath?: string }) {
+export function FullCodeBlock({ code, language, filename, filepath, replace }: { code: string; language: string, filename?: string, filepath?: string, replace?: boolean }) {
+    if (replace) {
+        code = code.replace("@/registry/ui", "@/components/ui")
+    }
     return (
         <div className="space-y-2">
             <FileCodeBlock code={code} language={language} filename={filename} filepath={filepath} />

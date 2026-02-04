@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "awsome-button",
-  "title": "Awsome Button",
-  "description": "Awsome Button component",
+  "name": "Awesome-button",
+  "title": "Awesome Button",
+  "description": "Awesome Button component",
   "dependencies": [
     "@/lib/utils",
     "motion/react"
   ],
   "files": [
     {
-      "path": "registry/ui/awsomebutton.tsx",
+      "path": "registry/ui/Awesomebutton.tsx",
       "content": "'use client'\r\n \r\nimport React, { useState } from 'react'\r\n \r\nimport { motion } from 'motion/react'\r\n \r\nimport { cn } from '@/lib/utils'\r\n \r\ninterface ParticleBurstButtonProps {\r\n  children: React.ReactNode\r\n  className?: string\r\n}\r\n \r\nexport function ParticleBurstButton({\r\n  children,\r\n  className,\r\n}: ParticleBurstButtonProps) {\r\n  const [particles, setParticles] = useState<\r\n    Array<{ id: number; angle: number }>\r\n  >([])\r\n \r\n  const createParticles = () => {\r\n    const newParticles = Array.from({ length: 10 }).map((_, i) => ({\r\n      id: Date.now() + i,\r\n      angle: i * 36 * (Math.PI / 180),\r\n    }))\r\n    setParticles([...particles, ...newParticles])\r\n  }\r\n \r\n  return (\r\n    <div className=\"relative\">\r\n      <motion.button\r\n        className={cn(\r\n          `inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md\r\n          bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow\r\n          transition-colors`,\r\n          className\r\n        )}\r\n        whileTap={{ scale: 0.95 }}\r\n        onClick={createParticles}\r\n      >\r\n        {children}\r\n      </motion.button>\r\n      {particles.map((particle) => (\r\n        <motion.div\r\n          key={particle.id}\r\n          className=\"absolute left-1/2 top-1/2 h-2 w-2 rounded-full bg-fuchsia-300\"\r\n          initial={{ scale: 1, x: 0, y: 0 }}\r\n          animate={{\r\n            scale: 0,\r\n            x: Math.cos(particle.angle) * 100,\r\n            y: Math.sin(particle.angle) * 100,\r\n          }}\r\n          transition={{ duration: 0.5 }}\r\n          onAnimationComplete={() => {\r\n            setParticles(particles.filter((p) => p.id !== particle.id))\r\n          }}\r\n        />\r\n      ))}\r\n    </div>\r\n  )\r\n}\r\n ",
       "type": "registry:ui"
     }

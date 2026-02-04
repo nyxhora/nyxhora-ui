@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Calendar, Sparkles, Bug, Wrench, ArrowUp } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "Changelog | NyxhoraUI Documentation",
+    title: "Changelog | Nyxhora UI",
     description: "View the latest updates, new features, and bug fixes in NyxhoraUI.",
 };
 
@@ -14,7 +14,7 @@ const changelog = [
             {
                 type: "feature",
                 title: "Initial Release",
-                description: "First stable release of NyxhoraUI with 30+ components.",
+                description: "First stable release of Nyxhora UIwith 30+ components.",
             },
             {
                 type: "feature",
@@ -70,7 +70,7 @@ export default function ChangelogPage() {
                 </div>
                 <h1 className="text-4xl font-bold tracking-tight">Changelog</h1>
                 <p className="text-lg text-muted-foreground">
-                    All notable changes to NyxhoraUI are documented here.
+                    All notable changes to Nyxhora UIare documented here.
                 </p>
             </div>
 
