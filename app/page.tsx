@@ -152,7 +152,7 @@ export default function Home() {
                           <span className="text-white font-bold">0{templatesCount}</span> templates
                           <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                         </Link>
-                        <Link href="/docs/blocks" className="group flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                        <Link href="/blocks" className="group flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
                           <span className="text-white font-bold">0{blocksCount}</span> blocks
                           <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                         </Link>
@@ -228,10 +228,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* STATS SECTION */}
-        <section className="border-t border-zinc-800/50 bg-black/20 backdrop-blur-sm">
-
-        </section>
       </main>
 
       <Footer />

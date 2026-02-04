@@ -44,12 +44,12 @@ export const Navbar = () => {
       href: "/blocks",
       active: pathname === "/blocks",
     },
-    {
-      label: "About",
-      icon: Info,
-      href: "/about",
-      active: pathname === "/about",
-    }
+    // {
+    //   label: "About",
+    //   icon: Info,
+    //   href: "/about",
+    //   active: pathname === "/about",
+    // }
   ];
 
   return (
@@ -98,7 +98,7 @@ export const Navbar = () => {
             <DocsSearchCommand />
 
             <Link
-              href="https://github.com/nyxhora/nyxhoraui"
+              href="https://github.com/nyxhora/nyxhora-ui"
               target="_blank"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >

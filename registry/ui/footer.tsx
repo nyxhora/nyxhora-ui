@@ -58,7 +58,7 @@ const Footer = () => {
                             Product
                         </h3>
                         <ul className="space-y-3">
-                            {["Features", "Pricing"].map((item) => (
+                            {["Features"].map((item) => (
                                 <li key={item}>
                                     <Link
                                         href={`https://www.nyxhora.com/${item.toLowerCase()}`}
@@ -121,7 +121,7 @@ const Footer = () => {
                             ))}
                             <li>
                                 <Link
-                                    href="https://github.com/shekharP1536/nyxhoraui"
+                                    href="https://github.com/nyxhora/nyxhora-ui"
                                     target="_blank"
                                     className="text-sm text-muted-foreground hover:text-foreground flex items-center"
                                 >
@@ -146,14 +146,6 @@ const Footer = () => {
                                 >
                                     Documentation
                                     <ExternalLink size={14} className="ml-1" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/faq"
-                                    className="text-sm text-muted-foreground hover:text-foreground"
-                                >
-                                    FAQ
                                 </Link>
                             </li>
                             <li>
