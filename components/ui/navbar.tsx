@@ -18,6 +18,7 @@ import { DocsSearchCommand } from "./docs-search-command";
 import { RainbowButton } from "@/registry/ui/rainbow-button";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { useIsMobile } from "@/registry/hooks/use-mobile";
+import { SimpleModeToggle } from "./theme-switcher";
 // import { SimpleModeToggle } from "@/components/simple-mode-toggle";
 
 export const Navbar = () => {
@@ -110,6 +111,7 @@ export const Navbar = () => {
                 Try Nyxhora
               </RainbowButton>
             </Link>
+            <SimpleModeToggle/>
           </div>
 
           {/* Mobile menu button */}

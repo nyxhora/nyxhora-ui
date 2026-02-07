@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Zap, Palette, Code2, Layers, Rocket, Star, ExternalLink } from "lucide-react";
-import { CodeBlockWrapper } from "@/components/ui/docs-documentation";
+import { ArrowRight, Sparkles, Zap, Palette, Code2, Layers, Rocket, Star } from "lucide-react";
+import { CodeBlockWrapper, DocsHeader } from "@/components/ui/docs-documentation";
 
 export const metadata: Metadata = {
     title: "Introduction",
@@ -11,13 +11,14 @@ export const metadata: Metadata = {
 export default function DocsIntroductionPage() {
     return (
         <div className="space-y-12">
+            <DocsHeader />
             {/* Hero Section */}
             <div className="space-y-4">
                 <div className="flex flex-wrap gap-2">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20">
                         <Sparkles className="h-4 w-4 text-purple-500" />
                         <span className="text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-                            Welcome to NyxhoraUI
+                            Welcome to Nyxhora UI
                         </span>
                     </div>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
@@ -44,7 +45,7 @@ export default function DocsIntroductionPage() {
                     <a href="https://www.nyxhora.com" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary underline underline-offset-4">
                         Nyxhora
                     </a>
-                    {" "}productivity platform. Every component is battle-tested in production.
+                    {" "}Collaboration platform.
                 </p>
             </div>
 
@@ -57,13 +58,13 @@ export default function DocsIntroductionPage() {
                             What&apos;s Inside?
                         </h2>
                         <p className="text-sm text-muted-foreground">
-                            <strong>70+</strong> base shadcn/ui components + <strong>custom enhanced components</strong> including
+                            <strong>60+</strong> base shadcn/ui components + <strong>custom enhanced components</strong> including
                             Smart Sidebar, Floating Dock, Workspace Switcher, URL Tabs, and more — all designed for modern desktop web apps.
                         </p>
                     </div>
                     <div className="flex gap-2">
                         <Link
-                            href="/docs/components/smart-sidebar"
+                            href="/docs/components/image-slider"
                             className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                         >
                             <Rocket className="h-4 w-4" />
@@ -118,7 +119,7 @@ export default function DocsIntroductionPage() {
 
             {/* Features Grid */}
             <div className="space-y-4">
-                <h2 className="text-2xl font-bold">Why NyxhoraUI?</h2>
+                <h2 className="text-2xl font-bold">Why Nyxhora UI?</h2>
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <FeatureCard

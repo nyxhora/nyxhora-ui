@@ -1,6 +1,6 @@
 {
-    "name": "NyxhoraUI",
-    "short_name": "NyxhoraUI",
+    "name": "Nyxhora UI",
+    "short_name": "Nyxhora UI",
     "description": "A collection of beautifully designed, accessible, and customizable React UI components built with Tailwind CSS and Framer Motion.",
     "start_url": "/",
     "display": "standalone",

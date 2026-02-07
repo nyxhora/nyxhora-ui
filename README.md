@@ -5,7 +5,7 @@
 <h1 align="center">Nyxhora UI</h1>
 
 <p align="center">
-  <strong>A modern, premium component library for Next.js applications</strong>
+  <strong>Composable UI for Modern Builders</strong>
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0--beta.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-1.0.0--beta.1-blue" alt="Version" /> 
   <img src="https://img.shields.io/badge/Next.js-16.1-black" alt="Next.js" />
   <img src="https://img.shields.io/badge/React-19-61dafb" alt="React" />
   <img src="https://img.shields.io/badge/TypeScript-5-blue" alt="TypeScript" />
@@ -29,7 +29,7 @@
 
 ## ✨ Features
 
-- 🎨 **75+ Premium Components** - Beautifully designed, accessible, and fully customizable
+- 🎨 **65+ Premium Components** - Beautifully designed, accessible, and fully customizable
 - 🌙 **Dark Mode Support** - Seamless dark/light theme switching with `next-themes`
 - 📱 **Fully Responsive** - Mobile-first design that works on all devices
 - ♿ **Accessible** - Built on Radix UI primitives for WCAG-compliant accessibility
@@ -72,6 +72,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the documentation an
 
 ## 🧱 Components
 
+
 Nyxhora UI includes **75+ components** organized into the following categories:
 
 ### 📝 Form Components
@@ -79,6 +80,7 @@ Nyxhora UI includes **75+ components** organized into the following categories:
 |-----------|-------------|
 | `Button` | Interactive button elements with variants |
 | `Awesome Button` | Enhanced animated button component |
+| `Magic Button` | Enhanced Magic button component |
 | `Input` | Text input fields |
 | `Textarea` | Multi-line text input |
 | `Checkbox` | Selection controls |
@@ -87,9 +89,6 @@ Nyxhora UI includes **75+ components** organized into the following categories:
 | `Slider` | Range input controls |
 | `Switch` | Toggle switches |
 | `Label` | Form labels |
-| `Form` | Form validation and handling |
-| `Calendar` | Date picker calendar |
-| `Icon Picker` | Icon selection component |
 
 ### 🖼️ Display Components
 | Component | Description |
@@ -97,15 +96,16 @@ Nyxhora UI includes **75+ components** organized into the following categories:
 | `Alert` | Display important messages |
 | `Avatar` | User profile images |
 | `Badge` | Status indicators and labels |
-| `Card` | Container for content |
-| `Display Card` | Enhanced display card |
+| `Shiny Card` | Shimmering shiny card |
+| `Magic Card` | Animated magic card |
+| `Magic Text` | Text with magic border effect |
+| `Spotlight Text` | Stencil text with spotlight |
+| `Variable Shadow Text` | Variable font shadow effect |
+| `Sparkles` | Sparkles effect for text or components |
 | `Component Showcard` | Component showcase card |
-| `Comet Card` | Animated comet effect card |
-| `Expandable Card` | Expandable content cards |
 | `Skeleton` | Loading placeholder |
+| `Spinner` | Loading spinner with variants |
 | `Progress` | Progress indicators |
-| `Table` | Data tables |
-| `Chart` | Data visualization charts |
 | `Separator` | Visual dividers |
 | `Cover` | Cover image component |
 
@@ -114,56 +114,59 @@ Nyxhora UI includes **75+ components** organized into the following categories:
 |-----------|-------------|
 | `Dialog` | Modal dialog windows |
 | `Sheet` | Slide-out panels |
-| `Drawer` | Drawer navigation panels |
-| `Popover` | Floating content panels |
+| `Action Bar` | Expanding action list |
+| `3D Card` | 3D perspective card |
 | `Tooltip` | Hover information tips |
-| `Dropdown Menu` | Context and action menus |
-| `Context Menu` | Right-click context menus |
-| `Command` | Command palette / search |
 | `Sonner` | Toast notifications |
-| `Exit Confirmation Modal` | Unsaved changes warning |
+| `Dynamic Island` | iOS-style notification island |
 
 ### 🧭 Navigation
 | Component | Description |
 |-----------|-------------|
-| `Navbar` | Top navigation bar |
 | `Navbar Menu` | Navigation menu items |
-| `Floating Navbar` | Floating navigation bar |
-| `Sidebar` | Navigation sidebars |
-| `Content Sidebar` | Content navigation sidebar |
-| `TOC Sidebar` | Table of contents sidebar |
-| `Breadcrumb` | Hierarchical navigation |
 | `Tabs` | Tabbed navigation |
 | `URL Tabs` | URL-synced tabs |
-| `Floating Dock` | macOS-style dock navigation |
+| `Floating Dock Dialog` | Enhanced dock with bottom sheet dialog |
 | `Footer` | Page footer component |
-| `Smart Sidebar` | Dual-pane sidebar for desktop apps |
 | `Workspace Label` | Workspace switcher with member avatars |
 
 ### 📐 Layout
 | Component | Description |
 |-----------|-------------|
 | `Scroll Area` | Custom scrollable containers |
-| `Resizable` | Resizable panels and layouts |
-| `Collapsible` | Expandable sections |
-| `Carousel` | Image and content sliders |
-| `Bento Grid` | Bento box grid layout |
-| `Toggle` | Toggle button |
-| `Toggle Group` | Toggle button groups |
-| `Theme Toggle` | Dark/light mode toggle |
+| `Image Slider` | Responsive image slider |
+| `Corner Grid` | Tech-inspired corner grid |
+| `Image Grid` | Interactive hero image grid |
 
 ### ✨ Effects & Animations
 | Component | Description |
 |-----------|-------------|
 | `Background Beams` | Animated beam effects |
 | `Background Lines` | Animated line patterns |
+| `Geist Background` | Flickering geist-inspired background |
+| `Shooting Stars` | Animated starfield with shooting stars |
+| `Color Drip` | Animated falling color lines |
+| `Glowing Dot Grid` | Interactive dot grid with glow effects |
 | `Glowing Effect` | Glow animations |
 | `Sparkles` | Particle effects |
 | `Spotlight` | Spotlight hover effects |
 | `Smooth Cursor` | Smooth cursor following |
 | `Animated Shiny Text` | Shimmering text effect |
+| `Gradient Text` | Customizable gradient text |
+| `Hover Reveal Text` | Blur-to-reveal text effect |
 | `Flip Words` | Word flip animation |
 | `Text Hover Effect` | Text hover animations |
+| `Rainbow Button` | Animated rainbow gradient button |
+| `Ants Card` | Card with animated walking ants |
+| `Gradient Background` | Configurable gradient background |
+| `Code Block` | Code block with syntax highlighting |
+| `Anime Card` | Glassmorphism anime card |
+| `Music Player` | Glassmorphism music player |
+
+### 🛠 Utilities
+| Component | Description |
+|-----------|-------------|
+| `Exit Intent Demo` | Exit intent detection demo |
 
 ---
 

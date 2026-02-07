@@ -95,7 +95,7 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
                                         Documentation
                                     </span>
                                     <p className="text-[10px] text-muted-foreground">
-                                        Nyxhora UIv1.0.0
+                                        Nyxhora UIv1.0.0 (Beta)
                                     </p>
                                 </div>
                             </Link>

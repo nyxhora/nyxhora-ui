@@ -1,0 +1,104 @@
+
+# Nyxhora UI Components (2026)
+
+## Why Choose Nyxhora UI in 2026?
+
+- 🚀 **Future-Proof Design:** Built for the latest React and Next.js, with modern patterns and best practices.
+- 🧩 **Composable & Modular:** 75+ components, each fully customizable and easy to integrate.
+- 🎨 **Premium Visuals:** Stunning effects, animations, and accessibility out-of-the-box.
+- 🌙 **Dark Mode & Theming:** Seamless theme switching and full CSS variable support.
+- ♿ **Accessibility First:** WCAG-compliant, built on Radix UI primitives.
+- 📱 **Responsive:** Mobile-first, works perfectly on all devices.
+- 📝 **TypeScript First:** Full type safety and developer-friendly APIs.
+- 🛠️ **Open Source & Actively Maintained:** MIT licensed, with a growing community.
+
+## Component Categories, Use Cases & Descriptions
+
+### Form Components
+- **Button**: For all types of actions, with variants for primary, secondary, destructive, and more.
+- **Awesome Button**: Animated, eye-catching button for CTAs and special actions.
+- **Magic Button**: Button with advanced effects for modern UIs and landing pages.
+- **Input**: Standard text input for forms, search, and data entry.
+- **Textarea**: Multi-line input for comments, feedback, and messaging.
+- **Checkbox**: For toggling boolean values, preferences, and settings.
+- **Radio Group**: Select one from many options, e.g., gender, plan type.
+- **Select**: Dropdown for picking from a list, e.g., country, language.
+- **Slider**: Range selection, e.g., price, volume, rating.
+- **Switch**: Toggle between on/off states, e.g., dark mode, notifications.
+- **Label**: Accessible labels for form fields.
+
+### Display Components
+- **Alert**: Show important messages, warnings, or confirmations.
+- **Avatar**: User profile images, team members, or placeholders.
+- **Badge**: Status, notification counts, or feature highlights.
+- **Shiny Card**: Visually striking card for featured content or pricing.
+- **Magic Card**: Animated card for interactive showcases or portfolios.
+- **Magic Text**: Text with animated borders for hero sections or branding.
+- **Spotlight Text**: Highlighted text for emphasis or callouts.
+- **Variable Shadow Text**: Dynamic shadow effects for modern typography.
+- **Sparkles**: Add sparkle effects to text or icons for delight.
+- **Component Showcard**: Showcase a component or feature in a card layout.
+- **Skeleton**: Loading placeholders for async content.
+- **Spinner**: Animated loading indicator for async actions.
+- **Progress**: Show task or upload progress.
+- **Separator**: Visual divider between sections or elements.
+- **Cover**: Large image or banner for headers and hero sections.
+
+### Overlay Components
+- **Dialog**: Modal windows for confirmations, forms, or info.
+- **Sheet**: Slide-out panels for menus, carts, or settings.
+- **Action Bar**: Expandable action list for quick actions or toolbars.
+- **3D Card**: Cards with 3D perspective for interactive UIs.
+- **Tooltip**: Hover tips for extra info or guidance.
+- **Sonner**: Toast notifications for feedback and alerts.
+- **Dynamic Island**: iOS-style notification island for live updates.
+
+### Navigation
+- **Navbar Menu**: Main navigation links for your app or site.
+- **Tabs**: Organize content into tabbed sections.
+- **URL Tabs**: Tabs synced with the URL for deep linking.
+- **Floating Dock Dialog**: Dock with bottom sheet dialog for quick access.
+- **Footer**: Site or app footer with links and info.
+- **Workspace Label**: Workspace switcher with member avatars for SaaS apps.
+
+### Layout
+- **Scroll Area**: Custom scrollable containers for overflow content.
+- **Image Slider**: Responsive slider for images or testimonials.
+- **Corner Grid**: Tech-inspired grid layouts for features or stats.
+- **Image Grid**: Interactive hero image grid for galleries or portfolios.
+
+### Effects & Animations
+- **Background Beams**: Animated beams for backgrounds or hero sections.
+- **Background Lines**: Animated line patterns for modern backgrounds.
+- **Geist Background**: Flickering background for unique visual identity.
+- **Shooting Stars**: Animated starfield for landing pages or events.
+- **Color Drip**: Animated color lines for dynamic backgrounds.
+- **Glowing Dot Grid**: Interactive dot grid with glow for tech UIs.
+- **Glowing Effect**: Glow animations for buttons, cards, or icons.
+- **Sparkles**: Particle effects for celebratory or festive UIs.
+- **Spotlight**: Spotlight hover effects for interactive elements.
+- **Smooth Cursor**: Smoothly animated cursor for immersive experiences.
+- **Animated Shiny Text**: Shimmering text for attention-grabbing headlines.
+- **Gradient Text**: Customizable gradient text for branding.
+- **Hover Reveal Text**: Blur-to-reveal text for playful UIs.
+- **Flip Words**: Word flip animation for dynamic headlines.
+- **Text Hover Effect**: Text animations on hover for interactivity.
+- **Rainbow Button**: Animated rainbow gradient button for fun CTAs.
+- **Ants Card**: Card with animated walking ants for playful UIs.
+- **Gradient Background**: Configurable gradient backgrounds for sections.
+- **Code Block**: Syntax-highlighted code blocks for docs and blogs.
+- **Anime Card**: Glassmorphism anime card for creative showcases.
+- **Music Player**: Glassmorphism music player for audio features.
+
+### Utilities
+- **Exit Intent Demo**: Detects when users are about to leave, for popups or offers.
+
+## What Makes Nyxhora UI Components Great?
+
+- **Performance:** Optimized for speed and minimal bundle size.
+- **Visual Impact:** Unique, modern, and beautiful animations and effects.
+- **Developer Experience:** Intuitive props, clear documentation, and easy customization.
+- **Ready for 2026:** Uses the latest React, Next.js, and TypeScript features.
+- **Community Driven:** Inspired by the best (shadcn/ui, Aceternity UI, Radix UI) and improved for the future.
+
+For more, visit https://ui.nyxhora.com/docs

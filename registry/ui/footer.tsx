@@ -17,7 +17,7 @@ const Footer = () => {
                                 Nyxhora UI
                             </h3>
                             <p className="text-sm text-muted-foreground">
-                                Your Complete Digital Workspace
+                                Composable UI for modern builders.
                             </p>
                             <div className="grid grid-cols-4 md:grid-cols-4 sm:grid-cols-2 gap-4 mt-4">
                                 <Link
@@ -58,6 +58,14 @@ const Footer = () => {
                             Product
                         </h3>
                         <ul className="space-y-3">
+                            <li>
+                                <Link
+                                    href="/components"
+                                    className="text-sm text-muted-foreground hover:text-foreground"
+                                >
+                                    Components
+                                </Link>
+                            </li>
                             {["Features"].map((item) => (
                                 <li key={item}>
                                     <Link
@@ -140,12 +148,10 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li>
                                 <Link
-                                    href="https://ui.nyxhora.com/docs"
-                                    target="_blank"
+                                    href="/docs"
                                     className="text-sm text-muted-foreground hover:text-foreground flex items-center"
                                 >
                                     Documentation
-                                    <ExternalLink size={14} className="ml-1" />
                                 </Link>
                             </li>
                             <li>
@@ -170,19 +176,19 @@ const Footer = () => {
                         </p>
                         <div className="flex space-x-6 mt-4 md:mt-0">
                             <Link
-                                href="https://www.nyxhora.com/privacy"
+                                href="/privacy"
                                 className="text-xs text-muted-foreground hover:text-foreground"
                             >
                                 Privacy Policy
                             </Link>
                             <Link
-                                href="https://www.nyxhora.com/terms"
+                                href="/terms"
                                 className="text-xs text-muted-foreground hover:text-foreground"
                             >
                                 Terms of Service
                             </Link>
                             <Link
-                                href="https://www.nyxhora.com/cookies"
+                                href="/cookies"
                                 className="text-xs text-muted-foreground hover:text-foreground"
                             >
                                 Cookie Policy

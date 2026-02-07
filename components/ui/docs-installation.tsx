@@ -1,7 +1,6 @@
 import { promises as fs } from "fs"
 import path from "path"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/ui/tabs"
-import { CodeBlockWrapper } from "./docs-documentation"
 import { ComponentSource } from "@/registry/ui/component-source"
 import { InstallationCommand } from "./installation-command"
 
@@ -50,7 +49,7 @@ const DocsInstallation = async ({ name }: { name: string }) => {
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Installation</h2>
         <Tabs defaultValue="cmd" className="bg-transparent">
-          <TabsList className="space-x-3">
+          <TabsList className="space-x-3 bg-background border-b-2 border-border rounded" >
             <TabsTrigger value="cmd">Cmd</TabsTrigger>
             <TabsTrigger value="manual">Manual</TabsTrigger>
           </TabsList>

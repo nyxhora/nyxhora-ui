@@ -1,21 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/ui/tabs";
-import { Code2, Copy, Check, Terminal } from "lucide-react";
-import { CodeBlock } from "@/components/ui/docs-documentation";
+import { CodeBlock, DocsHeader } from "@/components/ui/docs-documentation";
 
 export default function InstallationPage() {
     return (
         <div className="space-y-10">
             {/* Header */}
-            <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight">Installation</h1>
-                <p className="text-lg text-muted-foreground">
-                    Get started with Nyxhora UIin your project. Follow the steps below
-                    to install and configure the components.
-                </p>
-            </div>
+            <DocsHeader title="Installation" description="Get started with Nyxhora UI by following these installation steps to set up the component library in your project." />
 
             {/* Prerequisites */}
             <section className="space-y-4">
@@ -60,7 +52,7 @@ export default function InstallationPage() {
                         <h3 className="text-lg font-semibold">Install dependencies</h3>
                     </div>
                     <p className="text-muted-foreground ml-11">
-                        Install the required dependencies for Nyxhora UIcomponents:
+                        Install the required dependencies for Nyxhora UI components:
                     </p>
 
                     <Tabs defaultValue="npm" className="">
@@ -131,7 +123,7 @@ export function cn(...inputs: ClassValue[]) {
             <section className="space-y-4">
                 <h2 className="text-2xl font-bold">Project Structure</h2>
                 <p className="text-muted-foreground">
-                    Here&apos;s the recommended project structure for using NyxhoraUI:
+                    Here&apos;s the recommended project structure for using Nyxhora UI:
                 </p>
                 <CodeBlock
                     code={`├── app

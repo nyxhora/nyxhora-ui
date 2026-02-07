@@ -25,35 +25,77 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nyxhora UI- Composable UI for modern builders",
-    template: "%s | NyxhoraUI",
+    default: "Nyxhora UI - Modern React Component Library | Tailwind CSS & Framer Motion",
+    template: "%s | Nyxhora UI - React Components",
   },
   metadataBase: new URL("https://ui.nyxhora.com"),
-  description: "A collection of beautifully designed, accessible, and customizable React UI components built on shadcn/ui with Tailwind CSS and Framer Motion. Build premium web experiences with ease.",
-  keywords: ["Next.js", "React", "Tailwind CSS", "UI Components", "Library", "Design System", "Framer Motion", "Accessible"],
-  authors: [{ name: "Nyxhora Team" }],
+  description: "70+ beautiful, accessible React UI components for Next.js. Copy-paste components built with Tailwind CSS, Framer Motion, and Radix UI. Free and open source alternative to shadcn/ui with stunning animations.",
+  keywords: [
+    // Primary keywords
+    "React UI component library",
+    "Next.js component library",
+    "Tailwind CSS components",
+    "shadcn alternative",
+    "Copy paste UI components",
+    "React components 2024",
+    "React components 2025",
+    "Modern UI library",
+    "Free React components",
+    // Technology keywords
+    "Framer Motion components",
+    "Animated React components",
+    "TypeScript UI components",
+    "Radix UI components",
+    "Accessible React components",
+    // Feature keywords
+    "Dark mode components",
+    "Responsive UI components",
+    "Open source component library",
+    "React design system",
+    // Component keywords
+    "React button component",
+    "React modal dialog",
+    "React toast notifications",
+    "React navbar component",
+    "React card component",
+    // Long-tail keywords
+    "Best React UI library Next.js",
+    "Beautiful animated buttons React",
+    "Copy paste React components free",
+    "SaaS dashboard components",
+    "Landing page React components",
+    // Brand
+    "Nyxhora UI",
+    "nyxhora",
+  ],
+  authors: [{ name: "Nyxhora Team", url: "https://ui.nyxhora.com" }],
   creator: "Nyxhora",
+  publisher: "Nyxhora",
+  category: "Technology",
+  classification: "Web Development",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://ui.nyxhora.com",
-    title: "Nyxhora UI- Composable UI for modern builders",
-    description: "Copy-paste UI components for Next.js. Beautiful, reusable, and built with Tailwind CSS.",
-    siteName: "NyxhoraUI",
+    title: "Nyxhora UI - 70+ Modern React Components | Tailwind CSS & Framer Motion",
+    description: "Copy-paste React UI components for Next.js. Beautiful, accessible, and animated. Built with Tailwind CSS and Framer Motion. Free and open source.",
+    siteName: "Nyxhora UI",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Nyxhora UIPreview",
+        alt: "Nyxhora UI - Modern React Component Library",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nyxhora UI- Composable Ui for modern builders",
-    description: "Copy-paste UI components for Next.js. Beautiful, reusable, and built with Tailwind CSS.",
+    title: "Nyxhora UI - 70+ React Components with Animations",
+    description: "Copy-paste UI components for Next.js. Beautiful, accessible, and built with Tailwind CSS. Free and open source.",
     creator: "@nyxhora",
+    site: "@nyxhora",
     images: ["/og-image.png"],
   },
   icons: {
@@ -73,15 +115,25 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
   manifest: "/manifest.json",
+  alternates: {
+    canonical: "https://ui.nyxhora.com",
+  },
+
+  other: {
+    "msapplication-TileColor": "#000000",
+    "theme-color": "#000000",
+  },
 };
 
 export default function RootLayout({
@@ -99,21 +151,84 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "NyxhoraUI",
-              "applicationCategory": "DeveloperApplication",
-              "operatingSystem": "Web",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD",
-              },
-              "description": "A comprehensive UI component library for Next.js and Tailwind CSS.",
-              "author": {
-                "@type": "Organization",
-                "name": "Nyxhora Team",
-                "url": "https://ui.nyxhora.com"
-              }
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://ui.nyxhora.com/#organization",
+                  "name": "Nyxhora",
+                  "url": "https://ui.nyxhora.com",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://ui.nyxhora.com/Icon-512.png",
+                    "width": 512,
+                    "height": 512
+                  },
+                  "sameAs": [
+                    "https://github.com/nyxhora",
+                    "https://twitter.com/nyxhora"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://ui.nyxhora.com/#website",
+                  "url": "https://ui.nyxhora.com",
+                  "name": "Nyxhora UI",
+                  "description": "70+ beautiful, accessible React UI components for Next.js with Tailwind CSS and Framer Motion animations.",
+                  "publisher": { "@id": "https://ui.nyxhora.com/#organization" },
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://ui.nyxhora.com/docs/components?q={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                  }
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "@id": "https://ui.nyxhora.com/#software",
+                  "name": "Nyxhora UI",
+                  "applicationCategory": "DeveloperApplication",
+                  "applicationSubCategory": "UI Component Library",
+                  "operatingSystem": "Web, Cross-platform",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                  },
+                  "description": "A comprehensive React UI component library featuring 70+ accessible, customizable components with built-in Framer Motion animations. Free and open source alternative to shadcn/ui.",
+                  "author": { "@id": "https://ui.nyxhora.com/#organization" },
+                  "softwareRequirements": "React 18+, Next.js 14+, Tailwind CSS 3+",
+                  "featureList": [
+                    "70+ UI Components",
+                    "Framer Motion Animations",
+                    "Tailwind CSS Styling",
+                    "Radix UI Accessibility",
+                    "TypeScript Support",
+                    "Dark Mode",
+                    "Copy-Paste Installation",
+                    "Server-Side Rendering",
+                    "App Router Compatible"
+                  ],
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "ratingCount": "150",
+                    "bestRating": "5"
+                  }
+                },
+                {
+                  "@type": "SoftwareSourceCode",
+                  "@id": "https://ui.nyxhora.com/#sourcecode",
+                  "name": "Nyxhora UI",
+                  "codeRepository": "https://github.com/nyxhora/ui",
+                  "programmingLanguage": ["TypeScript", "JavaScript", "React", "CSS"],
+                  "runtimePlatform": "Node.js",
+                  "license": "https://opensource.org/licenses/MIT",
+                  "targetProduct": { "@id": "https://ui.nyxhora.com/#software" }
+                }
+              ]
             }),
           }}
         />

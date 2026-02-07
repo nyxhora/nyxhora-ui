@@ -14,9 +14,6 @@ import { MagicText } from "@/registry/ui/magic-text";
 import { IconBrandFramerMotion, IconBrandNextjs, IconBrandReact, IconBrandTailwind, IconBrandTypescript } from "@tabler/icons-react";
 import { CardContainer, CardBody, CardItem } from "@/registry/ui/three-d-card";
 import { Spotlight } from "@/registry/ui/spotlight";
-import { AntsCard } from "@/registry/ui/ants-card";
-import { Span } from "next/dist/trace";
-import { Cover } from "@/registry/ui/cover";
 
 export default function Home() {
   // Better calculation: sum of all items in component categories
@@ -58,14 +55,14 @@ export default function Home() {
                     <span className="flex items-center justify-center w-5 h-5 rounded  group-hover:text-white transition-colors">
                       <Sparkle className="w-3 h-3" />
                     </span>
-                    <span className="text-xs font-medium text-zinc-300">Image Grid</span>
-                    <ArrowRight className="w-3 h-3 text-zinc-500 group-hover:text-zinc-300 transition-colors ml-1" />
+                    <span className="text-xs font-medium dark:text-zinc-300">Image Grid</span>
+                    <ArrowRight className="w-3 h-3 text-zinc-500 group-hover:dark:text-zinc-300 transition-colors ml-1" />
                   </Link>
                 </motion.div>
 
                 {/* Title */}
                 <motion.h1
-                  className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]"
+                  className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
