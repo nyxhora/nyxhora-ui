@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 import { SmoothCursorDemo } from "./smooth-cursor-demo";
 
+export const metadata = generateComponentMetadata({
+    name: "Smooth Cursor",
+    description: "A smooth custom cursor that follows mouse movement with physics-based spring animations. Rotates based on movement direction.",
+    category: "Effects",
+});
+
+
 export default function SmoothCursorDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Smooth Cursor", getDefaultComponentFAQs("Smooth Cursor"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Smooth Cursor", url: "https://ui.nyxhora.com/docs/components/smooth-cursor" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Smooth Cursor"
                 description="A smooth custom cursor that follows mouse movement with physics-based spring animations. Rotates based on movement direction."
@@ -114,5 +134,6 @@ export default function App() {
                 </div>
             </section>
         </div>
+        </>
     );
 }

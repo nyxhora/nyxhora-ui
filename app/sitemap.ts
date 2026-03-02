@@ -23,12 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 1.0,
     };
 
-    // Static pages - medium priority
+    // Static pages - medium priority (exclude thin/coming-soon and playground)
     const staticPages = [
-        { path: "/templates", priority: 0.7 },
-        { path: "/blocks", priority: 0.7 },
         { path: "/components", priority: 0.9 },
-        { path: "/playground", priority: 0.6 },
         { path: "/privacy", priority: 0.3 },
         { path: "/terms", priority: 0.3 },
         { path: "/cookies", priority: 0.3 },

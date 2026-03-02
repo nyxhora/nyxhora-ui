@@ -1,11 +1,31 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Progress } from "@/registry/ui/progress";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Progress",
+    description: "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    category: "Display",
+});
+
+
 export default function ProgressDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Progress", getDefaultComponentFAQs("Progress"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Progress", url: "https://ui.nyxhora.com/docs/components/progress" },
+    ]);
+
+    
 
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Progress" description="Displays an indicator showing the completion progress of a task, typically displayed as a progress bar." />
 
             <DocsPreview
@@ -142,5 +162,6 @@ export default function MyComponent() {
                 ]}
             />
         </div>
+        </>
     );
 }

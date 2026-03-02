@@ -15,11 +15,11 @@ export const SEO_KEYWORDS = {
         "Tailwind CSS components",
         "shadcn alternative",
         "Copy paste UI components",
-        "React components 2024",
-        "React components 2025",
         "React components 2026",
         "Modern UI library",
         "Free React components",
+        "AI-friendly React components",
+        "best React UI library 2026",
     ],
     secondary: [
         "Framer Motion components",
@@ -43,8 +43,8 @@ export const SEO_KEYWORDS = {
         "React loading spinner component",
         "Gradient background React component",
         "React tooltip component accessible",
-        "Next.js 14 UI components",
-        "React 18 component library",
+        "Next.js 15 UI components",
+        "React 19 component library",
         "Copy paste React components free",
         "Modern web app UI components",
         "SaaS dashboard React components",
@@ -124,7 +124,7 @@ export const SOFTWARE_APPLICATION_SCHEMA = {
     author: { "@id": "https://ui.nyxhora.com/#organization" },
     programmingLanguage: ["TypeScript", "JavaScript", "React", "CSS"],
     runtimePlatform: "Node.js",
-    softwareRequirements: "React 18+, Next.js 14+, Tailwind CSS 3+",
+    softwareRequirements: "React 18+, Next.js 14+, Tailwind CSS 3+, TypeScript 5+",
     featureList: [
         "70+ UI Components",
         "Framer Motion Animations",
@@ -193,6 +193,9 @@ export function generateComponentMetadata(options: ComponentMetadataOptions): Me
         ...SEO_KEYWORDS.primary.slice(0, 5),
     ];
 
+    const slug = name.toLowerCase().replace(/\s+/g, "-");
+    const pageUrl = `https://ui.nyxhora.com/docs/components/${slug}`;
+
     return {
         title,
         description: fullDescription,
@@ -201,12 +204,16 @@ export function generateComponentMetadata(options: ComponentMetadataOptions): Me
             title,
             description: fullDescription,
             type: "article",
-            url: `https://ui.nyxhora.com/docs/components/${name.toLowerCase().replace(/\s+/g, "-")}`,
+            url: pageUrl,
+            siteName: "Nyxhora UI",
         },
         twitter: {
             card: "summary_large_image",
             title,
             description: fullDescription,
+        },
+        alternates: {
+            canonical: pageUrl,
         },
     };
 }
@@ -312,7 +319,7 @@ export function getDefaultComponentFAQs(componentName: string) {
         },
         {
             question: `Does the ${componentName} component work with Next.js?`,
-            answer: `Yes, all Nyxhora UI components including ${componentName} are fully compatible with Next.js 14+, supporting both the App Router and Pages Router.`,
+            answer: `Yes, all Nyxhora UI components including ${componentName} are fully compatible with Next.js 14+ (including Next.js 15), supporting both the App Router and Pages Router.`,
         },
     ];
 }

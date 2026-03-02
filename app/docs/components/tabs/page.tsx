@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/registry/ui/card";
 import { Input } from "@/registry/ui/input";
@@ -6,14 +6,28 @@ import { Label } from "@/registry/ui/label";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-  title: "Tabs",
-  description: "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-};
+export const metadata = generateComponentMetadata({
+    name: "Tabs",
+    description: "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    category: "Navigation",
+});
+
 
 export default function TabsDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Tabs", getDefaultComponentFAQs("Tabs"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Tabs", url: "https://ui.nyxhora.com/docs/components/tabs" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader title="Tabs" description="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
 
       <DocsPreview
@@ -170,5 +184,6 @@ export default function MyComponent() {
       ]} />
 
     </div>
-  );
+        </>
+    );
 }

@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/registry/ui/tooltip";
 import { Button } from "@/registry/ui/button";
 import { Info, HelpCircle, Plus } from "lucide-react";
@@ -6,14 +6,21 @@ import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-
 import { ComponentSource } from "@/registry/ui/component-source";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Tooltip",
-    description: "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-};
-
 export default function TooltipDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Tooltip", getDefaultComponentFAQs("Tooltip"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Tooltip", url: "https://ui.nyxhora.com/docs/components/tooltip" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Tooltip" description="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it." />
 
             <DocsPreview
@@ -50,6 +57,13 @@ export default function TooltipDocsPage() {
   TooltipProvider,
   TooltipTrigger,
 } from "@/registry/ui/tooltip"
+
+export const metadata = generateComponentMetadata({
+    name: "Tooltip",
+    description: "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    category: "Overlay",
+});
+
 
 export default function MyComponent() {
   return (
@@ -241,5 +255,6 @@ export default function MyComponent() {
                 </div>
             </section>
         </div>
+        </>
     );
 }

@@ -1,17 +1,24 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { CornerGrid, CornerCard } from "@/registry/ui/corner-grid";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 import { Box, Code, Layers, Zap } from "lucide-react";
 
-export const metadata: Metadata = {
-    title: "Corner Grid",
-    description: "A minimalist grid with tech-inspired corner accents.",
-};
-
 export default function CornerGridDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Corner Grid", getDefaultComponentFAQs("Corner Grid"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Corner Grid", url: "https://ui.nyxhora.com/docs/components/corner-grid" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Corner Grid"
                 description="A responsive bento grid layout featuring clean, tech-inspired corner accents."
@@ -52,6 +59,13 @@ export default function CornerGridDocsPage() {
                 code={`import { CornerGrid, CornerCard } from "@/registry/ui/corner-grid";
 import { Box, Code, Layers, Zap } from "lucide-react";
 
+export const metadata = generateComponentMetadata({
+    name: "Corner Grid",
+    description: "A responsive bento grid layout featuring clean, tech-inspired corner accents.",
+    category: "Effects",
+});
+
+
 export function CornerGridDemo() {
   return (
     <CornerGrid>
@@ -88,5 +102,6 @@ export function CornerGridDemo() {
 
             <DocsInstallation name={"corner-grid"} />
         </div>
+        </>
     );
 }

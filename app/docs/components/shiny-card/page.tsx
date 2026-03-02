@@ -1,17 +1,31 @@
 
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { ShinyCard, ShinyCardHeader, ShinyCardTitle, ShinyCardDescription, ShinyCardContent, ShinyCardFooter } from "@/registry/ui/shiny-card";
 import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Shiny Card",
+export const metadata = generateComponentMetadata({
+    name: "Shiny Card",
     description: "A card component with a shimmering shiny border effect.",
-};
+    category: "Effects",
+});
+
 
 export default function ShinyCardDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Shiny Card", getDefaultComponentFAQs("Shiny Card"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Shiny Card", url: "https://ui.nyxhora.com/docs/components/shiny-card" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader title="Shiny Card" description="A card component with a shimmering shiny border effect." />
 
@@ -60,5 +74,6 @@ export default function Example() {
                 language="tsx"
             />
         </div>
+        </>
     );
 }

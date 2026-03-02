@@ -1,14 +1,28 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 
-export const metadata: Metadata = {
-    title: "Command",
+export const metadata = generateComponentMetadata({
+    name: "Command",
     description: "Fast, composable, unstyled command menu for React.",
-};
+    category: "Overlay",
+});
+
 
 export default function CommandDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Command", getDefaultComponentFAQs("Command"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Command", url: "https://ui.nyxhora.com/docs/components/command" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Command"
                 description="Fast, composable, unstyled command menu for React."
@@ -24,6 +38,7 @@ export default function CommandDocsPage() {
                 code={`npx shadcn@latest add command`}
             />
         </div>
+        </>
     );
 }
 

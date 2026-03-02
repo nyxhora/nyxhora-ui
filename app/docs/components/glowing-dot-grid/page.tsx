@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { GlowingDotGrid } from "@/registry/ui/glowing-dot-grid";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Glowing Dot Grid",
+    description: "An interactive grid of dots that glow and expand on hover with beautiful proximity-based effects. Perfect for hero sections and interactive backgrounds.",
+    category: "Effects",
+});
+
+
 export default function GlowingDotGridDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Glowing Dot Grid", getDefaultComponentFAQs("Glowing Dot Grid"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Glowing Dot Grid", url: "https://ui.nyxhora.com/docs/components/glowing-dot-grid" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Glowing Dot Grid"
                 description="An interactive grid of dots that glow and expand on hover with beautiful proximity-based effects. Perfect for hero sections and interactive backgrounds."
@@ -260,5 +280,6 @@ export default function Hero() {
                 ]}
             />
         </div>
+        </>
     );
 }

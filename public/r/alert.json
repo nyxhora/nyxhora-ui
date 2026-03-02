@@ -4,7 +4,6 @@
   "title": "Alert",
   "description": "React Alert component Nyxhora UI",
   "dependencies": [
-    "@radix-ui/react-alert",
     "class-variance-authority"
   ],
   "files": [

@@ -1,17 +1,31 @@
 
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { MagicText } from "@/registry/ui/magic-text";
 import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Magic Text",
+export const metadata = generateComponentMetadata({
+    name: "Magic Text",
     description: "A text component with a magical spinning gradient fill effect.",
-};
+    category: "Effects",
+});
+
 
 export default function MagicTextDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Magic Text", getDefaultComponentFAQs("Magic Text"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Magic Text", url: "https://ui.nyxhora.com/docs/components/magic-text" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader title="Magic Text" description="A text component with a magical spinning gradient fill effect." />
 
@@ -53,5 +67,6 @@ export default function Example() {
                 language="tsx"
             />
         </div>
+        </>
     );
 }

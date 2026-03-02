@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/ui/card";
 import { Button } from "@/registry/ui/button";
 import { Input } from "@/registry/ui/input";
@@ -7,14 +7,21 @@ import { Bell, CreditCard } from "lucide-react";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-  title: "Card",
-  description: "Displays a card with header, content, and footer sections.",
-};
-
 export default function CardDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Card", getDefaultComponentFAQs("Card"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Card", url: "https://ui.nyxhora.com/docs/components/card" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader title="Card" description="Displays a card with header, content, and footer sections." />
 
       <DocsPreview
@@ -60,6 +67,13 @@ export default function CardDocsPage() {
   CardHeader,
   CardTitle,
 } from "@/registry/ui/card"
+
+export const metadata = generateComponentMetadata({
+    name: "Card",
+    description: "Displays a card with header, content, and footer sections.",
+    category: "Display",
+});
+
 
 export default function MyComponent() {
   return (
@@ -241,5 +255,6 @@ export default function MyComponent() {
         />
       </section>
     </div>
-  );
+        </>
+    );
 }

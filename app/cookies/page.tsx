@@ -2,6 +2,19 @@ import React from "react";
 import { Spotlight } from "@/registry/ui/spotlight";
 import { GradientBackground } from "@/registry/ui/gradient-background";
 import Footer from "@/registry/ui/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Cookies Policy",
+    description: "Nyxhora UI Cookies Policy. Understand how we use cookies to improve your experience on our React component library documentation website.",
+    alternates: {
+        canonical: "https://ui.nyxhora.com/cookies",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 
 export default function CookiesPolicy() {
     return (

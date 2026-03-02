@@ -1,14 +1,28 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 
-export const metadata: Metadata = {
-    title: "Floating Navbar",
+export const metadata = generateComponentMetadata({
+    name: "Floating Navbar",
     description: "A floating navigation bar that appears on scroll.",
-};
+    category: "Navigation",
+});
+
 
 export default function FloatingNavbarDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Floating Navbar", getDefaultComponentFAQs("Floating Navbar"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Floating Navbar", url: "https://ui.nyxhora.com/docs/components/floating-navbar" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Floating Navbar"
                 description="A floating navigation bar that appears on scroll."
@@ -18,6 +32,7 @@ export default function FloatingNavbarDocsPage() {
                 <p>Interactive preview coming soon.</p>
             </div>
         </div>
+        </>
     );
 }
 

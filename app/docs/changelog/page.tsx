@@ -3,9 +3,19 @@ import { Calendar, Sparkles, Bug, Wrench, ArrowUp } from "lucide-react";
 import { DocsHeader } from "@/components/ui/docs-documentation";
 
 export const metadata: Metadata = {
-  title: "Changelog | Nyxhora UI",
+  title: "Changelog",
   description:
-    "View the latest updates, new features, and bug fixes in Nyxhora UI.",
+    "View the latest updates, new features, and bug fixes in Nyxhora UI. Stay up to date with new components, improvements, and releases.",
+  openGraph: {
+    title: "Changelog | Nyxhora UI",
+    description: "Track all updates, new components, and improvements to Nyxhora UI.",
+    type: "article",
+    url: "https://ui.nyxhora.com/docs/changelog",
+    siteName: "Nyxhora UI",
+  },
+  alternates: {
+    canonical: "https://ui.nyxhora.com/docs/changelog",
+  },
 };
 
 const changelog = [

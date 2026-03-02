@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/registry/ui/dialog";
 import { Button } from "@/registry/ui/button";
 import { Input } from "@/registry/ui/input";
@@ -7,14 +7,21 @@ import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-
 import { ComponentSource } from "@/registry/ui/component-source";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-  title: "Dialog",
-  description: "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
-};
-
 export default function DialogDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Dialog", getDefaultComponentFAQs("Dialog"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Dialog", url: "https://ui.nyxhora.com/docs/components/dialog" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader title="Dialog" description="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert." />
 
       <DocsPreview
@@ -82,6 +89,13 @@ export default function DialogDocsPage() {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/ui/dialog"
+
+export const metadata = generateComponentMetadata({
+    name: "Dialog",
+    description: "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
+    category: "Overlay",
+});
+
 
 export default function MyComponent() {
   return (
@@ -229,5 +243,6 @@ export default function MyComponent() {
         </div>
       </section>
     </div>
-  );
+        </>
+    );
 }

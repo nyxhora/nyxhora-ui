@@ -1,12 +1,14 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { ImageSlider } from "@/registry/ui/image-slider";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Image Slider",
-    description: "A responsive image slider with thumbnails, controls, and autoplay.",
-};
+export const metadata = generateComponentMetadata({
+    name: "Image Slider",
+    description: "A responsive, customizable image slider with support for swipes, autoplay, and thumbnails.",
+    category: "Display",
+});
+
 
 const images = [
     "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2070&auto=format&fit=crop",
@@ -16,8 +18,20 @@ const images = [
 ];
 
 export default function ImageSliderDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Image Slider", getDefaultComponentFAQs("Image Slider"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Image Slider", url: "https://ui.nyxhora.com/docs/components/image-slider" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Image Slider"
                 description="A responsive, customizable image slider with support for swipes, autoplay, and thumbnails."
@@ -95,5 +109,6 @@ export default function ImageSliderDocsPage() {
                 ]}
             />
         </div>
+        </>
     );
 }

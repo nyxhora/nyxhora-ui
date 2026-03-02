@@ -1,18 +1,32 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Input } from "@/registry/ui/input";
 import { Label } from "@/registry/ui/label";
 import { Search, Lock } from "lucide-react";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Input",
+export const metadata = generateComponentMetadata({
+    name: "Input",
     description: "Displays a form input field or a component that looks like an input field.",
-};
+    category: "Form",
+});
+
 
 export default function InputDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Input", getDefaultComponentFAQs("Input"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Input", url: "https://ui.nyxhora.com/docs/components/input" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Input" description="Displays a form input field or a component that looks like an input field." />
 
             <DocsPreview
@@ -118,5 +132,6 @@ export default function MyComponent() {
                 ]}
             />
         </div>
+        </>
     );
 }

@@ -4,7 +4,6 @@
   "title": "Cover",
   "description": "A flexible cover component for displaying featured images with optional action buttons for changing or removing the cover. Nyxhora UI",
   "dependencies": [
-    "next/image",
     "lucide-react",
     "class-variance-authority"
   ],

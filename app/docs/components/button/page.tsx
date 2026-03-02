@@ -1,82 +1,29 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Button } from "@/registry/ui/button";
 import { Code2 } from "lucide-react";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Button Component - React Button with Tailwind CSS",
-    description: "Copy-paste Button component for React & Next.js. Includes 6 variants (default, secondary, destructive, outline, ghost, link), 4 sizes, loading states, and icon support. Built with Tailwind CSS and Radix UI. Free and accessible.",
-    keywords: [
-        "react button component",
-        "tailwind button",
-        "nextjs button",
-        "button variants",
-        "accessible button",
-        "radix button",
-        "button sizes",
-        "loading button",
-        "button with icon",
-        "nyxhora button",
-    ],
-    openGraph: {
-        title: "Button Component - React Button with Tailwind CSS | Nyxhora UI",
-        description: "Beautiful, accessible React button component with 6 variants and 4 sizes. Copy-paste for Next.js projects.",
-        type: "article",
-        url: "https://ui.nyxhora.com/docs/components/button",
-    },
-};
+export const metadata = generateComponentMetadata({
+    name: "Button",
+    description: "Displays a button or a component that looks like a button.",
+    category: "Form",
+});
 
-// FAQPage structured data for this component
-const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "How do I install the Button component?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Install the Button component using the shadcn CLI: npx shadcn@latest add \"https://ui.nyxhora.com/r/button.json\". Alternatively, copy the component code directly from the documentation page."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What variants are available for the Button component?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Button component includes 6 variants: default (primary), secondary, destructive (for dangerous actions), outline, ghost (minimal style), and link (text-only style). Each variant is fully customizable with Tailwind CSS."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Is the Button component accessible?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, the Button component is built with accessibility in mind using Radix UI primitives. It supports keyboard navigation, screen readers, focus states, and follows WCAG guidelines for accessible interactive elements."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Can I use the Button component with Next.js?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, the Button component is fully compatible with Next.js 14+. It supports both the App Router and Pages Router, works with server-side rendering, and can be used as a client or server component."
-            }
-        }
-    ]
-};
 
 export default function ButtonDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Button", getDefaultComponentFAQs("Button"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Button", url: "https://ui.nyxhora.com/docs/components/button" },
+    ]);
+
     return (
         <>
-            {/* FAQPage Structured Data */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(faqSchema),
-                }}
-            />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
             <div className="space-y-10">
                 {/* Header */}

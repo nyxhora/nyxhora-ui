@@ -156,11 +156,6 @@ export const docsConfig: DocsNavCategory[] = [
                 isNew: true,
             },
             {
-                title: "Sparkles",
-                href: "/docs/components/sparkles",
-                description: "Sparkles effect for text or components",
-            },
-            {
                 title: "Component Showcard",
                 href: "/docs/components/component-showcard",
                 description: "Component showcase card",

@@ -1,14 +1,34 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { CodeBlock } from "@/registry/ui/code-block";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Code Block",
+    description: "A beautiful code snippet component with syntax highlighting and copy functionality.",
+    category: "Display",
+});
+
+
 export default function CodeBlockDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Code Block", getDefaultComponentFAQs("Code Block"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Code Block", url: "https://ui.nyxhora.com/docs/components/code-block" },
+    ]);
+
+    
     const exampleCode = `function helloWorld() {
   console.log("Hello, World!");
 }`;
 
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Code Block"
                 description="A beautiful code snippet component with syntax highlighting and copy functionality."
@@ -123,5 +143,6 @@ console.log(a + b);\`;
                 ]}
             />
         </div>
+        </>
     );
 }

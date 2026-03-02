@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { docsConfig, DocsNavCategory } from "@/lib/docs-config";
 import { ScrollArea } from "@/registry/ui/scroll-area";

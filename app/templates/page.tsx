@@ -4,6 +4,16 @@ import { FlipWords } from "@/registry/ui/flip-words";
 import Link from "next/link";
 import { MagicButton } from "@/registry/ui/magic-button";
 import { MagicCard, MagicCardHeader, MagicCardTitle, MagicCardDescription, MagicCardContent } from "@/registry/ui/magic-card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Templates - Coming Soon",
+    description: "Production-ready Next.js templates built with Nyxhora UI components. Templates are coming soon — beautiful starter projects for SaaS, portfolios, and dashboards.",
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default function TemplatesPage() {
     const words = ["Templates", "Layouts", "Sections", "Pages"];

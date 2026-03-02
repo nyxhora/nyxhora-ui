@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { HoverRevealText } from "@/registry/ui/hover-reveal-text";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Hover Reveal Text",
+    description: "An interactive text effect where characters blur and reveal as you hover, with a beautiful spreading effect to neighboring characters. Perfect for secret codes, teasers, and fun interactions.",
+    category: "Effects",
+});
+
+
 export default function HoverRevealTextDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Hover Reveal Text", getDefaultComponentFAQs("Hover Reveal Text"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Hover Reveal Text", url: "https://ui.nyxhora.com/docs/components/hover-reveal-text" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Hover Reveal Text"
                 description="An interactive text effect where characters blur and reveal as you hover, with a beautiful spreading effect to neighboring characters. Perfect for secret codes, teasers, and fun interactions."
@@ -203,5 +223,6 @@ export default function SecretCode() {
                 ]}
             />
         </div>
+        </>
     );
 }

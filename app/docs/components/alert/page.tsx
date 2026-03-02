@@ -1,18 +1,32 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Alert, AlertDescription, AlertTitle } from "@/registry/ui/alert";
 import { Terminal, AlertCircle, CheckCircle2, Info, AlertTriangle } from "lucide-react";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import { ComponentSource } from "@/registry/ui/component-source";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Alert",
+export const metadata = generateComponentMetadata({
+    name: "Alert",
     description: "Displays a callout for user attention with various styles.",
-};
+    category: "Display",
+});
+
 
 export default function AlertDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Alert", getDefaultComponentFAQs("Alert"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Alert", url: "https://ui.nyxhora.com/docs/components/alert" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Alert" description="Displays a callout for user attention with various styles." />
 
             <DocsPreview
@@ -151,5 +165,6 @@ export default function MyComponent() {
                 ]}
             />
         </div>
+        </>
     );
 }

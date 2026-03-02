@@ -1,44 +1,27 @@
-"use client";
+﻿import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
+import Content from "./_content";
 
-import { DocsHeader, DocsPreview, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { Calendar } from "@/registry/ui/calendar";
-import { useState } from "react";
+export const metadata = generateComponentMetadata({
+    name: "Calendar",
+    description: "A date field component that allows users to enter and edit dates with an accessible calendar picker interface",
+    category: "Form",
+});
 
-export default function CalendarDocsPage() {
-    const [date, setDate] = useState<Date | undefined>(new Date());
+export default function Page() {
+    const faqSchema = generateComponentFAQSchema("Calendar", getDefaultComponentFAQs("Calendar"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Calendar", url: "https://ui.nyxhora.com/docs/components/calendar" },
+    ]);
 
     return (
-        <div className="space-y-10">
-            <DocsHeader
-                title="Calendar"
-                description="A date field component that allows users to enter and edit date."
-            />
-
-            <DocsPreview
-                title="Default"
-                previewCode={
-                    <Calendar
-                        mode="single"
-                        selected={date}
-                        onSelect={setDate}
-                        className="rounded-md border"
-                    />
-                }
-                code={`const [date, setDate] = useState<Date | undefined>(new Date())
-
-<Calendar
-  mode="single"
-  selected={date}
-  onSelect={setDate}
-  className="rounded-md border"
-/>`}
-            />
-
-            <CodeBlockWrapper
-                title="Installation"
-                language="bash"
-                code={`npx shadcn@latest add calendar`}
-            />
-        </div>
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <Content />
+        </>
     );
 }
+

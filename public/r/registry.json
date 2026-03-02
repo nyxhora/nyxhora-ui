@@ -32,7 +32,7 @@
             "description": "Awesome Button component",
             "type": "registry:ui",
             "dependencies": [
-                "motion/react"
+                "motion"
             ],
             "files": [
                 {
@@ -122,7 +122,7 @@
             "dependencies": [
                 "@radix-ui/react-dialog",
                 "lucide-react",
-                "motion/react"
+                "motion"
             ],
             "files": [
                 {
@@ -217,7 +217,6 @@
             "description": "React Alert component Nyxhora UI",
             "type": "registry:ui",
             "dependencies": [
-                "@radix-ui/react-alert",
                 "class-variance-authority"
             ],
             "files": [
@@ -305,11 +304,11 @@
             "type": "registry:ui",
             "dependencies": [
                 "sonner",
-                "next-themes",
-                "color-theme-provider"
+                "next-themes"
             ],
             "registryDependencies": [
-                "sonner"
+                "sonner",
+                "color-theme-provider"
             ],
             "files": [
                 {
@@ -374,7 +373,6 @@
             "description": "A flexible cover component for displaying featured images with optional action buttons for changing or removing the cover. Nyxhora UI",
             "type": "registry:ui",
             "dependencies": [
-                "next/image",
                 "lucide-react",
                 "class-variance-authority"
             ],
@@ -397,7 +395,7 @@
             "dependencies": [
                 "@radix-ui/react-dialog",
                 "lucide-react",
-                "motion/react"
+                "motion"
             ],
             "registryDependencies": [],
             "files": [
@@ -413,7 +411,7 @@
             "description": "A floating, expandable notification component inspired by Apple's Dynamic Island. Features notification stacking with navigation dots, dismissable vs persistent notifications, priority-based ordering, and auto-collapse. Nyxhora UI",
             "type": "registry:ui",
             "dependencies": [
-                "motion/react",
+                "motion",
                 "lucide-react",
                 "class-variance-authority",
                 "zustand"
@@ -438,7 +436,7 @@
             "description": "React Navbar Menu component Nyxhora UI",
             "type": "registry:ui",
             "dependencies": [
-                "motion/react"
+                "motion"
             ],
             "files": [
                 {
@@ -453,7 +451,6 @@
             "description": "Enhanced Tabs component that syncs with URL parameters. Perfect for shareable tab states and deep linking. Nyxhora UI",
             "type": "registry:ui",
             "dependencies": [
-                "next/navigation"
             ],
             "registryDependencies": [
                 "tabs"
@@ -472,8 +469,7 @@
             "type": "registry:ui",
             "registryDependencies": [],
             "dependencies": [
-                "lucide-react",
-                "next/link"
+                "lucide-react"
             ],
             "files": [
                 {
@@ -540,7 +536,7 @@
             "description": "A dynamic background component featuring animated particles that float across the screen. Perfect for adding a magical or festive touch to your website. Nyxhora UI",
             "type": "registry:ui",
             "dependencies": [
-                "motion/react",
+                "motion",
                 "@tsparticles/react",
                 "@tsparticles/slim",
                 "@tsparticles/engine"
@@ -571,7 +567,7 @@
             "description": "A custom cursor component that follows the mouse with a smooth, elastic animation. Perfect for adding a modern, interactive, and visually striking effect to your website. Nyxhora UI",
             "type": "registry:ui",
             "dependencies": [
-                "motion/react"
+                "motion"
             ],
             "files": [
                 {

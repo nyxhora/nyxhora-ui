@@ -1,21 +1,27 @@
-"use client";
+﻿import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
+import Content from "./_content";
 
-import { DocsHeader, CodeBlockWrapper } from "@/components/ui/docs-documentation";
-import { useState } from "react";
-// import ExitConfirmationModal from "@/registry/ui/exit-confirmation-modal"; // Assuming default export
+export const metadata = generateComponentMetadata({
+    name: "Exit Confirmation Modal",
+    description: "A modal dialog that prompts users for confirmation when attempting to leave a page with unsaved changes",
+    category: "Overlay",
+});
 
-export default function ExitConfirmationModalDocsPage() {
+export default function Page() {
+    const faqSchema = generateComponentFAQSchema("Exit Confirmation Modal", getDefaultComponentFAQs("Exit Confirmation Modal"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Exit Confirmation Modal", url: "https://ui.nyxhora.com/docs/components/exit-confirmation-modal" },
+    ]);
+
     return (
-        <div className="space-y-10">
-            <DocsHeader
-                title="Exit Confirmation Modal"
-                description="A modal that prompts the user for confirmation when attempting to leave the page with unsaved changes."
-            />
-
-            <div className="p-10 border border-dashed rounded-lg text-center text-muted-foreground">
-                <p>Interactive preview coming soon.</p>
-            </div>
-        </div>
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <Content />
+        </>
     );
 }
 

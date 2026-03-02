@@ -1,16 +1,30 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Separator } from "@/registry/ui/separator";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Separator",
+export const metadata = generateComponentMetadata({
+    name: "Separator",
     description: "Visually or semantically separates content.",
-};
+    category: "Display",
+});
+
 
 export default function SeparatorDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Separator", getDefaultComponentFAQs("Separator"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Separator", url: "https://ui.nyxhora.com/docs/components/separator" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Separator" description="Visually or semantically separates content." />
 
             <DocsPreview
@@ -58,5 +72,6 @@ export default function MyComponent() {
                 />
             </section>
         </div>
+        </>
     );
 }

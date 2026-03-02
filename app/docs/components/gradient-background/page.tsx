@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { GradientBackground } from "@/registry/ui/gradient-background";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Gradient Background",
+    description: "A configurable, positioned gradient blur effect for backgrounds.",
+    category: "Effects",
+});
+
+
 export default function GradientBackgroundDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Gradient Background", getDefaultComponentFAQs("Gradient Background"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Gradient Background", url: "https://ui.nyxhora.com/docs/components/gradient-background" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* <GradientBackground className="fixed top-0 left-0 w-full h-full" intensity="low" /> */}
             <DocsHeader
                 title="Gradient Background"
@@ -123,5 +143,6 @@ export default function HeroSection() {
                 ]}
             />
         </div>
+        </>
     );
 }

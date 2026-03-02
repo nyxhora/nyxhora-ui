@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Spotlight } from "@/registry/ui/spotlight";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Spotlight",
+    description: "An animated spotlight effect that creates a dramatic lighting sweep. Perfect for hero sections and feature highlights.",
+    category: "Effects",
+});
+
+
 export default function SpotlightDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Spotlight", getDefaultComponentFAQs("Spotlight"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Spotlight", url: "https://ui.nyxhora.com/docs/components/spotlight" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Spotlight"
                 description="An animated spotlight effect that creates a dramatic lighting sweep. Perfect for hero sections and feature highlights."
@@ -121,5 +141,6 @@ export default function Hero() {
                 </div>
             </section>
         </div>
+        </>
     );
 }

@@ -1,16 +1,30 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import Footer from "@/registry/ui/footer";
 import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-  title: "Footer",
-  description: "A comprehensive footer component with brand section, social links, navigation columns, and legal links. Fully responsive and customizable.",
-};
+export const metadata = generateComponentMetadata({
+    name: "Footer",
+    description: "A comprehensive footer component with brand section, social links, navigation columns, and legal links. Fully responsive and customizable.",
+    category: "Navigation",
+});
+
 
 export default function FooterDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Footer", getDefaultComponentFAQs("Footer"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Footer", url: "https://ui.nyxhora.com/docs/components/footer" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader title="Footer" description="A comprehensive footer component with brand section, social links, navigation columns, and legal links. Fully responsive and customizable." />
 
       <DocsPreview previewCode={<Footer />} code={`<Footer/>`} />
@@ -68,5 +82,6 @@ export default function Layout({ children }) {
       </section>
 
     </div>
-  );
+        </>
+    );
 }

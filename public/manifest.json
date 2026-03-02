@@ -1,11 +1,16 @@
 {
-    "name": "Nyxhora UI",
+    "name": "Nyxhora UI - Modern React Component Library",
     "short_name": "Nyxhora UI",
-    "description": "A collection of beautifully designed, accessible, and customizable React UI components built with Tailwind CSS and Framer Motion.",
+    "description": "A modern, open-source React UI component library with 90+ beautifully designed, accessible, and customizable components. Built with Tailwind CSS, Radix UI, and Framer Motion for Next.js applications.",
     "start_url": "/",
+    "scope": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
+    "lang": "en-US",
+    "dir": "ltr",
+    "orientation": "any",
+    "categories": ["developer tools", "design", "productivity"],
     "icons": [
         {
             "src": "/favicon.ico",
@@ -15,12 +20,14 @@
         {
             "src": "/Icon-192.png",
             "type": "image/png",
-            "sizes": "192x192"
+            "sizes": "192x192",
+            "purpose": "any"
         },
         {
             "src": "/Icon-512.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "any maskable"
         }
     ]
 }

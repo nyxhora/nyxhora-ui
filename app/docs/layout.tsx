@@ -4,8 +4,8 @@ import { TooltipProvider } from "@/registry/ui/tooltip";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - Nyxhora UI",
-    default: "Nyxhora UI - Composable UI for modern builders",
+    template: "%s",
+    default: "Documentation - Nyxhora UI",
   },
   description:
     "Comprehensive documentation for Nyxhora UI - A collection of beautifully designed, accessible, and customizable React UI components for web applications.",

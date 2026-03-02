@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 import { ComponentSource } from "@/registry/ui/component-source";
 import {
@@ -11,14 +11,28 @@ import {
 } from "./cover-demo";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Cover",
+export const metadata = generateComponentMetadata({
+    name: "Cover",
     description: "A flexible cover component for displaying featured images with optional action buttons for changing or removing the cover.",
-};
+    category: "Display",
+});
+
 
 export default function CoverDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Cover", getDefaultComponentFAQs("Cover"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Cover", url: "https://ui.nyxhora.com/docs/components/cover" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader
                 title="Cover"
@@ -136,5 +150,6 @@ export default function MyComponent() {
                 ]}
             />
         </div>
+        </>
     );
 }

@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { TextHoverEffect } from "@/registry/ui/text-hover-effect";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Text Hover Effect",
+    description: "SVG text with animated stroke on load and a colorful gradient reveal effect on hover. Creates an engaging, interactive typography experience.",
+    category: "Effects",
+});
+
+
 export default function TextHoverEffectDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Text Hover Effect", getDefaultComponentFAQs("Text Hover Effect"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Text Hover Effect", url: "https://ui.nyxhora.com/docs/components/text-hover-effect" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Text Hover Effect"
                 description="SVG text with animated stroke on load and a colorful gradient reveal effect on hover. Creates an engaging, interactive typography experience."
@@ -115,5 +135,6 @@ export default function Hero() {
                 </div>
             </section>
         </div>
+        </>
     );
 }

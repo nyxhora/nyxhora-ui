@@ -1,9 +1,17 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, DocsPreview, CodeBlockWrapper, DocsProps } from "@/components/ui/docs-documentation";
 import { Zap, Layers, Palette, Moon } from "lucide-react";
 import NavbarMenu from "@/registry/ui/navbar-menu";
 import { ComponentSource } from "@/registry/ui/component-source";
 import { MenuDemo } from "./navbarMenuDemo";
 import DocsInstallation from "@/components/ui/docs-installation";
+
+export const metadata = generateComponentMetadata({
+    name: "Navbar Menu",
+    description: "Animated dropdown menu components for navigation with smooth spring animations and hover effects.",
+    category: "Navigation",
+});
+
 
 
 function FeatureCard({ icon: Icon, title, description }: { icon: any; title: string; description: string }) {
@@ -23,8 +31,20 @@ function FeatureCard({ icon: Icon, title, description }: { icon: any; title: str
 
 
 export default function NavbarMenuDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Navbar Menu", getDefaultComponentFAQs("Navbar Menu"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Navbar Menu", url: "https://ui.nyxhora.com/docs/components/navbar-menu" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader title="Navbar Menu" description="Animated dropdown menu components for navigation with smooth spring animations and hover effects." />
       <DocsPreview title="Preview" previewCode={<MenuDemo />} code={`import { Menu, MenuItem, HoveredLink } from "@/registry/ui/navbar-menu";
 const [active, setActive] = useState<string | null>(null);
@@ -47,5 +67,6 @@ const [active, setActive] = useState<string | null>(null);
       <NavbarMenu />
 
     </div>
-  );
+        </>
+    );
 }

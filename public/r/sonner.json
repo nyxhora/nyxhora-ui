@@ -5,11 +5,11 @@
   "description": "React Sonner component Nyxhora UI",
   "dependencies": [
     "sonner",
-    "next-themes",
-    "color-theme-provider"
+    "next-themes"
   ],
   "registryDependencies": [
-    "sonner"
+    "sonner",
+    "color-theme-provider"
   ],
   "files": [
     {

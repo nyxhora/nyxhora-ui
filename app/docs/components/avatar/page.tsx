@@ -1,16 +1,30 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/ui/avatar";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Avatar",
+export const metadata = generateComponentMetadata({
+    name: "Avatar",
     description: "An image element with a fallback for representing the user.",
-};
+    category: "Display",
+});
+
 
 export default function AvatarDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Avatar", getDefaultComponentFAQs("Avatar"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Avatar", url: "https://ui.nyxhora.com/docs/components/avatar" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Avatar" description="An image element with a fallback for representing the user." />
 
             <DocsPreview
@@ -205,5 +219,6 @@ export default function MyComponent() {
                 },
             ]} />
         </div>
+        </>
     );
 }

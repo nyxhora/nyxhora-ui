@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { SparklesCore } from "@/registry/ui/sparkles";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Sparkles",
+    description: "Animated particle sparkle effect using tsparticles. Creates a magical, twinkling background perfect for hero sections.",
+    category: "Effects",
+});
+
+
 export default function SparklesDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Sparkles", getDefaultComponentFAQs("Sparkles"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Sparkles", url: "https://ui.nyxhora.com/docs/components/sparkles" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Sparkles"
                 description="Animated particle sparkle effect using tsparticles. Creates a magical, twinkling background perfect for hero sections."
@@ -192,5 +212,6 @@ export default function Hero() {
                 ]}
             />
         </div>
+        </>
     );
 }

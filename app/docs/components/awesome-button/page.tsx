@@ -1,11 +1,31 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { ParticleBurstButton } from "@/registry/ui/awesome-button";
 import { ComponentSource } from "@/registry/ui/component-source";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Awesome Button",
+    description: "A beautiful animated button with particle burst effects on click. Uses Framer Motion for smooth animations.",
+    category: "Effects",
+});
+
+
 export default function AwesomeButtonDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Awesome Button", getDefaultComponentFAQs("Awesome Button"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Awesome Button", url: "https://ui.nyxhora.com/docs/components/awesome-button" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader
         title="Awesome Button"
         description="A beautiful animated button with particle burst effects on click. Uses Framer Motion for smooth animations."
@@ -76,7 +96,8 @@ export default function MyComponent() {
         ]}
       />
     </div>
-  );
+        </>
+    );
 }
 
 

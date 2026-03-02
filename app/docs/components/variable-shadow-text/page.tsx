@@ -1,16 +1,30 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { VariableShadowText } from "@/registry/ui/variable-shadow-text";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Variable Shadow Text",
-    description: "A variable font component with deep shadow effects that interact on hover.",
-};
+export const metadata = generateComponentMetadata({
+    name: "Variable Shadow Text",
+    description: "Interactive text that transitions between weight, slant, and shadow depth using variable font settings.",
+    category: "Effects",
+});
+
 
 export default function VariableShadowTextDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Variable Shadow Text", getDefaultComponentFAQs("Variable Shadow Text"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Variable Shadow Text", url: "https://ui.nyxhora.com/docs/components/variable-shadow-text" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Variable Shadow Text"
                 description="Interactive text that transitions between weight, slant, and shadow depth using variable font settings."
@@ -108,5 +122,6 @@ export default function VariableShadowTextDocsPage() {
                 ]}
             />
         </div>
+        </>
     );
 }

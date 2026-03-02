@@ -54,7 +54,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 mb-10 w-full z-50 backdrop-blur-lg">
+    <nav aria-label="Main navigation" className="fixed top-0 mb-10 w-full z-50 backdrop-blur-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -101,6 +101,8 @@ export const Navbar = () => {
             <Link
               href="https://github.com/nyxhora/nyxhora-ui"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Nyxhora UI on GitHub"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <IconBrandGithub className="w-5 h-5" />

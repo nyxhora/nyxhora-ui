@@ -1,17 +1,31 @@
 
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { GradientText } from "@/registry/ui/gradient-text";
 import { CodeBlockWrapper, DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Gradient Text",
+export const metadata = generateComponentMetadata({
+    name: "Gradient Text",
     description: "A customizable text component with gradient fill.",
-};
+    category: "Effects",
+});
+
 
 export default function GradientTextDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Gradient Text", getDefaultComponentFAQs("Gradient Text"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Gradient Text", url: "https://ui.nyxhora.com/docs/components/gradient-text" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader title="Gradient Text" description="A customizable text component with gradient fill." />
 
@@ -78,5 +92,6 @@ export default function Example() {
                 language="tsx"
             />
         </div>
+        </>
     );
 }

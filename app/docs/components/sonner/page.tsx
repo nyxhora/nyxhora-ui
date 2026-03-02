@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, DocsPreview, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 import { SonnerDemo, SonnerExamples, SonnerPositionDemo } from "./sonner-demo";
 
+export const metadata = generateComponentMetadata({
+    name: "Sonner",
+    description: "An opinionated toast component for React.",
+    category: "Overlay",
+});
+
+
 export default function SonnerDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Sonner", getDefaultComponentFAQs("Sonner"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Sonner", url: "https://ui.nyxhora.com/docs/components/sonner" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Sonner"
                 description="An opinionated toast component for React."
@@ -47,5 +67,6 @@ toast.error("Event has been created")`}
             />
 
         </div>
+        </>
     );
 }

@@ -6,7 +6,7 @@
   "dependencies": [
     "@radix-ui/react-dialog",
     "lucide-react",
-    "motion/react"
+    "motion"
   ],
   "files": [
     {

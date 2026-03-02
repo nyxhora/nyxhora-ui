@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { FlipWords } from "@/registry/ui/flip-words";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Flip Words",
+    description: "Animated word cycling component that flips through an array of words with smooth letter-by-letter animations.",
+    category: "Effects",
+});
+
+
 export default function FlipWordsDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Flip Words", getDefaultComponentFAQs("Flip Words"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Flip Words", url: "https://ui.nyxhora.com/docs/components/flip-words" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Flip Words"
                 description="Animated word cycling component that flips through an array of words with smooth letter-by-letter animations."
@@ -130,5 +150,6 @@ export default function Hero() {
                 ]}
             />
         </div>
+        </>
     );
 }

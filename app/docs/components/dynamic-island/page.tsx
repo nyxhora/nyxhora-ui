@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 import { ComponentSource } from "@/registry/ui/component-source";
 import {
@@ -13,14 +13,21 @@ import {
 } from "./dynamic-island-demo";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Dynamic Island",
-    description: "A floating, expandable notification component inspired by Apple's Dynamic Island. Features notification stacking, global state management, and smooth animations.",
-};
-
 export default function DynamicIslandDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Dynamic Island", getDefaultComponentFAQs("Dynamic Island"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Dynamic Island", url: "https://ui.nyxhora.com/docs/components/dynamic-island" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader
                 title="Dynamic Island"
@@ -43,6 +50,13 @@ export default function DynamicIslandDocsPage() {
                     title="Layout Setup"
                     code={`// app/layout.tsx
 import { DynamicIslandProvider } from "@/registry/ui/dynamic-island-provider"
+
+export const metadata = generateComponentMetadata({
+    name: "Dynamic Island",
+    description: "A floating, expandable notification component inspired by Apple's Dynamic Island. Features notification stacking with navigation dots, dismissable vs persistent notifications, priority-based ordering, and auto-collapse.",
+    category: "Overlay",
+});
+
 
 export default function RootLayout({ children }) {
   return (
@@ -262,5 +276,6 @@ function MyComponent() {
                 </div>
             </section>
         </div>
+        </>
     );
 }

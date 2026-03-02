@@ -1,12 +1,14 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { ImageGrid } from "@/registry/ui/image-grid";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Image Grid",
-    description: "A dynamic image grid with interactive hero swapping.",
-};
+export const metadata = generateComponentMetadata({
+    name: "Image Grid",
+    description: "An interactive gallery that lets users swap the hero image by clicking on thumbnails.",
+    category: "Display",
+});
+
 
 const items1 = [
     { id: 1, src: "https://images.unsplash.com/photo-1708247874023-f6d71a45113a?q=80&w=2344&auto=format&fit=crop", alt: "Image 1" },
@@ -33,8 +35,20 @@ const items3 = [
 ];
 
 export default function ImageGridDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Image Grid", getDefaultComponentFAQs("Image Grid"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Image Grid", url: "https://ui.nyxhora.com/docs/components/image-grid" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Image Grid"
                 description="An interactive gallery that lets users swap the hero image by clicking on thumbnails."
@@ -99,5 +113,6 @@ export function ImageGridDemo() {
                 ]}
             />
         </div>
+        </>
     );
 }

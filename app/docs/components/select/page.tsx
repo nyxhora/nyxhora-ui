@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import {
   Select,
@@ -12,15 +12,28 @@ import {
 } from "@/registry/ui/select";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-  title: "Select",
-  description:
-    "Displays a list of options for the user to pick from—triggered by a button.",
-};
+export const metadata = generateComponentMetadata({
+    name: "Select",
+    description: "Displays a list of options for the user to pick from—triggered by a button.",
+    category: "Form",
+});
+
 
 export default function SelectDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Select", getDefaultComponentFAQs("Select"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Select", url: "https://ui.nyxhora.com/docs/components/select" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader
         title="Select"
         description="Displays a list of options for the user to pick from—triggered by a button."
@@ -209,5 +222,6 @@ export default function SelectDocsPage() {
     </Select>`}
       />
     </div>
-  );
+        </>
+    );
 }

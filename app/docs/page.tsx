@@ -5,7 +5,24 @@ import { CodeBlockWrapper, DocsHeader } from "@/components/ui/docs-documentation
 
 export const metadata: Metadata = {
     title: "Introduction",
-    description: "Welcome to Nyxhora UI- A component library built on shadcn/ui with enhanced, production-ready components used in the Nyxhora platform.",
+    description: "Welcome to Nyxhora UI — A modern React component library built on shadcn/ui with 90+ enhanced, production-ready components for Next.js applications.",
+    keywords: [
+        "Nyxhora UI introduction",
+        "React component library",
+        "shadcn/ui alternative",
+        "Next.js UI components",
+        "Tailwind CSS component library",
+    ],
+    openGraph: {
+        title: "Introduction to Nyxhora UI",
+        description: "Discover Nyxhora UI — 90+ beautiful, accessible React components built with Tailwind CSS, Radix UI, and Framer Motion.",
+        type: "article",
+        url: "https://ui.nyxhora.com/docs",
+        siteName: "Nyxhora UI",
+    },
+    alternates: {
+        canonical: "https://ui.nyxhora.com/docs",
+    },
 };
 
 export default function DocsIntroductionPage() {
@@ -37,7 +54,7 @@ export default function DocsIntroductionPage() {
                 </h1>
 
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                    Nyxhora UIis a component library built on top of{" "}
+                    Nyxhora UI is a component library built on top of{" "}
                     <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary underline underline-offset-4">
                         shadcn/ui
                     </a>
@@ -58,8 +75,8 @@ export default function DocsIntroductionPage() {
                             What&apos;s Inside?
                         </h2>
                         <p className="text-sm text-muted-foreground">
-                            <strong>60+</strong> base shadcn/ui components + <strong>custom enhanced components</strong> including
-                            Smart Sidebar, Floating Dock, Workspace Switcher, URL Tabs, and more — all designed for modern desktop web apps.
+                            <strong>90+</strong> base shadcn/ui components + <strong>custom enhanced components</strong> including
+                            Smart Sidebar, Floating Dock, Workspace Switcher, URL Tabs, and more all designed for modern desktop web apps.
                         </p>
                     </div>
                     <div className="flex gap-2">

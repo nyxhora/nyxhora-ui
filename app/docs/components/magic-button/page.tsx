@@ -1,18 +1,25 @@
 
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { MagicButton } from "@/registry/ui/magic-button";
 import { Send } from "lucide-react";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Magic Button",
-    description: "A button with a magic border animation effect.",
-};
-
 export default function MagicButtonDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Magic Button", getDefaultComponentFAQs("Magic Button"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Magic Button", url: "https://ui.nyxhora.com/docs/components/magic-button" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader title="Magic Button" description="A button with a magic border animation effect." />
 
@@ -31,6 +38,13 @@ export default function MagicButtonDocsPage() {
                 title="Usage"
                 code={`import { MagicButton } from "@/registry/ui/magic-button";
 import { Send } from "lucide-react";
+
+export const metadata = generateComponentMetadata({
+    name: "Magic Button",
+    description: "A button with a magic border animation effect.",
+    category: "Effects",
+});
+
 
 export default function MyComponent() {
   return (
@@ -120,5 +134,6 @@ export default function MyComponent() {
                 ]}
             />
         </div>
+        </>
     );
 }

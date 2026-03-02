@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { AnimeCard } from "@/registry/ui/anime-card";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Anime Card",
+    description: "A glassmorphism-styled media card perfect for hero sections or media showcases.",
+    category: "Effects",
+});
+
+
 export default function AnimeCardDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Anime Card", getDefaultComponentFAQs("Anime Card"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Anime Card", url: "https://ui.nyxhora.com/docs/components/anime-card" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Anime Card"
                 description="A glassmorphism-styled media card perfect for hero sections or media showcases."
@@ -93,5 +113,6 @@ export default function MyPage() {
                 ]}
             />
         </div>
+        </>
     );
 }

@@ -4,6 +4,16 @@ import { FlipWords } from "@/registry/ui/flip-words";
 import Link from "next/link";
 import { MagicButton } from "@/registry/ui/magic-button";
 import { MagicCard, MagicCardHeader, MagicCardTitle, MagicCardDescription, MagicCardContent } from "@/registry/ui/magic-card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Blocks - Coming Soon",
+    description: "Premium building blocks for your next React project. Nyxhora UI blocks are coming soon — pre-built sections, layouts, and page templates.",
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default function BlocksPage() {
     const words = ["Blocks", "Sections", "Templates", "Layouts"];

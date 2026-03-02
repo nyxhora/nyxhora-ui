@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, DocsProps, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 import { ComponentSource } from "@/registry/ui/component-source";
 import {
@@ -10,14 +10,21 @@ import {
 } from "./sheet-demo";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Sheet",
-    description: "Extends the Dialog component to display content that complements the main screen. Slides in from the edge of the viewport.",
-};
-
 export default function SheetDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Sheet", getDefaultComponentFAQs("Sheet"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Sheet", url: "https://ui.nyxhora.com/docs/components/sheet" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader
                 title="Sheet"
@@ -43,6 +50,13 @@ export default function SheetDocsPage() {
   SheetFooter,
   SheetClose,
 } from "@/registry/ui/sheet"
+
+export const metadata = generateComponentMetadata({
+    name: "Sheet",
+    description: "Extends the Dialog component to display content that complements the main screen. Slides in from the edge of the viewport.",
+    category: "Overlay",
+});
+
 
 export default function MyComponent() {
   return (
@@ -174,5 +188,6 @@ export default function MyComponent() {
                 </div>
             </section>
         </div>
+        </>
     );
 }

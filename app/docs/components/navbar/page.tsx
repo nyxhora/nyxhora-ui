@@ -1,8 +1,16 @@
 
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, DocsPreview, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 import { Layers, Smartphone, Palette, Zap } from "lucide-react";
 import { ComponentSource } from "@/registry/ui/component-source";
 import { NavbarDemo } from "./navbarDemo";
+
+export const metadata = generateComponentMetadata({
+    name: "Navbar",
+    description: "A responsive navigation bar component with glassmorphism effects, mobile menu support, and smooth animations.",
+    category: "Navigation",
+});
+
 
 function FeatureCard({ icon: Icon, title, description }: { icon: any; title: string; description: string }) {
   return (
@@ -22,8 +30,20 @@ function FeatureCard({ icon: Icon, title, description }: { icon: any; title: str
 
 
 export default function NavbarDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Navbar", getDefaultComponentFAQs("Navbar"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Navbar", url: "https://ui.nyxhora.com/docs/components/navbar" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader title="Navbar" description="A responsive navigation bar component with glassmorphism effects, mobile menu support, and smooth animations." />
 
       <DocsPreview title="Preview" previewCode={<NavbarDemo />} code={`import { Navbar } from "@/registry/ui/navbar";
@@ -70,5 +90,6 @@ export default function Layout({ children }) {
         </div>
       </section>
     </div>
-  );
+        </>
+    );
 }

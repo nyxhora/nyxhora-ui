@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { GlowingEffect } from "@/registry/ui/glowing-effect";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Glowing Effect",
+    description: "An interactive glow effect that follows mouse movement with customizable colors, intensity, and animation styles.",
+    category: "Effects",
+});
+
+
 export default function GlowingEffectDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Glowing Effect", getDefaultComponentFAQs("Glowing Effect"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Glowing Effect", url: "https://ui.nyxhora.com/docs/components/glowing-effect" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Glowing Effect"
                 description="An interactive glow effect that follows mouse movement with customizable colors, intensity, and animation styles."
@@ -225,5 +245,6 @@ export default function GlowCard() {
                 ]}
             />
         </div>
+        </>
     );
 }

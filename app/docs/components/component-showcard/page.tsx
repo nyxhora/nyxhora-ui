@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { ComponentShowcard, ShowcardGrid } from "@/registry/ui/component-showcard";
 import { Button } from "@/registry/ui/button";
 import { CodeBlockWrapper, DocsHeader, DocsProps, ComponentPreview } from "@/components/ui/docs-documentation";
@@ -6,14 +6,28 @@ import { Sparkles, Terminal, Copy, Building } from "lucide-react";
 import { ComponentSource } from "@/registry/ui/component-source";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Component Showcard",
+export const metadata = generateComponentMetadata({
+    name: "Component Showcard",
     description: "A highly customizable card component for showcasing UI elements with gradients, badges, and interactive previews.",
-};
+    category: "Display",
+});
+
 
 export default function ComponentShowcardDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Component Showcard", getDefaultComponentFAQs("Component Showcard"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Component Showcard", url: "https://ui.nyxhora.com/docs/components/component-showcard" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader
                 title="Component Showcard"
@@ -179,5 +193,6 @@ export default function ComponentShowcardDocsPage() {
                 ]}
             />
         </div>
+        </>
     );
 }

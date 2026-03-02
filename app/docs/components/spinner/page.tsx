@@ -1,16 +1,30 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Spinner } from "@/registry/ui/spinner";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Spinner",
+export const metadata = generateComponentMetadata({
+    name: "Spinner",
     description: "A loading spinner component with multiple variants.",
-};
+    category: "Display",
+});
+
 
 export default function SpinnerDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Spinner", getDefaultComponentFAQs("Spinner"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Spinner", url: "https://ui.nyxhora.com/docs/components/spinner" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Spinner" description="A loading spinner component with multiple variants." />
 
             <DocsPreview
@@ -128,5 +142,6 @@ export default function MyComponent() {
                 ]}
             />
         </div>
+        </>
     );
 }

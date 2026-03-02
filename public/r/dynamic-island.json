@@ -4,7 +4,7 @@
   "title": "Dynamic Island",
   "description": "A floating, expandable notification component inspired by Apple's Dynamic Island. Features notification stacking with navigation dots, dismissable vs persistent notifications, priority-based ordering, and auto-collapse. Nyxhora UI",
   "dependencies": [
-    "motion/react",
+    "motion",
     "lucide-react",
     "class-variance-authority",
     "zustand"

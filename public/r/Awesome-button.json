@@ -4,7 +4,7 @@
   "title": "Awesome Button",
   "description": "Awesome Button component",
   "dependencies": [
-    "motion/react"
+    "motion"
   ],
   "files": [
     {

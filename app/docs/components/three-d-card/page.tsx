@@ -1,16 +1,30 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { CardBody, CardContainer, CardItem } from "@/registry/ui/three-d-card";
 import { DocsHeader, DocsPreview } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "3D Card",
-    description: "A 3D perspective card component that follows mouse movement.",
-};
+export const metadata = generateComponentMetadata({
+    name: "3D Card",
+    description: "A card that follows your mouse cursor and creates a 3D parallax effect.",
+    category: "Effects",
+});
+
 
 export default function ThreeDCardDocsPage() {
+    const faqSchema = generateComponentFAQSchema("3D Card", getDefaultComponentFAQs("3D Card"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "3D Card", url: "https://ui.nyxhora.com/docs/components/three-d-card" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="3D Card"
                 description="A card that follows your mouse cursor and creates a 3D parallax effect."
@@ -107,5 +121,6 @@ export function ThreeDCardDemo() {
 
             <DocsInstallation name={"three-d-card"} />
         </div>
+        </>
     );
 }

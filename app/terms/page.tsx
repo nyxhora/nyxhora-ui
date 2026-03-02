@@ -2,6 +2,19 @@ import React from "react";
 import { Spotlight } from "@/registry/ui/spotlight";
 import { GradientBackground } from "@/registry/ui/gradient-background";
 import Footer from "@/registry/ui/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms and Conditions",
+    description: "Nyxhora UI Terms and Conditions. Read the terms governing your use of our open-source React component library and documentation website.",
+    alternates: {
+        canonical: "https://ui.nyxhora.com/terms",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 
 export default function TermsAndConditions() {
     return (

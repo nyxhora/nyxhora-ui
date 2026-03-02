@@ -1,5 +1,20 @@
 
-# Nyxhora UI Components (2026)
+# Nyxhora UI — Modern React Component Library (2026)
+
+> **Version:** 1.0.0 (Beta)
+> **Website:** https://ui.nyxhora.com
+> **Documentation:** https://ui.nyxhora.com/docs
+> **GitHub:** https://github.com/nyxhora/nyxhora-ui
+> **License:** MIT
+> **Changelog:** https://ui.nyxhora.com/docs/changelog
+
+## Quick Install
+
+```bash
+npx shadcn@latest add "https://ui.nyxhora.com/r/<component-name>.json"
+```
+
+Replace `<component-name>` with the component slug, e.g., `button`, `magic-card`, `floating-dock`.
 
 ## Why Choose Nyxhora UI in 2026?
 
@@ -98,6 +113,34 @@
 - **Performance:** Optimized for speed and minimal bundle size.
 - **Visual Impact:** Unique, modern, and beautiful animations and effects.
 - **Developer Experience:** Intuitive props, clear documentation, and easy customization.
+
+## Tech Stack
+
+- **React 19** + **Next.js 15** (App Router)
+- **TypeScript** for full type safety
+- **Tailwind CSS v4** for styling
+- **Radix UI** for accessible primitives
+- **Framer Motion** for animations
+- **class-variance-authority (CVA)** for variant management
+
+## Installation Prerequisites
+
+```bash
+# 1. Create Next.js project (if starting fresh)
+npx create-next-app@latest my-app --typescript --tailwind --eslint --app
+
+# 2. Initialize shadcn
+npx shadcn@latest init
+
+# 3. Add any Nyxhora UI component
+npx shadcn@latest add "https://ui.nyxhora.com/r/button.json"
+```
+
+## Contact & Community
+
+- **Website:** https://ui.nyxhora.com
+- **GitHub Issues:** https://github.com/nyxhora/nyxhora-ui/issues
+- **Twitter/X:** https://twitter.com/nyxhora
 - **Ready for 2026:** Uses the latest React, Next.js, and TypeScript features.
 - **Community Driven:** Inspired by the best (shadcn/ui, Aceternity UI, Radix UI) and improved for the future.
 

@@ -1,14 +1,28 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { DocsHeader, CodeBlockWrapper } from "@/components/ui/docs-documentation";
 
-export const metadata: Metadata = {
-    title: "Drawer",
+export const metadata = generateComponentMetadata({
+    name: "Drawer",
     description: "A drawer component for React.",
-};
+    category: "Overlay",
+});
+
 
 export default function DrawerDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Drawer", getDefaultComponentFAQs("Drawer"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Drawer", url: "https://ui.nyxhora.com/docs/components/drawer" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Drawer"
                 description="A drawer component for React."
@@ -24,6 +38,7 @@ export default function DrawerDocsPage() {
                 code={`npx shadcn@latest add drawer`}
             />
         </div>
+        </>
     );
 }
 

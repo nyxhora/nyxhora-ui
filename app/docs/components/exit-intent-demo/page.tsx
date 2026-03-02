@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Shield, ShieldOff, ExternalLink, RefreshCw, FileCode2, Zap } from "lucide-react";
 import {
     CodeBlockWrapper,
@@ -19,14 +19,21 @@ import {
 } from "./exit-intent-docs-demo";
 import DocsInstallation from "@/components/ui/docs-installation";
 
-export const metadata: Metadata = {
-    title: "Exit Intent",
-    description: "A protection system that detects when users attempt to leave the page and shows confirmation dialogs to prevent accidental navigation.",
-};
-
 export default function ExitIntentDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Exit Intent", getDefaultComponentFAQs("Exit Intent"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Exit Intent", url: "https://ui.nyxhora.com/docs/components/exit-intent-demo" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             {/* Header */}
             <DocsHeader
                 title="Exit Intent"
@@ -50,6 +57,13 @@ const { isActive, isBeforeUnloadActive, enableExitIntent, disableExitIntent } = 
                 title="Provider Setup"
                 code={`// In your layout.tsx
 import { ExitIntentProvider } from "@/registry/providers/exit-intent-provider"
+
+export const metadata = generateComponentMetadata({
+    name: "Exit Intent",
+    description: "A protection system that detects when users attempt to leave the page and shows confirmation dialogs to prevent accidental navigation.",
+    category: "Overlay",
+});
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -364,5 +378,6 @@ const handleFormSubmit = () => {
             </section>
 
         </div>
+        </>
     );
 }

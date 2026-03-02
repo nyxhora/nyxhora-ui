@@ -1,14 +1,34 @@
 
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Checkbox } from "@/registry/ui/checkbox";
 import { Label } from "@/registry/ui/label";
 import { CodeBlockWrapper, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import { ComponentSource } from "@/registry/ui/component-source";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Checkbox",
+    description: "A control that allows the user to toggle between checked and not checked.",
+    category: "Form",
+});
+
+
 export default function CheckboxDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Checkbox", getDefaultComponentFAQs("Checkbox"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Checkbox", url: "https://ui.nyxhora.com/docs/components/checkbox" },
+    ]);
+
+    
 
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader title="Checkbox" description="A control that allows the user to toggle between checked and not checked." />
 
             <DocsPreview
@@ -200,5 +220,6 @@ export default function MyComponent() {
                 ]}
             />
         </div>
+        </>
     );
 }

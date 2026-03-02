@@ -1,11 +1,31 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { AnimatedShinyText } from "@/registry/ui/animated-shiny-text";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import { ArrowRightIcon } from "lucide-react";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Animated Shiny Text",
+    description: "Text with an animated shimmer effect that creates a premium, dynamic appearance. Perfect for announcements and highlights.",
+    category: "Effects",
+});
+
+
 export default function AnimatedShinyTextDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Animated Shiny Text", getDefaultComponentFAQs("Animated Shiny Text"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Animated Shiny Text", url: "https://ui.nyxhora.com/docs/components/animated-shiny-text" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Animated Shiny Text"
                 description="Text with an animated shimmer effect that creates a premium, dynamic appearance. Perfect for announcements and highlights."
@@ -142,5 +162,6 @@ export default function Announcement() {
                 />
             </section>
         </div>
+        </>
     );
 }

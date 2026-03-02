@@ -1,0 +1,174 @@
+"use client";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/ui/tabs";
+import { CodeBlock, DocsHeader } from "@/components/ui/docs-documentation";
+
+export default function InstallationClient() {
+    return (
+        <div className="space-y-10">
+            {/* Header */}
+            <DocsHeader title="Installation" description="Get started with Nyxhora UI by following these installation steps to set up the component library in your project." />
+
+            {/* Prerequisites */}
+            <section className="space-y-4">
+                <h2 className="text-2xl font-bold">Prerequisites</h2>
+                <p className="text-muted-foreground">
+                    Before you begin, make sure you have the following installed:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                    <li>Node.js 18.17 or later</li>
+                    <li>React 18 or later</li>
+                    <li>Next.js 14 or later (recommended)</li>
+                </ul>
+            </section>
+
+            {/* Installation Steps */}
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold">Quick Installation</h2>
+
+                {/* Step 1 */}
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                            1
+                        </span>
+                        <h3 className="text-lg font-semibold">Create a new project</h3>
+                    </div>
+                    <p className="text-muted-foreground ml-11">
+                        Start by creating a new Next.js project if you don&apos;t have one:
+                    </p>
+                    <CodeBlock
+                        code="npx create-next-app@latest my-app --typescript --tailwind --eslint"
+                        language="bash"
+                    />
+                </div>
+
+                {/* Step 2 */}
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                            2
+                        </span>
+                        <h3 className="text-lg font-semibold">Install dependencies</h3>
+                    </div>
+                    <p className="text-muted-foreground ml-11">
+                        Install the required dependencies for Nyxhora UI components:
+                    </p>
+
+                    <Tabs defaultValue="npm" className="">
+                        <TabsList className="bg-muted/50">
+                            <TabsTrigger value="npm" className="cursor-pointer">npm</TabsTrigger>
+                            <TabsTrigger value="yarn" className="cursor-pointer">yarn</TabsTrigger>
+                            <TabsTrigger value="pnpm" className="cursor-pointer">pnpm</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="npm" className="mt-4">
+                            <CodeBlock
+                                code="npm install class-variance-authority clsx tailwind-merge lucide-react"
+                                language="bash"
+                            />
+                        </TabsContent>
+                        <TabsContent value="yarn" className="mt-4">
+                            <CodeBlock
+                                code="yarn add class-variance-authority clsx tailwind-merge lucide-react"
+                                language="bash"
+                            />
+                        </TabsContent>
+                        <TabsContent value="pnpm" className="mt-4">
+                            <CodeBlock
+                                code="pnpm add class-variance-authority clsx tailwind-merge lucide-react"
+                                language="bash"
+                            />
+                        </TabsContent>
+                    </Tabs>
+                </div>
+
+                {/* Step 3 */}
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                            3
+                        </span>
+                        <h3 className="text-lg font-semibold">Configure utilities</h3>
+                    </div>
+                    <p className="text-muted-foreground ml-11">
+                        Create a <code className="px-1.5 py-0.5 rounded bg-muted text-sm">lib/utils.ts</code> file with the cn helper:
+                    </p>
+                    <CodeBlock
+                        code={`import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}`}
+                        language="typescript"
+                    />
+                </div>
+
+                {/* Step 4 */}
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                            4
+                        </span>
+                        <h3 className="text-lg font-semibold">Add components</h3>
+                    </div>
+                    <p className="text-muted-foreground ml-11">
+                        Copy the component files from our documentation into your{" "}
+                        <code className="px-1.5 py-0.5 rounded bg-muted text-sm">components/ui</code> directory.
+                    </p>
+                </div>
+            </section>
+
+            {/* Project Structure */}
+            <section className="space-y-4">
+                <h2 className="text-2xl font-bold">Project Structure</h2>
+                <p className="text-muted-foreground">
+                    Here&apos;s the recommended project structure for using Nyxhora UI:
+                </p>
+                <CodeBlock
+                    code={`├── app
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components
+│   └── ui
+│       ├── button.tsx
+│       ├── card.tsx
+│       └── ...
+├── lib
+│   └── utils.ts
+├── tailwind.config.ts
+└── package.json
+
+`}
+                    language="plaintext"
+                />
+            </section>
+
+            {/* Next Steps */}
+            <section className="rounded-xl border border-border/50 bg-gradient-to-br from-blue-500/5 to-purple-500/5 p-6 space-y-4">
+                <h2 className="text-xl font-bold">Next Steps</h2>
+                <p className="text-muted-foreground">
+                    You&apos;re all set! Check out the component documentation to start building:
+                </p>
+                <ul className="space-y-2">
+                    <li>
+                        <a href="/docs/components/button" className="text-primary hover:underline">
+                            → Button Component
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/docs/components/card" className="text-primary hover:underline">
+                            → Card Component
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/docs/components/dialog" className="text-primary hover:underline">
+                            → Dialog Component
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    );
+}

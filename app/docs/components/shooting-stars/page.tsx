@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { ShootingStars } from "@/registry/ui/shooting-stars";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Shooting Stars",
+    description: "A beautiful animated starfield background with shooting stars effect. Perfect for hero sections, landing pages, and space-themed designs.",
+    category: "Effects",
+});
+
+
 export default function ShootingStarsDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Shooting Stars", getDefaultComponentFAQs("Shooting Stars"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Shooting Stars", url: "https://ui.nyxhora.com/docs/components/shooting-stars" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Shooting Stars"
                 description="A beautiful animated starfield background with shooting stars effect. Perfect for hero sections, landing pages, and space-themed designs."
@@ -253,5 +273,6 @@ export default function Hero() {
                 ]}
             />
         </div>
+        </>
     );
 }

@@ -1,3 +1,4 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { Slider } from "@/registry/ui/slider";
 import {
   CodeBlockWrapper,
@@ -8,9 +9,28 @@ import { SliderDemo } from "./slider-interactivity";
 import DocsInstallation from "@/components/ui/docs-installation";
 import { Label } from "@/registry/ui/label";
 
+export const metadata = generateComponentMetadata({
+    name: "Slider",
+    description: "An input for selecting a value from a range.",
+    category: "Form",
+});
+
+
 export default function SliderDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Slider", getDefaultComponentFAQs("Slider"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Slider", url: "https://ui.nyxhora.com/docs/components/slider" },
+    ]);
+
+    
   return (
-    <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
       <DocsHeader
         title="Slider"
         description="An input for selecting a value from a range."
@@ -87,5 +107,6 @@ export default function MyComponent() {
         />
       </section>
     </div>
-  );
+        </>
+    );
 }

@@ -1,10 +1,30 @@
+import { generateComponentMetadata, generateComponentFAQSchema, getDefaultComponentFAQs, generateBreadcrumbSchema } from "@/lib/seo-config";
 import { RainbowButton } from "@/registry/ui/rainbow-button";
 import { CodeBlockWrapper, ComponentPreview, DocsHeader, DocsPreview, DocsProps } from "@/components/ui/docs-documentation";
 import DocsInstallation from "@/components/ui/docs-installation";
 
+export const metadata = generateComponentMetadata({
+    name: "Rainbow Button",
+    description: "A stunning animated button with rainbow gradient border, text, and glow effects. The gradient animates on hover for an eye-catching call-to-action.",
+    category: "Effects",
+});
+
+
 export default function RainbowButtonDocsPage() {
+    const faqSchema = generateComponentFAQSchema("Rainbow Button", getDefaultComponentFAQs("Rainbow Button"));
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "Home", url: "https://ui.nyxhora.com" },
+        { name: "Docs", url: "https://ui.nyxhora.com/docs" },
+        { name: "Components", url: "https://ui.nyxhora.com/docs/components" },
+        { name: "Rainbow Button", url: "https://ui.nyxhora.com/docs/components/rainbow-button" },
+    ]);
+
+    
     return (
-        <div className="space-y-10">
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <div className="space-y-10">
             <DocsHeader
                 title="Rainbow Button"
                 description="A stunning animated button with rainbow gradient border, text, and glow effects. The gradient animates on hover for an eye-catching call-to-action."
@@ -217,5 +237,6 @@ export default function CTA() {
                 ]}
             />
         </div>
+        </>
     );
 }

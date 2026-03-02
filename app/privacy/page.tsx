@@ -2,6 +2,19 @@ import React from "react";
 import { Spotlight } from "@/registry/ui/spotlight";
 import { GradientBackground } from "@/registry/ui/gradient-background";
 import Footer from "@/registry/ui/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy",
+    description: "Nyxhora UI Privacy Policy. Learn how we collect, use, and protect your personal data when using our React component library and website.",
+    alternates: {
+        canonical: "https://ui.nyxhora.com/privacy",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 
 export default function PrivacyPolicy() {
     return (
